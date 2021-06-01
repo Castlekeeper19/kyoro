@@ -11,20 +11,21 @@ require 'faker'
 
 puts "creating seeds"
 
-# 10.times do
+10.times do
 
-#   example = User.create!(
-#     name:  Faker::Name.first_name + " " + Faker::Name.last_name,
-#     email: Faker::Internet.email,
-#     password: Faker::Internet.password,
-#     company: "Kyoro Inc.",
-#     slack_username: Faker::Internet.username,
-#     title: "team member",
-#     role: Faker::Job.title,
-#     goal: "Improve at: " + Faker::Job.key_skill
-#   )
+  example = User.create!(
+    name:  Faker::Name.first_name + " " + Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    company: "Kyoro Inc.",
+    slack_username: Faker::Internet.username,
+    title: "team member",
+    role: Faker::Job.title,
+    goal: "Improve at: " + Faker::Job.key_skill
+  )
+end
 
-# puts "created #{User.count} Users"
+puts "created #{User.count} Users"
   user = User.all.sample
   puts user
   2.times do
