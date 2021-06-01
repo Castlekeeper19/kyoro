@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def index
-    @users = User.all
-    @user_answers = UserAnswer.all
-    @surveys = Survey.all
+    @users = policy_scope(User)
+    @survey = policy_scope(Survey).last
+
   end
 end
