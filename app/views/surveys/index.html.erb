@@ -1,5 +1,3 @@
-<% if policy(Survey).create? %>
-  <%= link_to "New survey", new_survey_path %>
+<% @surveys.each do |survey| %>
+  <%= render 'survey_card', survey: survey %>
 <% end %>
-
-<%= Survey.count %>
