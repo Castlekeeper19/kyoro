@@ -1,15 +1,15 @@
 <div class="container">
-  <h1>My Anonymous Feedback</h1>
+  <h1 class="feedback-header">My Anonymous Feedback</h1>
   <% @user_answers.each do |user_answer| %>
-    <div class="row">
-      <% if user_answer.category == 'feedback' && user_answer.status == 'unresolved' %>
+    <% if user_answer.category == 'feedback' && user_answer.status == 'unresolved' %>
+      <div class="row feedback-row">
         <div class="user_answer_description">
           <%= user_answer.content %>
-          <p>Received at: <%= user_answer.created_at %></p>
-          <p>Status: <%= user_answer.status.capitalize %></p>
+          <p><strong>Received at:</strong> <%= user_answer.created_at %></p>
+          <p><strong>Status:</strong> <%= user_answer.status.capitalize %></p>
           <%= simple_form_for user_answer do |f| %>
             <%= f.hidden_field :status, value: "resolved" %>
-            <%= f.submit "Mark as resolved", class: "btn btn-success" %>
+            <%= f.submit "Mark as resolved", class: "btn btn-success mt-4" %>
           <% end %>
         </div>
         <div class="action_steps">
