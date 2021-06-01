@@ -24,7 +24,10 @@ puts "creating seeds"
     goal: "Improve at: " + Faker::Job.key_skill
   )
 
+end
+
   puts "created #{User.count} Users"
+
   user = User.all.sample
   puts user
   2.times do
