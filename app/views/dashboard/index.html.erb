@@ -1,12 +1,21 @@
 <div class="container">
-<h1>Dashboard</h1>
-
-
+  <h1>Dashboard</h1>
 
   <%= pie_chart User.group(:role).count %>
-
 
   <% @users.each do |user| %>
   <%= user.role %>
   <% end %>
+
+  <div class="dashboard-survey">
+    <h2>Latest Survey</h2>
+        <% @survey.questions.each do |question|  %>
+        <p> <strong> <%= question.content %></strong> </p>
+        <% question.answers.each do |answer| %>
+        <% answer.user_answers.each do |user_answer| %>
+        <p> <%= user_answer.user.name %>:  <%= user_answer.content %></p>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
