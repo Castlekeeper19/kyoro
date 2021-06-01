@@ -1,0 +1,2 @@
+class AnonymousFeedback < ApplicationRecord
+end
