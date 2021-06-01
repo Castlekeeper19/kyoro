@@ -7,4 +7,15 @@ class Survey < ApplicationRecord
 
   validates :content, presence: true
   validates :name, presence: true
+
+  def response_number
+    responses =  self.user_answers.distinct.count("user_id")
+    return responses
+  end
+
+  def response_rate
+    responses = self.response_number
+    rate = responses.to_f / User.all.count * 100
+    rate.to_i
+  end
 end

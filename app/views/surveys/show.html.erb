@@ -2,21 +2,16 @@
 
   <h1> <%= @survey.name %> </h1>
   <h2> <%= @survey.content %>  </h2>
-  <% responses =  @survey.user_answers.distinct.count("user_id")%>
+  <% responses =  @survey.response_number%>
   <p> Number of Responses: <%= responses %> of <%= "#{User.all.count}" %>  </p>
-  <p> Responses: <%= (responses / User.all.count).to_f%> </p>
+  <p> Responses: <%= @survey.response_rate%>% </p>
 
 
   <% @survey.questions.each do |question| %>
+
       <h3> <%= question.content %> </h3>
-      <%= bar_chart question.user_answers.group(:content).count%>
-      <% question.answers.each do |answer| %>
-      <p> <%= answer.content%> </p>
-
-
+      <div class="chart-center">
+        <%= column_chart question.user_answers.group(:content).count, colors:["#37A2E7"], width: "300px", height: "200px", precision: 3, zeros: true%>
+     </div>
       <% end %>
-    <% end %>
-
-
-
 </div>
