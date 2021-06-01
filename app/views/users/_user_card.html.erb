@@ -1,7 +1,10 @@
 <% @users.each do |user| %>
-  <img src="<%= user.photo.attached? ? cl_image_path(user.photo.key, width: 100, height: 100) : image_path("https://static.vecteezy.com/system/resources/thumbnails/000/550/731/small/user_icon_004.jpg") %>"><br />
-  <%= user.name %><br />
-  <%= user.company %><br />
-  <%= user.title %><br />
-  <%= user.role %><br />
+  <%= link_to user_path(user) do %>
+    <img src="<%= user.photo.attached? ? cl_image_path(user.photo.key, width: 100, height: 100) : image_path("https://static.vecteezy.com/system/resources/thumbnails/000/550/731/small/user_icon_004.jpg") %>"><br />
+    <% end %>
+    <%= user.name %><br />
+    <%= user.company %><br />
+    <%= user.title %><br />
+    <%= user.role %><br />
+    <%= link_to "Update", edit_user_path(user) %><br />
 <% end %>

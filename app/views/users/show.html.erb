@@ -1,0 +1,51 @@
+<%#= image_tag User.find(@user.id).photo.attached? ? cl_image_path(User.find(@user.id).photo.key, width: 200, height: 200) : "https://static.vecteezy.com/system/resources/thumbnails/000/550/731/small/user_icon_004.jpg"%>
+<%# end %>
+
+<div class="border">
+  <strong><%= @user.name %></strong><%= @user.role %><br />
+</div>
+
+<br />
+
+<%= image_tag User.find(@user.id).photo.attached? ? cl_image_path(User.find(@user.id).photo.key, width: 200, height: 200) : "https://static.vecteezy.com/system/resources/thumbnails/000/550/731/small/user_icon_004.jpg" %></br>
+
+<br />
+<br />
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Agreed schedule</th>
+      <th scope="col">Monday</th>
+      <th scope="col">Tuesday</th>
+      <th scope="col">Wednesday</th>
+      <th scope="col">Thursday</th>
+      <th scope="col">Friday</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">START TIME</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">BREAK TIME</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th scope="row">END TIME</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
