@@ -1,14 +1,24 @@
 <div class="container">
-  <h1>My Open Tasks</h1>
+  <h1>My Anonymous Feedback</h1>
   <% @user_answers.each do |user_answer| %>
-    <br>
-    <br>
-    <% if user_answer.category == 'feedback' %>
-      <%= user_answer.content %>
-      <p>Received at: <%= user_answer.created_at %></p>
-      <p>Status: <%= user_answer.status.capitalize %></p>
-      <p>Action Steps:</p>
-      <button>Add Action Steps</button>
-    <% end %>
+    <div class="row">
+      <% if user_answer.category == 'feedback' && user_answer.status == 'unresolved' %>
+        <div class="user_answer_description">
+          <%= user_answer.content %>
+          <p>Received at: <%= user_answer.created_at %></p>
+          <p>Status: <%= user_answer.status.capitalize %></p>
+          <%= simple_form_for user_answer do |f| %>
+            <%= f.hidden_field :status, value: "resolved" %>
+            <%= f.submit "Mark as resolved", class: "btn btn-success" %>
+          <% end %>
+        </div>
+        <div class="action_steps">
+          <%= simple_form_for user_answer do |f| %>
+            <%= f.input :action_step, label: "Action Notes", placeholder: user_answer.action_step %>
+            <%= f.submit "Save your Action Notes", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>
