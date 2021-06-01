@@ -1,0 +1,7 @@
+<%= form_tag users_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    placeholder: "Search a member..."
+  %>
+  <%= submit_tag "Search", class: "corner" %>
+<% end %>
