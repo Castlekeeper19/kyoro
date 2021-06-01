@@ -1,7 +1,8 @@
 class SurveysController < ApplicationController
-  before_action :set_survey, only: [:show, :update, :destroy]
+  before_action :set_survey, only: [:show]
 
   def index
+    @surveys = policy_scope(Survey)
     @surveys = Survey.all
   end
 

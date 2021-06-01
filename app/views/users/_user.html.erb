@@ -1,6 +1,0 @@
-  <% @users.each do |user| %>
-    <li>
-      <%=  user.name, user.title, user.role %>
-      <%= link_to "show", edit_user_path(user.id) %>
-    </li>
-  <% end %>
