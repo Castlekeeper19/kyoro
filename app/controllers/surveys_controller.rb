@@ -4,6 +4,8 @@ class SurveysController < ApplicationController
   def index
     @surveys = policy_scope(Survey)
     @surveys = Survey.all
+
+    # @progress = 
   end
 
   def show

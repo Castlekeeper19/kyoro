@@ -1,0 +1,32 @@
+.content-wrapper {
+  display: flex;
+  width: 97vw;
+  height: 80vh;
+  margin: 6px auto;
+  background-color: #12A1E7;
+  // border-radius: 25px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,.4);
+}
+
+.sidebar {
+  background-color: transparent;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  width: 220px;
+  height: 100%;
+  // flex-shrink: 0;
+}
+
+.view-wrapper {
+  flex-grow: 1;
+  background-color: #F2F2F2;
+  // border-radius: 25px;
+  border-radius: 15px;
+  overflow: scroll;
+}
+
+a {
+  text-decoration: none;
+}

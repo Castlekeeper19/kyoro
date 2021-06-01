@@ -3,6 +3,9 @@
 <div class="survey-card">
   <h3> <%= survey.name %> </h3>
   <p> <%= survey.content %> </p>
+  <p> <%= survey.created_at %> </p>
+  <% survey %>
+  <p> <%= survey.user_answers.count %> </p>
 
 </div>
 
