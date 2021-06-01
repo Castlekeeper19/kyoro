@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2021_06_01_024112) do
   create_table "user_answers", force: :cascade do |t|
     t.string "category"
     t.text "action_step"
-    t.string "status"
+    t.integer "status", default: 0
     t.text "content"
     t.bigint "answer_id"
     t.bigint "user_id", null: false

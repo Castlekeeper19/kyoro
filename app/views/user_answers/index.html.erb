@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>My Open Tasks</h1>
+  <% @user_answers.each do |user_answer| %>
+    <br>
+    <br>
+    <% if user_answer.category == 'feedback' %>
+      <%= user_answer.content %>
+      <p>Received at: <%= user_answer.created_at %></p>
+      <p>Status: <%= user_answer.status.capitalize %></p>
+      <p>Action Steps:</p>
+      <button>Add Action Steps</button>
+    <% end %>
+  <% end %>
+</div>
