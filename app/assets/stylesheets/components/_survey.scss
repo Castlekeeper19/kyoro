@@ -1,0 +1,17 @@
+.survey-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px 16px;
+  margin: 16px;
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  color: black;
+
+}
+
+a {
+  text-decoration: none;
+}
