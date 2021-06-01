@@ -25,7 +25,7 @@ puts "creating seeds"
   )
 
 end
-
+colors = ["Red", "Blue", "Yellow"]
   puts "created #{User.count} Users"
 
   user = User.all.sample
@@ -47,15 +47,16 @@ end
       1.times do
         answer = Answer.create!(
           question_id: question.id,
-          content: ["Red", "Blue", "Yellow"],
+          content: colors,
           category: "Multiple Choice"
         )
         puts "created #{Answer.count} Answers"
-        1.times do
+        6.times do
+          user = User.all.sample
           user_answer = UserAnswer.create!(
             answer_id: answer.id,
             user_id: user.id,
-            content: "Red",
+            content: colors.sample,
             category: 'survey_response'
           )
           puts "created #{UserAnswer.count} User Answers"
@@ -78,7 +79,7 @@ end
         end
       end
     end
-  end
+
 end
 
 

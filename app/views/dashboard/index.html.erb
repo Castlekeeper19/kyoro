@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Dashboard</h1>
 
-  <%= pie_chart User.group(:role).count %>
+
 
   <% @users.each do |user| %>
   <%= user.role %>
@@ -17,5 +17,7 @@
         <% end %>
       <% end %>
     <% end %>
+
   </div>
+
 </div>
