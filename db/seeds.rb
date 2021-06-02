@@ -47,15 +47,18 @@ Survey.destroy_all
     1.times do
       mood = Question.create!(
         survey_id: survey.id,
-        content: "How are you feeling?"
+        content: "How are you feeling?",
+        category: "mood"
       )
       support = Question.create!(
         survey_id: survey.id,
-        content: "How well do you feel supported?"
+        content: "How well do you feel supported?",
+        category: "support"
         )
       motivation = Question.create!(
         survey_id: survey.id,
-        content: "How motivated do you feel?"
+        content: "How motivated do you feel?",
+        category: "motivation"
         )
 
       puts "created #{Question.count} Question"
