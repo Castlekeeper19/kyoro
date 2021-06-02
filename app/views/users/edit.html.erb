@@ -1,8 +1,12 @@
-<%= simple_form_for(@user) do |f| %>
-  <%= f.input :name, label: "Imput a name" %>
-  <%= f.input :company, label: "company name" %>
-  <%= f.input :title, label: "title" %>
-  <%= f.input :role, label: "role" %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit "Submit", class: "btn btn-flat" %>
-<% end %>
+<div class="container">
+  <div class="p-4">
+    <%= simple_form_for(@user) do |f| %>
+      <%= f.input :name, label: "Imput a name" %>
+      <%= f.input :company, label: "company name" %>
+      <%= f.input :title, label: "title" %>
+      <%= f.input :role, label: "role" %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Submit", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
