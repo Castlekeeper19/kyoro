@@ -4,10 +4,10 @@
       <h1><strong><em><%= @user.name %></strong></em></h1>
       <h2><%= @user.role %></h2>
     </div>
-      <h3 class="user-goal">"<%= @user.goal %>"</h3>
+      <h3 class="user-goal">Goal: "<%= @user.goal %>"</h3>
 
     <div class ="d-flex">
-      <%= image_tag User.find(@user.id).photo.attached? ? cl_image_path(User.find(@user.id).photo.key, width: 200, height: 200) : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "user-image" %></br>
+      <%= image_tag User.find(@user.id).photo.attached? ? cl_image_path(User.find(@user.id).photo.key) : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "user-image" %></br>
 <!-- added bar chart  -->
       <div style= "width: 800px">
         <%= bar_chart(mood: @user.overall("mood"), support: @user.overall("support"), motivation: @user.overall("motivation")) %>
