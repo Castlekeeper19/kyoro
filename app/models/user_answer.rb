@@ -5,12 +5,9 @@ class UserAnswer < ApplicationRecord
 
   # validates :category, inclusion: { in: ['feedback', 'survey_response'], message: "%{value} is not a valid category" }
 
-  # def Self.category(category)
-  #   UserAnswer.all.each do |response|
-  #     if response.answer.question.category == category
-  #     end
-  #   end
-  # end
+    def integerize
+      self.content.to_i
+    end
+  end
 
 
-end
