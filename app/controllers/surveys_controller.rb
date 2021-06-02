@@ -13,7 +13,9 @@ class SurveysController < ApplicationController
 
   def new
     @survey = Survey.new
-    @survey.questions.build.answers.build
+    # @survey.questions.build.answers.build
+    @questions = @survey.questions.build
+    @answers = @questions.answers.build
     # @survey.answers.build
 
     authorize @survey

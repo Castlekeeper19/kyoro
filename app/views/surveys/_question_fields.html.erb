@@ -1,0 +1,10 @@
+<div class="nested_fields">
+  <%= f.input :content, label: "Question" %>
+  <div id="tasks">
+    <%= f.simple_fields_for :answers do |answer| %>
+      <%= render 'answer_fields', :f => answer %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add Another Answer', f, :answers %>
+    </div>
+  </div>
