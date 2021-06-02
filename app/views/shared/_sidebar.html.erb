@@ -1,6 +1,7 @@
 <ul class="list-unstyled components sidebar-ul">
     <li class="active sidebar-li">
-      <a class="sidebar-a" href="#">DASHBOARD</a>
+      <%# <a class="sidebar-a" href="#">DASHBOARD</a> %>
+      <%= link_to "DASHBOARD", dashboard_path, class: "sidebar-a" %>
       <%# link_to 'Edit my profile', edit_user_path(current_user), class: "sidebar-a" %>
     </li>
     <%# <li class="active sidebar-li">
@@ -16,10 +17,12 @@
       </ul> %>
     </li>
     <li class="sidebar-li">
-      <a class="sidebar-a" href="#">YOUR TEAM</a>
+      <%= link_to "YOUR TEAM", users_path, class: "sidebar-a" %>
+      <%# <a class="sidebar-a" href="#">YOUR TEAM</a> %>
     </li>
     <li class="sidebar-li">
-      <a class="sidebar-a" href="#">SURVEYS</a>
+      <%= link_to "SURVEYS", surveys_path, class: "sidebar-a" %>
+      <%# <a class="sidebar-a" href="#">SURVEYS</a> %>
     </li>
     <li class="sidebar-li">
       <a class="sidebar-a" href="#">MESSAGES</a>
