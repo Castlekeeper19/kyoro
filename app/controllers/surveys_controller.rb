@@ -5,7 +5,7 @@ class SurveysController < ApplicationController
     @surveys = policy_scope(Survey)
     @surveys = Survey.all
 
-    # @progress = 
+    # @progress =
   end
 
   def show
@@ -13,10 +13,18 @@ class SurveysController < ApplicationController
 
   def new
     @survey = Survey.new
+    # @survey.questions.build.answers.build
+    @questions = @survey.questions.build
+    @answers = @questions.answers.build
+    # @survey.answers.build
+
+    authorize @survey
   end
 
   def create
     @survey = Survey.new(survey_params)
+    @survey.user = current_user
+    authorize @survey
 
     if @survey.save
       redirect_to survey_path(@survey)
@@ -33,6 +41,6 @@ class SurveysController < ApplicationController
   end
 
   def survey_params
-    params.require(:survey).permit(:name, :content)
+    params.require(:survey).permit(:name, :content, questions_attributes: [:content, answers_attributes: [:content, :category]])
   end
 end
