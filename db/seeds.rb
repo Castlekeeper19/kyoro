@@ -33,10 +33,11 @@ Survey.destroy_all
 
 
   puts "created #{User.count} Users"
-
+date_count = 0
   user = User.all.sample
   4.times do
-    date = Date.today - rand(7..31)
+    date = Date.today - date_count
+    date_count +=7
     survey = Survey.create!(
       name: "General Survey for #{date.strftime("%B %-d %Y")}",
       content: "Please answer this survey",
@@ -78,7 +79,8 @@ Survey.destroy_all
             user_id: user.id,
             content: rand(1..5),
             category: 'mood',
-            response_date: date
+            response_date: date,
+            answer_score: rand(1..5)
 
           )
 
@@ -99,7 +101,8 @@ Survey.destroy_all
             user_id: user.id,
             content: rand(1..5),
             category: 'support',
-            response_date: date
+            response_date: date,
+            answer_score: rand(1..5)
           )
         end
       end
@@ -118,7 +121,8 @@ Survey.destroy_all
             user_id: user.id,
             content: rand(1..5),
             category: 'motivation',
-            response_date: date
+            response_date: date,
+            answer_score: rand(1..5)
           )
         end
       end

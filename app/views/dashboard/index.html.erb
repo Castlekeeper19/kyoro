@@ -18,9 +18,7 @@
         ></div>
         </div>
       </div>
-
-       <%= line_chart UserAnswer.group(:content).group_by_week(:response_date).count %>
-
+       <%= area_chart UserAnswer.group_by_week(:response_date).sum(:answer_score) %>
   </div>
 </div>
 
