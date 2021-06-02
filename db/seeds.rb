@@ -77,7 +77,9 @@ Survey.destroy_all
             answer_id: answer.id,
             user_id: user.id,
             content: rand(1..5),
-            category: 'survey_response'
+            category: 'mood',
+            response_date: date
+
           )
 
         end
@@ -96,7 +98,8 @@ Survey.destroy_all
             answer_id: answer.id,
             user_id: user.id,
             content: rand(1..5),
-            category: 'survey_response'
+            category: 'support',
+            response_date: date
           )
         end
       end
@@ -114,7 +117,8 @@ Survey.destroy_all
             answer_id: answer.id,
             user_id: user.id,
             content: rand(1..5),
-            category: 'survey_response'
+            category: 'motivation',
+            response_date: date
           )
         end
       end

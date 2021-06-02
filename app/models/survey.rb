@@ -26,14 +26,15 @@ class Survey < ApplicationRecord
 
   def average_response(category)
     responses = self.user_answers.all
-    total = 0
+    answers = []
     count = 0
       responses.each do |response|
         if response.answer.question.category == category
-          total += response.content.to_i
-          count += 1
+          answers << response.content
+          # count += 1
         end
       end
-      (total.to_f / count).round(2)
+      # (total.to_f / count).round(2)
+      answers
   end
 end
