@@ -11,74 +11,131 @@ require 'faker'
 
 puts "creating seeds"
 
-10.times do
+# 10.times do
 
-  example = User.create!(
-    name:  Faker::Name.first_name + " " + Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: Faker::Internet.password,
-    company: "Kyoro Inc.",
-    slack_username: Faker::Internet.username,
-    title: "team member",
-    role: Faker::Job.title,
-    goal: "Improve at: " + Faker::Job.key_skill
-  )
+#   example = User.create!(
+#     name:  Faker::Name.first_name + " " + Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     password: Faker::Internet.password,
+#     company: "Kyoro Inc.",
+#     slack_username: Faker::Internet.username,
+#     title: "team member",
+#     role: Faker::Job.title,
+#     goal: "Improve at: " + Faker::Job.key_skill
+#   )
 
-end
-colors = ["Red", "Blue", "Yellow"]
+# end
+
+UserAnswer.destroy_all
+Answer.destroy_all
+Question.destroy_all
+Survey.destroy_all
+
+
   puts "created #{User.count} Users"
 
   user = User.all.sample
-  puts user
   2.times do
 
     survey = Survey.create!(
-      name: "Survey",
+      name: "General Survey for #{Date.today}",
       content: "Please answer this survey",
       user_id: user.id
     )
     puts "created #{Survey.count} Survey"
+    counter = (User.all.count * rand(0.5..1)).to_i
     1.times do
-      question = Question.create!(
+      mood = Question.create!(
         survey_id: survey.id,
-        content: "What is your favorite color?"
+        content: "How are you feeling?",
+        category: "mood"
       )
+      support = Question.create!(
+        survey_id: survey.id,
+        content: "How well do you feel supported?",
+        category: "support"
+        )
+      motivation = Question.create!(
+        survey_id: survey.id,
+        content: "How motivated do you feel?",
+        category: "motivation"
+        )
+
       puts "created #{Question.count} Question"
       1.times do
         answer = Answer.create!(
-          question_id: question.id,
-          content: colors,
+          question_id: mood.id,
+          content: (1..5).to_a,
           category: "Multiple Choice"
         )
         puts "created #{Answer.count} Answers"
-        6.times do
+
+        counter.times do
           user = User.all.sample
-          user_answer = UserAnswer.create!(
+          UserAnswer.create!(
             answer_id: answer.id,
             user_id: user.id,
-            content: colors.sample,
+            content: rand(1..5),
             category: 'survey_response'
           )
-          puts "created #{UserAnswer.count} User Answers"
+
         end
       end
       1.times do
         answer = Answer.create!(
-          question_id: question.id,
-          content: ["Red", "Blue", "Yellow"],
+          question_id: support.id,
+          content: (1..5).to_a,
           category: "Multiple Choice"
         )
-        1.times do
-          user_answer = UserAnswer.create!(
+        puts "created #{Answer.count} Answers"
+
+        counter.times do
+          user = User.all.sample
+          UserAnswer.create!(
             answer_id: answer.id,
             user_id: user.id,
-            content: "I can't whistle, but none of my team members will teach me!",
-            category: 'feedback'
+            content: rand(1..5),
+            category: 'survey_response'
           )
-          puts "created #{UserAnswer.count} User Answers"
         end
       end
+       1.times do
+        answer = Answer.create!(
+          question_id: motivation.id,
+          content: (1..5).to_a,
+          category: "Multiple Choice"
+        )
+        puts "created #{Answer.count} Answers"
+
+        counter.times do
+          user = User.all.sample
+          UserAnswer.create!(
+            answer_id: answer.id,
+            user_id: user.id,
+            content: rand(1..5),
+            category: 'survey_response'
+          )
+        end
+      end
+
     end
+    puts "created #{UserAnswer.count} User Answers"
+       # 1.times do
+       #  answer = Answer.create!(
+       #    question_id: question.id,
+       #    content: ["Red", "Blue", "Yellow"],
+       #    category: "Multiple Choice"
+       #  )
+        # 1.times do
+        #   user_answer = UserAnswer.create!(
+        #     answer_id: null,
+        #     user_id: user.id,
+        #     content: "I can't whistle, but none of my team members will teach me!",
+        #     category: 'feedback'
+        #   )
+        #   puts "created #{UserAnswer.count} User Answers"
+        # end
+      # end
 end
 
 
