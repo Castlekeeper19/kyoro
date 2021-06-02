@@ -23,4 +23,17 @@ class Survey < ApplicationRecord
     rate = responses.to_f / User.all.count * 100
     rate.to_i
   end
+
+  def average_response(category)
+    responses = self.user_answers.all
+    total = 0
+    count = 0
+      responses.each do |response|
+        if response.answer.question.category == category
+          total += response.content.to_i
+          count += 1
+        end
+      end
+      (total.to_f / count).round(2)
+  end
 end

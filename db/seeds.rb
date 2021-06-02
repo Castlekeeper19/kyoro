@@ -35,12 +35,13 @@ Survey.destroy_all
   puts "created #{User.count} Users"
 
   user = User.all.sample
-  2.times do
-
+  4.times do
+    date = Date.today - rand(7..31)
     survey = Survey.create!(
-      name: "General Survey for #{Date.today}",
+      name: "General Survey for #{date.strftime("%B %-d %Y")}",
       content: "Please answer this survey",
-      user_id: user.id
+      user_id: user.id,
+      date_sent: date.strftime("%B %-d %Y")
     )
     puts "created #{Survey.count} Survey"
     counter = (User.all.count * rand(0.5..1)).to_i
