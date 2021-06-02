@@ -1,10 +1,15 @@
 <div class="container">
-  <div class="row m-4">
+  <div class="user-container">
     <div>
 
     <div class="user-search">
       <%= render 'shared/search' %>
     </div>
+
+    <div class="user-count">
+      <p>There are <%= @users.count %> <%=  "member".pluralize(@users.count) %></p>
+    </div>
+
     <%= render 'user_card' %>
 
     </div>

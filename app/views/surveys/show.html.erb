@@ -1,4 +1,6 @@
 <div class="container">
+  <div class="row justify-content-center">
+
 
   <h1> <%= @survey.name %> </h1>
   <h2> <%= @survey.content %>  </h2>
@@ -14,4 +16,6 @@
         <%= column_chart question.user_answers.group(:content).count, colors:["#37A2E7"], width: "300px", height: "200px", precision: 3, zeros: true%>
      </div>
       <% end %>
+
+  </div>
 </div>
