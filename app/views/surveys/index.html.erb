@@ -1,3 +1,14 @@
-<% @surveys.each do |survey| %>
-  <%= render 'survey_card', survey: survey %>
-<% end %>
+<div class="container">
+  <h1>All Surveys:</h1>
+  <%# <div class="row"> %>
+    <div class="survey-cards">
+      <% @surveys.each do |survey| %>
+        <%= render 'survey_card', survey: survey %>
+      <% end %>
+      <% @surveys.each do |survey| %>
+        <%= render 'survey_card', survey: survey %>
+      <% end %>
+    </div>
+  <%# </div> %>
+</div>
+
