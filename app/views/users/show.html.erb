@@ -1,9 +1,10 @@
 <div class="container">
   <div class="m-3">
-    <div class="user-info border-bottom mb-3">
+    <div class="user-info">
       <h1><strong><em><%= @user.name %></strong></em></h1>
       <h2><%= @user.role %></h2>
     </div>
+      <h3 class="user-goal">"<%= @user.goal %>"</h3>
 
     <%= image_tag User.find(@user.id).photo.attached? ? cl_image_path(User.find(@user.id).photo.key, width: 200, height: 200) : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "user-image" %></br>
 

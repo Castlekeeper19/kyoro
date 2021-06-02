@@ -6,12 +6,22 @@
 }
 
 .user-card-info {
-  border-radius: 4px;
+  border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .user-card-info h1 {
   font-size: 25px;
+}
+
+.user-card-top {
+  background-color: #12A1E7;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.user-card-bottom {
+  margin: 10px;
 }
 
 .user-card-info h2 {
@@ -21,9 +31,7 @@
 }
 
 .user-search {
-  margin: 10px;
-  justify-items: center;
-  align-items: center;
+  margin-bottom: 15px;
 }
 
 .user-card-info img {
@@ -34,13 +42,31 @@
 .user-image {
   border-radius: 50%;
   height: 200px;
+  margin-top: 10px;
 }
 
-.user-card-top {
-  background-color: #12A1E7;
-  padding: 10px;
+
+.user-form-control {
+  width: 70%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+  padding: 6px;
+  border-radius: 4px;
+  margin-right: 2px;
 }
 
-.user-card-bottom {
-  margin: 10px;
+.user-info {
+  border-bottom-style: groove;
+}
+
+.user-info, h1, h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.user-goal {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
 }
