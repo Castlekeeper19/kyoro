@@ -1,12 +1,24 @@
 <%= link_to survey_path(survey) do %>
 
 <div class="survey-card">
-  <h3> <%= survey.name %> </h3>
-  <p> <%= survey.content %> </p>
-  <p> <%= survey.created_at %> </p>
-  <% survey %>
-  <p> <%= survey.user_answers.count %> </p>
+  <div class="survey-card-text">
+    <h3> <%= survey.name %> </h3>
+    <p> <%= survey.content %> </p>
+    <p> <%= survey.created_at %> </p>
+    <% survey %>
+    <p> <%= survey.user_answers.count %> </p>
+  </div>
 
+  <div class="survey-card-progress">
+
+    <div
+      class="ldBar label-center"
+      data-stroke="data:ldbar/res,gradient(0,1,#9df,#fd9)",
+      data-value="<%= survey.response_rate %>"
+      data-preset="circle"
+      style="width: 80%; height: 80%;"
+    ></div>
+  </div>
 </div>
 
 <% end %>
