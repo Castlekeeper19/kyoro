@@ -35,7 +35,6 @@ Survey.destroy_all
   puts "created #{User.count} Users"
 
   user = User.all.sample
-  puts user
   2.times do
 
     survey = Survey.create!(
@@ -46,15 +45,42 @@ Survey.destroy_all
     puts "created #{Survey.count} Survey"
     counter = (User.all.count * rand(0.5..1)).to_i
     1.times do
-      question = Question.create!(
+      mood = Question.create!(
         survey_id: survey.id,
         content: "How are you feeling?"
       )
+      support = Question.create!(
+        survey_id: survey.id,
+        content: "How well do you feel supported?"
+        )
+      motivation = Question.create!(
+        survey_id: survey.id,
+        content: "How motivated do you feel?"
+        )
 
       puts "created #{Question.count} Question"
       1.times do
         answer = Answer.create!(
-          question_id: question.id,
+          question_id: mood.id,
+          content: (1..5).to_a,
+          category: "Multiple Choice"
+        )
+        puts "created #{Answer.count} Answers"
+
+        counter.times do
+          user = User.all.sample
+          UserAnswer.create!(
+            answer_id: answer.id,
+            user_id: user.id,
+            content: rand(1..5),
+            category: 'survey_response'
+          )
+
+        end
+      end
+      1.times do
+        answer = Answer.create!(
+          question_id: support.id,
           content: (1..5).to_a,
           category: "Multiple Choice"
         )
@@ -69,9 +95,28 @@ Survey.destroy_all
             category: 'survey_response'
           )
         end
-          puts "created #{UserAnswer.count} User Answers"
       end
+       1.times do
+        answer = Answer.create!(
+          question_id: motivation.id,
+          content: (1..5).to_a,
+          category: "Multiple Choice"
+        )
+        puts "created #{Answer.count} Answers"
+
+        counter.times do
+          user = User.all.sample
+          UserAnswer.create!(
+            answer_id: answer.id,
+            user_id: user.id,
+            content: rand(1..5),
+            category: 'survey_response'
+          )
+        end
+      end
+
     end
+    puts "created #{UserAnswer.count} User Answers"
        # 1.times do
        #  answer = Answer.create!(
        #    question_id: question.id,
