@@ -6,8 +6,13 @@
     </div>
       <h3 class="user-goal">"<%= @user.goal %>"</h3>
 
-    <%= image_tag User.find(@user.id).photo.attached? ? cl_image_path(User.find(@user.id).photo.key, width: 200, height: 200) : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "user-image" %></br>
-
+    <div class ="d-flex">
+      <%= image_tag User.find(@user.id).photo.attached? ? cl_image_path(User.find(@user.id).photo.key, width: 200, height: 200) : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "user-image" %></br>
+<!-- added bar chart  -->
+      <div style= "width: 800px">
+        <%= bar_chart(mood: @user.overall("mood"), support: @user.overall("support"), motivation: @user.overall("motivation")) %>
+      </div>
+    </div>
     <table class="table mt-3">
       <thead>
         <tr>
@@ -48,4 +53,3 @@
     </table>
   </div>
 </div>
-

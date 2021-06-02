@@ -1,7 +1,12 @@
 class Survey < ApplicationRecord
   belongs_to :user
   has_many :questions
+  accepts_nested_attributes_for :questions
+
+
   has_many :answers, through: :questions
+  accepts_nested_attributes_for :answers
+
   has_many :user_answers, through: :answers
 
 

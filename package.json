@@ -2,6 +2,7 @@
   "name": "kyoro",
   "private": true,
   "dependencies": {
+    "@nathanvda/cocoon": "^1.2.14",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
@@ -9,6 +10,7 @@
     "bootstrap": "4.6",
     "chart.js": "^3.3.2",
     "chartkick": "^4.0.4",
+    "gulp": "^4.0.2",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"
