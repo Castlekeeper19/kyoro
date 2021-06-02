@@ -22,14 +22,11 @@
     <%= f.simple_fields_for :questions do |question| %>
       <%= render 'question_fields', :f => question %>
     <% end %>
-    <%= link_to_add_association 'Add Another Question', f, :questions %>
-  </div>
-  <div class="links">
+    <div class="links">
+      <%= link_to_add_association 'Add Another Question', f, :questions %>
+    </div>
     <%= f.submit 'Save', class: "btn btn-primary" %>
-    <!--  -->
-    <!--  -->
   </div>
-</div>
 <% end %>
 <!--  -->
 <%#= simple_form_for @survey do |f| %>
