@@ -4,7 +4,5 @@ class DashboardController < ApplicationController
     @survey = policy_scope(Survey).last
     @surveys = policy_scope(Survey).all
     @user_answers = policy_scope(UserAnswer).all
-
-
   end
 end

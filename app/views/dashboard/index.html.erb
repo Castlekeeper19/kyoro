@@ -18,6 +18,7 @@
         ></div>
         </div>
       </div>
+      <h2> Your Team's Overall Engagement</h2>
        <%= area_chart UserAnswer.group_by_week(:response_date).sum(:answer_score) %>
   </div>
 </div>

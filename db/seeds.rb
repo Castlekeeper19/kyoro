@@ -11,6 +11,7 @@ require 'faker'
 
 puts "creating seeds"
 
+
 # 10.times do
 
 #   example = User.create!(
@@ -25,14 +26,14 @@ puts "creating seeds"
 #   )
 
 # end
-
+puts "Clearing Database"
 UserAnswer.destroy_all
 Answer.destroy_all
 Question.destroy_all
 Survey.destroy_all
+puts "creating seeds"
 
 
-  puts "created #{User.count} Users"
 date_count = 0
   user = User.all.sample
   4.times do
@@ -62,16 +63,12 @@ date_count = 0
         content: "How motivated do you feel?",
         category: "motivation"
         )
-
-      puts "created #{Question.count} Question"
       1.times do
         answer = Answer.create!(
           question_id: mood.id,
           content: (1..5).to_a,
           category: "Multiple Choice"
         )
-        puts "created #{Answer.count} Answers"
-
         counter.times do
           user = User.all.sample
           UserAnswer.create!(
@@ -81,9 +78,7 @@ date_count = 0
             category: 'mood',
             response_date: date,
             answer_score: rand(1..5)
-
           )
-
         end
       end
       1.times do
@@ -92,8 +87,6 @@ date_count = 0
           content: (1..5).to_a,
           category: "Multiple Choice"
         )
-        puts "created #{Answer.count} Answers"
-
         counter.times do
           user = User.all.sample
           UserAnswer.create!(
@@ -112,8 +105,6 @@ date_count = 0
           content: (1..5).to_a,
           category: "Multiple Choice"
         )
-        puts "created #{Answer.count} Answers"
-
         counter.times do
           user = User.all.sample
           UserAnswer.create!(
@@ -126,8 +117,11 @@ date_count = 0
           )
         end
       end
-
     end
+    puts "created #{User.count} Users"
+    puts "created #{Survey.count} Surveys"
+    puts "created #{Question.count} Questions"
+    puts "created #{Answer.count} Answers"
     puts "created #{UserAnswer.count} User Answers"
        # 1.times do
        #  answer = Answer.create!(
