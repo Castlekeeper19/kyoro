@@ -21,7 +21,10 @@
 }
 
 body {
-  background-color: white;
+  min-height: 100vh;
+  // background-color: white;
+  // background: linear-gradient(#fff, #F2F2F2 10%, #F2F2F2 90%, #fff);
+  background: linear-gradient(#fff, #fff 1%, #eaeaea 7%);
 }
 
 a {
