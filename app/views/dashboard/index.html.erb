@@ -1,23 +1,19 @@
 <div class="container">
   <h1>Dashboard</h1>
 
-
-
-  <% @users.each do |user| %>
-  <%= user.role %>
-  <% end %>
-
   <div class="dashboard-survey">
-    <h2>Latest Survey</h2>
-        <% @survey.questions.each do |question|  %>
-        <p> <strong> <%= question.content %></strong> </p>
-        <% question.answers.each do |answer| %>
-        <% answer.user_answers.each do |user_answer| %>
-        <p> <%= user_answer.user.name %>:  <%= user_answer.content %></p>
-        <% end %>
-      <% end %>
-    <% end %>
 
+    <h2><%= link_to "Latest Survey", survey_path(@survey) %></h2>
+       <p> <%= @survey.name %> </p>
+       <p> <%= @survey.content %> </p>
+       <p> Survey response rate: <%= @survey.response_rate %>%  </p>
+       <p> Survey Responses: <%= @survey.response_number %> of <%= User.all.count %> </p>
+
+       <div style = "width: 300px">
+       <%= bar_chart(responses: (@survey.response_rate*0.01).to_f) %>
+       </div>
+       <div class="ldBar" data-value="50"></div>
   </div>
-
+  <div class="ldBar" data-value="50"></div>
 </div>
+
