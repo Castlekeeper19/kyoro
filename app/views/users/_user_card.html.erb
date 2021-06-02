@@ -8,6 +8,7 @@
         <h3 style="font-size:20px;"><%= link_to(edit_user_path(user)) do %>
           <i class="far fa-edit"></i>
         <% end %></h3>
+       <p><%= user.overall_total %> % </p>
       </div>
       <div class="user-card-bottom">
         <h1><em><%= user.name %></em><br /></h1>

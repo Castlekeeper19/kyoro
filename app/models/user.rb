@@ -17,4 +17,14 @@ class User < ApplicationRecord
   end
    feeling > 0 ? (feeling.to_f/count) : feeling
  end
+
+ def overall_total
+  feeling = 0
+  count = 0
+  self.user_answers.each do |user_answer|
+    feeling += user_answer.content.to_i
+    count += 1
+  end
+    feeling > 0 ? ((feeling.to_f/count)*20).to_i : feeling
+ end
 end
