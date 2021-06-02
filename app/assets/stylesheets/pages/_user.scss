@@ -1,24 +1,46 @@
 .user-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
-  padding: 10px;
-  width: 100px;
-  height: 100px;
+  grid-gap: 16px;
+  padding: 5px;
 }
 
 .user-card-info {
   border-radius: 4px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 20px;
-  display: block;
-  width: 100%;
 }
 
 .user-card-info h1 {
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .user-card-info h2 {
-  font-size: 20px;
+  display: flex;
+  font-size: 15px;
+  justify-content: flex-end;
+}
+
+.user-search {
+  margin: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.user-card-info img {
+  border-radius: 50%;
+  height: 100px;
+}
+
+.user-image {
+  border-radius: 50%;
+  height: 200px;
+}
+
+.user-card-top {
+  background-color: #12A1E7;
+  padding: 10px;
+}
+
+.user-card-bottom {
+  margin: 10px;
 }
