@@ -47,3 +47,14 @@
     </table>
   </div>
 </div>
+ <p> Mood: <%=@user.overall("mood") %></p>
+ <p> Support: <%=@user.overall("support") %></p>
+ <p> Motivation: <%=@user.overall("motivation") %></p>
+
+
+<% @user.user_answers.each do |user_answer| %>
+ <%= user_answer.content %>
+ <%= user_answer.answer.question.category %>
+ <% end %>
+
+
