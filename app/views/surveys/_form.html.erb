@@ -1,0 +1,12 @@
+<%= simple_form_for @survey do |f| %>
+  <%= f.input :name %>
+  <%= f.input :content, label: "Comment" %>
+  <%= f.simple_fields_for :questions do |question_form| %>
+    <%= question_form.input :content, label: "Question" %>
+    <%= question_form.simple_fields_for :answers do |answer_form| %>
+      <%= answer_form.input :content, label: "Answer" %>
+      <%= answer_form.input :category, label: "Answer Category" %>
+    <% end %>
+  <% end %>
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

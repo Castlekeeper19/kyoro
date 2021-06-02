@@ -80,6 +80,7 @@ GEM
     cloudinary (1.16.1)
       aws_cf_signer
       rest-client
+    cocoon (1.2.15)
     coderay (1.1.3)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
@@ -267,6 +268,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chartkick
   cloudinary (~> 1.16.0)
+  cocoon
   devise
   dotenv-rails
   faker
