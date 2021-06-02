@@ -2,7 +2,8 @@
   <h1>Dashboard</h1>
 
   <div class="dashboard-survey">
-    <h2>Latest Survey</h2>
+
+    <h2><%= link_to "Latest Survey", survey_path(@survey) %></h2>
        <p> <%= @survey.name %> </p>
        <p> <%= @survey.content %> </p>
        <p> Survey response rate: <%= @survey.response_rate %>%  </p>
