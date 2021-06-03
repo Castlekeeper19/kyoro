@@ -1,19 +1,62 @@
 <div class="container">
   <h1>Dashboard</h1>
 
-  <div class="dashboard-survey">
+  <div class= "d-flex justify-content-between">
 
+    <div>
+      <div class="d-flex justify-content-around">
+        <div>
+          <h2> <%= @team_mood %>% </h2>
+          <h2>Mood</h2>
+        </div>
+        <div>
+          <h2> <%= @team_support %>% </h2>
+          <h2>Support</h2>
+        </div>
+      </div>
+      <div class="d-flex justify-content-around">
+        <div>
+          <h2> <%= @team_motivation %>% </h2>
+          <h2>Motivation</h2>
+        </div>
+        <div>
+          <h2> <%= @team_goals %>% </h2>
+          <h2>Personal Goals</h2>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="dashboard-survey">
+    <div class="d-flex justify-content-between">
+      <div></div>
+      <div>
     <h2><%= link_to "Latest Survey", survey_path(@survey) %></h2>
        <p> <%= @survey.name %> </p>
        <p> <%= @survey.content %> </p>
-       <p> Survey response rate: <%= @survey.response_rate %>%  </p>
        <p> Survey Responses: <%= @survey.response_number %> of <%= User.all.count %> </p>
+         <div
+          class="ldBar label-center"
+          data-stroke="data:ldbar/res,gradient(0,1,#9df,#fd9)",
+          data-value="<%= @survey.response_rate %>"
+          data-preset="circle"
+          style="width: 200px; height: 200px;"
+        ></div>
+        </div>
+      </div>
+      </div>
+    </div>
 
-       <div style = "width: 300px">
-       <%= bar_chart(responses: (@survey.response_rate*0.01).to_f) %>
-       </div>
-       <div class="ldBar" data-value="50"></div>
+      <h2> Your Team's Overall Engagement</h2>
+       <%= area_chart UserAnswer.group_by_week(:response_date).sum(:answer_score) %>
   </div>
-  <div class="ldBar" data-value="50"></div>
 </div>
+
+
+
+
+
+
+
+
 

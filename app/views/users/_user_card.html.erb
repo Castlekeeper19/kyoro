@@ -3,11 +3,14 @@
     <div class="user-card-info">
       <%= link_to user_path(user) do %>
       <div class="user-card-top">
-          <img src="<%= user.photo.attached? ? cl_image_path(user.photo.key, width: 100, height: 100) : image_path("https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png") %>"><br />
+          <img src="<%= user.photo.attached? ? cl_image_path(user.photo.key) : image_path("https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png") %>"><br />
         <% end %>
-        <h3 style="font-size:20px;"><%= link_to(edit_user_path(user)) do %>
-          <i class="far fa-edit"></i>
-        <% end %></h3>
+        <div>
+          <p><%= user.overall_total %> % </p>
+          <h3 style="font-size:20px;"><%= link_to(edit_user_path(user)) do %>
+            <i class="far fa-edit"></i>
+          <% end %></h3>
+        </div>
       </div>
       <div class="user-card-bottom">
         <h1><em><%= user.name %></em><br /></h1>

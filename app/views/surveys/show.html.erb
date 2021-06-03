@@ -1,4 +1,6 @@
 <div class="container">
+  <div>
+
 
   <h1> <%= @survey.name %> </h1>
   <h2> <%= @survey.content %>  </h2>
@@ -6,12 +8,20 @@
   <p> Number of Responses: <%= responses %> of <%= "#{User.all.count}" %>  </p>
   <p> Responses: <%= @survey.response_rate%>% </p>
 
-
+<div class="survey-show-charts">
   <% @survey.questions.each do |question| %>
 
-      <h3> <%= question.content %> </h3>
-      <div class="chart-center">
-        <%= column_chart question.user_answers.group(:content).count, colors:["#37A2E7"], width: "300px", height: "200px", precision: 3, zeros: true%>
-     </div>
+      <div class="survey-show-chart">
+        <h3> Team <%= question.category %> </h3>
+        <%= column_chart question.user_answers.group(:answer_score).count, colors:["#37A2E7"], width: "300px", height: "200px", precision: 3, zeros: true%>
+        <% question.user_answers.each do |answer| %>
+          <% if answer.answer_score == 1 %>
+       <p><%= link_to answer.user.name, user_path(answer.user) %></p>
+
+       <% end %>
       <% end %>
+      </div>
+    <% end %>
+    </div>
+  </div>
 </div>

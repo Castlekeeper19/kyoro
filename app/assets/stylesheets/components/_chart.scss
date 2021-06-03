@@ -1,5 +1,10 @@
-.chart-center {
-  display: flex;
+.survey-show-charts {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+}
+
+.survey-show-chart {
   justify-content: center;
 }
 

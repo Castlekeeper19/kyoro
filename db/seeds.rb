@@ -11,6 +11,7 @@ require 'faker'
 
 puts "creating seeds"
 
+
 # 10.times do
 
 #   example = User.create!(
@@ -25,25 +26,27 @@ puts "creating seeds"
 #   )
 
 # end
-
+puts "Clearing Database"
 UserAnswer.destroy_all
 Answer.destroy_all
 Question.destroy_all
 Survey.destroy_all
+puts "creating seeds"
 
 
-  puts "created #{User.count} Users"
-
+date_count = 0
   user = User.all.sample
-  2.times do
-
+  8.times do
+    date = Date.today - date_count
+    date_count +=7
     survey = Survey.create!(
-      name: "General Survey for #{Date.today}",
+      name: "General Survey for #{date.strftime("%B %-d %Y")}",
       content: "Please answer this survey",
-      user_id: user.id
+      user_id: user.id,
+      date_sent: date.strftime("%B %-d %Y")
     )
     puts "created #{Survey.count} Survey"
-    counter = (User.all.count * rand(0.5..1)).to_i
+    counter = (User.all.count * rand(0.3..1)).to_i
     1.times do
       mood = Question.create!(
         survey_id: survey.id,
@@ -60,25 +63,27 @@ Survey.destroy_all
         content: "How motivated do you feel?",
         category: "motivation"
         )
-
-      puts "created #{Question.count} Question"
+      personal_goals = Question.create!(
+        survey_id: survey.id,
+        content: "Are reaching your personal goals?",
+        category: "personal_goals"
+        )
       1.times do
         answer = Answer.create!(
           question_id: mood.id,
           content: (1..5).to_a,
           category: "Multiple Choice"
         )
-        puts "created #{Answer.count} Answers"
-
         counter.times do
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
             user_id: user.id,
             content: rand(1..5),
-            category: 'survey_response'
+            category: 'mood',
+            response_date: date,
+            answer_score: rand(1..5)
           )
-
         end
       end
       1.times do
@@ -87,15 +92,15 @@ Survey.destroy_all
           content: (1..5).to_a,
           category: "Multiple Choice"
         )
-        puts "created #{Answer.count} Answers"
-
         counter.times do
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
             user_id: user.id,
             content: rand(1..5),
-            category: 'survey_response'
+            category: 'support',
+            response_date: date,
+            answer_score: rand(1..5)
           )
         end
       end
@@ -105,20 +110,41 @@ Survey.destroy_all
           content: (1..5).to_a,
           category: "Multiple Choice"
         )
-        puts "created #{Answer.count} Answers"
-
         counter.times do
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
             user_id: user.id,
             content: rand(1..5),
-            category: 'survey_response'
+            category: 'motivation',
+            response_date: date,
+            answer_score: rand(1..5)
           )
         end
       end
-
+      1.times do
+        answer = Answer.create!(
+          question_id: personal_goals.id,
+          content: (1..5).to_a,
+          category: "Multiple Choice"
+        )
+        counter.times do
+          user = User.all.sample
+          UserAnswer.create!(
+            answer_id: answer.id,
+            user_id: user.id,
+            content: rand(1..5),
+            category: 'personal_goals',
+            response_date: date,
+            answer_score: rand(1..5)
+          )
+        end
+      end
     end
+    puts "created #{User.count} Users"
+    puts "created #{Survey.count} Surveys"
+    puts "created #{Question.count} Questions"
+    puts "created #{Answer.count} Answers"
     puts "created #{UserAnswer.count} User Answers"
        # 1.times do
        #  answer = Answer.create!(
