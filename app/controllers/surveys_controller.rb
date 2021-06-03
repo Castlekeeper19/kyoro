@@ -35,7 +35,7 @@ class SurveysController < ApplicationController
         answer.question = question
         answer.save
       end
-      redirect_to survey_path(@survey)
+      redirect_to dashboard_path
 
       SendSlackMessageService.new(
         token: ENV['SLACK_TOKEN'],
@@ -130,6 +130,21 @@ class SurveysController < ApplicationController
         }
       }
     end
+    message << {
+      "type": "actions",
+      "elements": [
+        {
+          "type": "button",
+          "text": {
+            "type": "plain_text",
+            "text": "Submit",
+            "emoji": true
+          },
+          "value": "click_me_123",
+          "action_id": "actionId-0"
+        }
+      ]
+    }
     return message
   end
 end
