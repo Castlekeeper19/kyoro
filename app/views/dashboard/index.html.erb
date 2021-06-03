@@ -1,26 +1,27 @@
 <div class="container">
-  <h1>Dashboard</h1>
+  <h1> <%= User.first.company %> </h1>
 
   <div class= "d-flex justify-content-between">
     <div>
-      <div class="d-flex justify-content-around">
-        <div>
+      <div class="d-flex align-items-end">
+        <div class = "mood-square bg-primary", style = "height: <%= 3* @team_mood %>px; width: <%= 3* @team_mood %>px; border-top-left-radius: 100%; margin: 8px; ">
           <h2> <%= @team_mood %>% </h2>
           <h2>Mood</h2>
         </div>
-        <div>
+        <div class = "support-square bg-primary", style = "height: <%= 3* @team_support %>px; width: <%= 3* @team_support %>px; border-top-right-radius: 100%; margin: 8px; ">
           <h2> <%= @team_support %>% </h2>
-          <h2>Support</h2>
+          <h2>Communication</h2>
         </div>
       </div>
-      <div class="d-flex justify-content-around">
-        <div>
-          <h2> <%= @team_motivation %>% </h2>
+      <div class="d-flex align-items-start">
+        <div class = "motivation-square bg-primary", style = "height: <%= 3* @team_motivation %>px; width: <%= 3* @team_motivation %>px; border-bottom-left-radius: 100%; margin: 8px; text-align: right ">
           <h2>Motivation</h2>
+          <h2> <%= @team_motivation %>% </h2>
+
         </div>
-        <div>
+        <div class = "motivation-square bg-primary", style = "height: <%= 3* @team_motivation %>px; width: <%= 3* @team_motivation %>px; border-bottom-right-radius: 100%; margin: 8px; ">
           <h2> <%= @team_goals %>% </h2>
-          <h2>Personal Goals</h2>
+          <h2>Reaching Goals</h2>
         </div>
       </div>
     </div>
@@ -45,7 +46,7 @@
       </div>
     </div>
 
-      <h2> Your Team's Overall Engagement</h2>
+      <h2> Overall Engagement</h2>
        <%= area_chart UserAnswer.group_by_week(:response_date).sum(:answer_score) %>
   </div>
 </div>
