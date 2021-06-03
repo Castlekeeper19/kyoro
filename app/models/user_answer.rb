@@ -1,6 +1,6 @@
 class UserAnswer < ApplicationRecord
-  belongs_to :answer
-  belongs_to :user
+  belongs_to :answer, optional: true
+  belongs_to :user, optional: true
   enum status: [:unresolved, :resolved]
 
   # validates :category, inclusion: { in: ['feedback', 'survey_response'], message: "%{value} is not a valid category" }
@@ -9,7 +9,7 @@ class UserAnswer < ApplicationRecord
       feeling = 0
       count = 0
       UserAnswer.all.each do |answer|
-        if answer.answer.question.category == category
+        if  answer.category != "feedback" && answer.answer.question.category == category
           feeling += answer.answer_score
           count += 1
         end
