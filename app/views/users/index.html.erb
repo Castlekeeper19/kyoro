@@ -10,8 +10,11 @@
       <p>There are <%= @users.count %> <%=  "member".pluralize(@users.count) %></p>
     </div>
 
-    <%= render 'user_card' %>
-
+    <div class="user-cards">
+      <% @users.each do |user| %>
+        <%= render 'user_card', user: user %>
+      <% end %>
+    </div>
     </div>
   </div>
 </div>

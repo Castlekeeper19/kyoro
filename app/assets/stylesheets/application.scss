@@ -10,11 +10,6 @@
 
 // Your CSS partials
 @import "components/index";
-@import "components/survey";
-@import "components/layout";
-@import "components/sidebar";
-@import "components/loading-bar";
-@import "components/footer";
 @import "pages/index";
 
 * {
@@ -29,6 +24,6 @@ body {
   background: linear-gradient(#fff, #fff 5%, #f5f5f5 15%, #f5f5f5 87%, #fff 97%, #fff), ;
 }
 
-a {
+a:hover {
   text-decoration: none;
 }
