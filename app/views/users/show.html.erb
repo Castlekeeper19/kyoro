@@ -54,11 +54,11 @@
     </table>
     <div class="user-note">
       <% @user.user_answers.each do |answer| %>
-        <%= answer.action_step %>
+        <%#= answer.action_step %>
       <% end %>
-        <%= @user.note %>
+        <p class="m-4"><%= @user.note %></p>
       <%= simple_form_for(@user) do |f| %>
-        <%= f.input :note, placeholder: "Imput a note" %>
+        <%= f.input :note, label: false %>
         <%= f.submit "Submit", class: "btn btn-success" %>
       <% end %>
     </div>
