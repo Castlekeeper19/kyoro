@@ -146,37 +146,14 @@ date_count = 0
     puts "created #{Question.count} Questions"
     puts "created #{Answer.count} Answers"
     puts "created #{UserAnswer.count} User Answers"
-       # 1.times do
-       #  answer = Answer.create!(
-       #    question_id: question.id,
-       #    content: ["Red", "Blue", "Yellow"],
-       #    category: "Multiple Choice"
-       #  )
-        # 1.times do
-        #   user_answer = UserAnswer.create!(
-        #     answer_id: null,
-        #     user_id: user.id,
-        #     content: "I can't whistle, but none of my team members will teach me!",
-        #     category: 'feedback'
-        #   )
-        #   puts "created #{UserAnswer.count} User Answers"
-        # end
-      # end
 end
 
-
-
-
-
-
-
-# 1.times do
-#   Booking.create!(
-#   date_time: today,
-#   comment: Faker::Lorem.sentence(word_count: 6),
-#   status: (0..2).to_a.sample,
-#   user_id: example.id,
-#   workout_id: example_workout.id
-# )
-# end
-# end
+  puts "creating anonymous question"
+    1.times do
+      user_answer = UserAnswer.create!(
+        user_id: (User.all.sample).id,
+        content: "I can't whistle, but none of my team members will teach me!",
+        category: 'feedback'
+      )
+    end
+  puts "created anonymous question"
