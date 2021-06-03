@@ -17,12 +17,16 @@ User.destroy_all
 
 puts "creating seeds"
 
+positive_array = [1, 2, 3, 3, 4, 4, 5, 5]
+normal_array = [1,2,3,4,5]
+negative_array = [1,1,2,2,3,3,4,5]
+
 20.times do
 
   example = User.create!(
     name:  Faker::Name.first_name + " " + Faker::Name.last_name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password,
+    password: 123123,
     company: "Kyoro Inc.",
     slack_username: Faker::Internet.username,
     title: "team member",
@@ -74,14 +78,15 @@ date_count = 0
           category: "Multiple Choice"
         )
         counter.times do
+          response_answer = negative_array.sample
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
             user_id: user.id,
-            content: rand(1..5),
+            content: response_answer,
             category: 'mood',
             response_date: date,
-            answer_score: rand(1..5)
+            answer_score: response_answer
           )
         end
       end
@@ -92,14 +97,15 @@ date_count = 0
           category: "Multiple Choice"
         )
         counter.times do
+          response_answer = positive_array.sample
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
             user_id: user.id,
-            content: rand(1..5),
+            content: response_answer,
             category: 'support',
             response_date: date,
-            answer_score: rand(1..5)
+            answer_score: response_answer
           )
         end
       end
@@ -110,14 +116,15 @@ date_count = 0
           category: "Multiple Choice"
         )
         counter.times do
+          response_answer = normal_array.sample
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
             user_id: user.id,
-            content: rand(1..5),
+            content: response_answer,
             category: 'motivation',
             response_date: date,
-            answer_score: rand(1..5)
+            answer_score: response_answer
           )
         end
       end
@@ -128,14 +135,15 @@ date_count = 0
           category: "Multiple Choice"
         )
         counter.times do
+          response_answer = normal_array.sample
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
             user_id: user.id,
-            content: rand(1..5),
+            content: response_answer,
             category: 'personal_goals',
             response_date: date,
-            answer_score: rand(1..5)
+            answer_score: response_answer
           )
         end
       end

@@ -10,7 +10,7 @@ class User < ApplicationRecord
     feeling = 0
     count = 0
     self.user_answers.each do |user_answer|
-      if user_answer.answer.question.category == category
+      if user_answer.category != "feedback" && user_answer.answer.question.category == category
         feeling += user_answer.content.to_i
         count += 1
     end
