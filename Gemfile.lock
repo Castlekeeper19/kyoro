@@ -279,8 +279,8 @@ DEPENDENCIES
   dotenv-rails
   faker
   font-awesome-sass
-  httparty
   groupdate
+  httparty
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)

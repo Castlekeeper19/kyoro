@@ -27,6 +27,14 @@ class SurveysController < ApplicationController
     authorize @survey
 
     if @survey.save
+      @survey.questions.each do |question|
+        answer = Answer.new(
+          content: (1..5).to_a,
+          category: "Multiple Choice"
+        )
+        answer.question = question
+        answer.save
+      end
       redirect_to survey_path(@survey)
 
       SendSlackMessageService.new(
