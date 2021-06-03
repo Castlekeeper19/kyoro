@@ -19,9 +19,12 @@
 }
 
 .user-card-info {
+  color: black;
+  background-color: #fff;
   border-radius: 10px;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
 }
+
 
 .user-card-info h1 {
   font-size: 20px;
@@ -36,21 +39,34 @@
 }
 
 .user-card-top {
-  background-color: #12A1E7;
+  position: relative;
   padding: 10px;
-  border-radius: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  // align-items: flex-end;
+  align-items: flex-start;
+  font-size: 20px;
+  // background-color: rgb(224, 224, 224);
+  overflow: hidden;
+}
+.user-card-background {
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 70%;
+  background-color: #12a0e730;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  // border-radius: 25%;
 }
 
 .user-card-bottom {
   margin: 10px;
-}
-
-.user-card-top {
-  align-items: flex-start;
-  font-size: 20px;
 }
 
 .user-card-info img {
