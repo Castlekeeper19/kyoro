@@ -13,6 +13,7 @@
         <%= bar_chart(mood: @user.overall("mood"), support: @user.overall("support"), motivation: @user.overall("motivation")) %>
       </div>
     </div>
+
     <table class="table mt-3">
       <thead>
         <tr>
@@ -51,5 +52,15 @@
         </tr>
       </tbody>
     </table>
+    <div class="user-note">
+      <% @user.user_answers.each do |answer| %>
+        <%= answer.action_step %>
+      <% end %>
+        <%= @user.note %>
+      <%= simple_form_for(@user) do |f| %>
+        <%= f.input :note, placeholder: "Imput a note" %>
+        <%= f.submit "Submit", class: "btn btn-success" %>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -11,7 +11,6 @@ require 'faker'
 
 puts "creating seeds"
 
-
 # 10.times do
 
 #   example = User.create!(
@@ -22,10 +21,12 @@ puts "creating seeds"
 #     slack_username: Faker::Internet.username,
 #     title: "team member",
 #     role: Faker::Job.title,
-#     goal: "Improve at: " + Faker::Job.key_skill
+#     goal: "Improve at: " + Faker::Job.key_skill,
+#     note: Faker::Quote.most_interesting_man_in_the_world
 #   )
 
 # end
+
 puts "Clearing Database"
 UserAnswer.destroy_all
 Answer.destroy_all
