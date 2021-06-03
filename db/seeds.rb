@@ -36,7 +36,7 @@ puts "creating seeds"
 
 date_count = 0
   user = User.all.sample
-  4.times do
+  8.times do
     date = Date.today - date_count
     date_count +=7
     survey = Survey.create!(
@@ -46,7 +46,7 @@ date_count = 0
       date_sent: date.strftime("%B %-d %Y")
     )
     puts "created #{Survey.count} Survey"
-    counter = (User.all.count * rand(0.5..1)).to_i
+    counter = (User.all.count * rand(0.3..1)).to_i
     1.times do
       mood = Question.create!(
         survey_id: survey.id,
@@ -62,6 +62,11 @@ date_count = 0
         survey_id: survey.id,
         content: "How motivated do you feel?",
         category: "motivation"
+        )
+      personal_goals = Question.create!(
+        survey_id: survey.id,
+        content: "Are reaching your personal goals?",
+        category: "personal_goals"
         )
       1.times do
         answer = Answer.create!(
@@ -112,6 +117,24 @@ date_count = 0
             user_id: user.id,
             content: rand(1..5),
             category: 'motivation',
+            response_date: date,
+            answer_score: rand(1..5)
+          )
+        end
+      end
+      1.times do
+        answer = Answer.create!(
+          question_id: personal_goals.id,
+          content: (1..5).to_a,
+          category: "Multiple Choice"
+        )
+        counter.times do
+          user = User.all.sample
+          UserAnswer.create!(
+            answer_id: answer.id,
+            user_id: user.id,
+            content: rand(1..5),
+            category: 'personal_goals',
             response_date: date,
             answer_score: rand(1..5)
           )
