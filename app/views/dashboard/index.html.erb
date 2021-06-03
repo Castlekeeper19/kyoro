@@ -1,37 +1,41 @@
 <div class="container">
-  <h1>Dashboard</h1>
+  <div class="dashboard-display">
 
-  <div class= "d-flex justify-content-between">
-    <div>
-      <div class="d-flex justify-content-around">
-        <div>
-          <h2> <%= @team_mood %>% </h2>
-          <h2>Mood</h2>
+  <div class = "d-flex justify-content-between">
+    <div class= "category-squares-box">
+      <div class="d-flex justify-content-between">
+        <h4>Mood: <%= @team_mood %>%</h4>
+        <h4>Communication: <%= @team_support %>% </h4>
+      </div>
+
+      <div class="category-squares" >
+      <div class="d-flex align-items-end">
+        <div class = "category-square mood-square", style = "height: <%= 1.75* @team_mood %>px; width: <%= 1.75* @team_mood %>px;">
         </div>
-        <div>
-          <h2> <%= @team_support %>% </h2>
-          <h2>Support</h2>
+        <div class = "category-square support-square", style = "height: <%= 1.75* @team_support %>px; width: <%= 1.75* @team_support %>px;">
         </div>
       </div>
-      <div class="d-flex justify-content-around">
-        <div>
-          <h2> <%= @team_motivation %>% </h2>
-          <h2>Motivation</h2>
+      <div class="d-flex align-items-start">
+        <div class = "category-square motivation-square", style = "height: <%= 1.75* @team_motivation %>px; width: <%= 1.75* @team_motivation %>px;text-align: right ">
         </div>
-        <div>
-          <h2> <%= @team_goals %>% </h2>
-          <h2>Personal Goals</h2>
+        <div class = "category-square goals-square", style = "height: <%= 1.75* @team_goals %>px; width: <%= 1.75* @team_goals %>px;">
         </div>
       </div>
     </div>
+      <div class = "d-flex justify-content-between">
+      <h4>Motivation: <%= @team_motivation %>%</h4>
+      <h4>Personal Goals: <%= @team_goals %>% </h4>
+    </div>
+  </div>
+
+
   <div class="dashboard-survey">
-    <div class="d-flex justify-content-between">
-      <div></div>
       <div>
-    <h2><%= link_to "Latest Survey", survey_path(@survey) %></h2>
-       <p> <%= @survey.name %> </p>
-       <p> <%= @survey.content %> </p>
-       <p> Survey Responses: <%= @survey.response_number %> of <%= User.all.count %> </p>
+        <h2><%= link_to "Latest Survey", survey_path(@survey) %></h2>
+           <p> <%= @survey.name %> </p>
+           <p> <%= @survey.content %> </p>
+           <p> Survey Responses: <%= @survey.response_number %> of <%= User.all.count %> </p>
+         </div>
          <div
             class="ldBar label-center bar-<%= @survey.id %>"
             data-stroke="data:ldbar/res,gradient(0,1,#9df,#fd9)",
@@ -41,12 +45,11 @@
             data-id="<%= @survey.id %>"
           ></div>
         </div>
-      </div>
-      </div>
     </div>
-
-      <h2> Your Team's Overall Engagement</h2>
-       <%= area_chart UserAnswer.group_by_week(:response_date).sum(:answer_score) %>
+    <div class="dashboard-timeline">
+      <h2> Overall Engagement</h2>
+       <%= area_chart UserAnswer.group_by_week(:response_date).sum(:answer_score), height: "200px"; %>
+    </div>
   </div>
 </div>
 

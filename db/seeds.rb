@@ -17,9 +17,9 @@ User.destroy_all
 
 puts "creating seeds"
 
-positive_array = [1, 2, 3, 3, 4, 4, 5, 5]
-normal_array = [1,2,3,4,5]
-negative_array = [1,1,2,2,3,3,4,5]
+positive_array = [1,2,3,3,4,4,4,5,5,5,5]
+normal_array = [1,2,2,3,3,3,3,4,4,4,5,5]
+negative_array = [1,2,2,2,3,3,3,4,4,4,5]
 
 20.times do
 
