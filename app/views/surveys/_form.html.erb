@@ -1,22 +1,5 @@
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
 <%= simple_form_for @survey do |f| %>
-  <%= f.input :name %>
+  <%= f.input :name, label: "Survey Name" %>
   <%= f.input :content, label: "Comment" %>
   <div id="tasks">
     <%= f.simple_fields_for :questions do |question| %>
@@ -25,19 +8,6 @@
     <div class="links">
       <%= link_to_add_association 'Add Another Question', f, :questions %>
     </div>
-    <%= f.submit 'Save', class: "btn btn-primary" %>
+    <%= f.submit 'Send to your Slack Channel', class: "btn btn-primary" %>
   </div>
 <% end %>
-<!--  -->
-<%#= simple_form_for @survey do |f| %>
-  <%#= f.input :name %>
-  <%#= f.input :content, label: "Comment" %>
-  <%#= f.simple_fields_for :questions do |question_form| %>
-    <%#= question_form.input :content, label: "Question" %>
-    <%#= question_form.simple_fields_for :answers do |answer_form| %>
-      <%#= answer_form.input :content, label: "Answer" %>
-      <%#= answer_form.input :category, label: "Answer Category" %>
-      <%# end %>
-      <%# end %>
-      <%#= f.submit class: "btn btn-primary" %>
-      <%# end %>

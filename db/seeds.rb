@@ -8,36 +8,34 @@
 
 require 'faker'
 
-
-puts "creating seeds"
-
-# 10.times do
-
-#   example = User.create!(
-#     name:  Faker::Name.first_name + " " + Faker::Name.last_name,
-#     email: Faker::Internet.email,
-#     password: Faker::Internet.password,
-#     company: "Kyoro Inc.",
-#     slack_username: Faker::Internet.username,
-#     title: "team member",
-#     role: Faker::Job.title,
-#     goal: "Improve at: " + Faker::Job.key_skill,
-#     note: Faker::Quote.most_interesting_man_in_the_world
-#   )
-
-# end
-
 puts "Clearing Database"
 UserAnswer.destroy_all
 Answer.destroy_all
 Question.destroy_all
 Survey.destroy_all
+User.destroy_all
+
 puts "creating seeds"
 
+20.times do
+
+  example = User.create!(
+    name:  Faker::Name.first_name + " " + Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    company: "Kyoro Inc.",
+    slack_username: Faker::Internet.username,
+    title: "team member",
+    role: Faker::Job.title,
+    goal: "Improve at: " + Faker::Job.key_skill
+  )
+end
+
+puts "created #{User.all.count} Users"
 
 date_count = 0
   user = User.all.sample
-  4.times do
+  8.times do
     date = Date.today - date_count
     date_count +=7
     survey = Survey.create!(
@@ -47,7 +45,7 @@ date_count = 0
       date_sent: date.strftime("%B %-d %Y")
     )
     puts "created #{Survey.count} Survey"
-    counter = (User.all.count * rand(0.5..1)).to_i
+    counter = (User.all.count * rand(0.3..1)).to_i
     1.times do
       mood = Question.create!(
         survey_id: survey.id,
@@ -63,6 +61,11 @@ date_count = 0
         survey_id: survey.id,
         content: "How motivated do you feel?",
         category: "motivation"
+        )
+      personal_goals = Question.create!(
+        survey_id: survey.id,
+        content: "Are reaching your personal goals?",
+        category: "personal_goals"
         )
       1.times do
         answer = Answer.create!(
@@ -118,43 +121,38 @@ date_count = 0
           )
         end
       end
+      1.times do
+        answer = Answer.create!(
+          question_id: personal_goals.id,
+          content: (1..5).to_a,
+          category: "Multiple Choice"
+        )
+        counter.times do
+          user = User.all.sample
+          UserAnswer.create!(
+            answer_id: answer.id,
+            user_id: user.id,
+            content: rand(1..5),
+            category: 'personal_goals',
+            response_date: date,
+            answer_score: rand(1..5)
+          )
+        end
+      end
     end
     puts "created #{User.count} Users"
     puts "created #{Survey.count} Surveys"
     puts "created #{Question.count} Questions"
     puts "created #{Answer.count} Answers"
     puts "created #{UserAnswer.count} User Answers"
-       # 1.times do
-       #  answer = Answer.create!(
-       #    question_id: question.id,
-       #    content: ["Red", "Blue", "Yellow"],
-       #    category: "Multiple Choice"
-       #  )
-        # 1.times do
-        #   user_answer = UserAnswer.create!(
-        #     answer_id: null,
-        #     user_id: user.id,
-        #     content: "I can't whistle, but none of my team members will teach me!",
-        #     category: 'feedback'
-        #   )
-        #   puts "created #{UserAnswer.count} User Answers"
-        # end
-      # end
 end
 
-
-
-
-
-
-
-# 1.times do
-#   Booking.create!(
-#   date_time: today,
-#   comment: Faker::Lorem.sentence(word_count: 6),
-#   status: (0..2).to_a.sample,
-#   user_id: example.id,
-#   workout_id: example_workout.id
-# )
-# end
-# end
+  puts "creating anonymous question"
+    1.times do
+      user_answer = UserAnswer.create!(
+        user_id: (User.all.sample).id,
+        content: "I can't whistle, but none of my team members will teach me!",
+        category: 'feedback'
+      )
+    end
+  puts "created anonymous question"
