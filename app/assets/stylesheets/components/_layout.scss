@@ -9,19 +9,15 @@
   // border-radius: 25px;
   // border-radius: 15px;
   // box-shadow: 3px 3px 10px rgba(0,0,0,.4);
+  height: calc(100vh - 130px);
 }
 
 
 .view-wrapper {
   flex-grow: 1;
-  height: calc(100vh - 130px);
   // background-color: #F2F2F2;
   // border-radius: 25px;
   // border-radius: 15px;
   overflow: scroll;
   padding: 0 32px;
-}
-
-a {
-  text-decoration: none;
 }

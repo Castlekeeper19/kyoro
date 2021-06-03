@@ -13,6 +13,7 @@
   box-shadow: 3px 3px 10px rgba(0,0,0,.4);
   // position: sticky;
   // top: 72px;
+  overflow: scroll;
 }
 
 .sidebar-ul .sidebar-li .sidebar-a {
@@ -32,7 +33,9 @@
 }
 
 .sidebar-ul .sidebar-li:hover {
-  background-color: #dbdbdb;
+  // background-color: #dbdbdb;
+  // background-color: #f5f5f5;
+  background-color: #e7e7e7;
   box-shadow: 3px 3px 10px rgba(0,0,0,.4);
 }
 
