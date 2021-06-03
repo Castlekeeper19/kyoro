@@ -1,2 +1,56 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="container">
+    <h1>Keep Your Remote Teams Engaged</h1>
+    <p>With the powerful analytical tools and Slack integration.</p>
+    <a class="btn btn-flat" href="#">Learn more</a>
+  </div>
+</div>
+<div class="container">
+  <div class="row card-row">
+    <div class="card" style="width: 18rem;">
+      <%= image_tag "survey-show.png", class: "card-img-top" %>
+      <div class="card-body">
+        <p><strong><em>Analytics</em></strong></p>
+        <p class="card-text">Get a quick overview of how your team is engaging and see customized statistics from your automated surveys. </p>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag 'https://images.unsplash.com/photo-1591382696684-38c427c7547a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8d29yayUyMGZyb20lMjBob21lfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60', class: "card-img-top" %>
+      <div class="card-body">
+        <p><strong><em>I need help</em></strong></p>
+        <p class="card-text">Know when your remote team members need attention. Kyoro can tell you when.</p>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <%= image_tag "kyorobot-banner.png", class: "card-img-top" %>
+      <div class="card-body">
+        <p><strong><em>Slack integration</em></strong></p>
+        <p class="card-text">Customize your Kyorobot to send surveys through your team's Slack workspace.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<div class="container">
+  <div class="card-product">
+    <%= image_tag "ConnecPet.png" %>
+    <div class="card-product-infos">
+      <h2>Review from ConnecPet</h2>
+      <p><em>Kyoro is so easy to use. It's really great for when I just need a quick glance to see how my team engagement is!</em></p>
+    </div>
+  </div>
+  <div class="card-product">
+    <%= image_tag "BAIKU.png" %>
+    <div class="card-product-infos">
+      <h2>Review from BAIKU Inc.</h2>
+      <p><em>I now know what's important to my team members, and happy to say that I KNOW they are getting what they need on my team.</em></p>
+    </div>
+  </div>
+  <div class="card-product">
+    <%= image_tag "Bill_Splitter.png" %>
+    <div class="card-product-infos">
+      <h2>Review from Bill Splitter</h2>
+      <p><em>With our whole team working remotely, Kyoro has helped us keep our team together.</em></p>
+    </div>
+  </div>
+</div>
