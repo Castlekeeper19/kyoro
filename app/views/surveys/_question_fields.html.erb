@@ -1,12 +1,15 @@
 <div class="nested_fields">
   <%= f.input :content, label: "Question" %>
-  <div id="tasks">
+  <%= f.input :category, label: "Question Category", collection: ['Mood', 'Support', 'Motivation', 'Goals'] %>
+  <%#= f.hidden_field answer: 1 %>
+  <!--   <div id="tasks">
     <div class="question-group">
-      <%= f.simple_fields_for :answers do |answer| %>
-        <%= render 'answer_fields', :f => answer %>
-      <% end %>
+      <%#= f.simple_fields_for :answers do |answer| %>
+        <%#= render 'answer_fields', :f => answer %>
+      <%# end %>
     </div>
     <div class="links">
-      <%= link_to_add_association 'Add an Answer', f, :answers %>
+      <%#= link_to_add_association 'Add an Answer', f, :answers %>
     </div>
-  </div>
+  </div> -->
+</div>
