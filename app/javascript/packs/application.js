@@ -41,9 +41,9 @@ document.addEventListener('turbolinks:load', () => {
    const barId = bar.dataset.id;
   new ldBar(`.bar-${barId}`, {
     // "stroke": '#f00',
-    "stroke-width": 10,
-    "preset": "fan",
-    "value": 65
+    // "stroke-width": 10,
+    // "preset": "fan",
+    // "value": 65
   })
 
   });
