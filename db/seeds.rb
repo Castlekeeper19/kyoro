@@ -8,31 +8,30 @@
 
 require 'faker'
 
-
-puts "creating seeds"
-
-
-# 10.times do
-
-#   example = User.create!(
-#     name:  Faker::Name.first_name + " " + Faker::Name.last_name,
-#     email: Faker::Internet.email,
-#     password: Faker::Internet.password,
-#     company: "Kyoro Inc.",
-#     slack_username: Faker::Internet.username,
-#     title: "team member",
-#     role: Faker::Job.title,
-#     goal: "Improve at: " + Faker::Job.key_skill
-#   )
-
-# end
 puts "Clearing Database"
 UserAnswer.destroy_all
 Answer.destroy_all
 Question.destroy_all
 Survey.destroy_all
+User.destroy_all
+
 puts "creating seeds"
 
+20.times do
+
+  example = User.create!(
+    name:  Faker::Name.first_name + " " + Faker::Name.last_name,
+    email: Faker::Internet.email,
+    password: Faker::Internet.password,
+    company: "Kyoro Inc.",
+    slack_username: Faker::Internet.username,
+    title: "team member",
+    role: Faker::Job.title,
+    goal: "Improve at: " + Faker::Job.key_skill
+  )
+end
+
+puts "created #{User.all.count} Users"
 
 date_count = 0
   user = User.all.sample
