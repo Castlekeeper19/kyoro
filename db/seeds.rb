@@ -17,9 +17,10 @@ User.destroy_all
 
 puts "creating seeds"
 
-positive_array = [1,2,3,3,4,4,4,5,5,5,5]
-normal_array = [1,2,2,3,3,3,3,4,4,4,5,5]
-negative_array = [1,2,2,2,3,3,3,4,4,4,5]
+positive = [3,3,4,4,4,5,5,5,5,5]
+neutral = [1,2,3,3,4,4,4,5,5,5]
+negative = [1,1,1,1,2,2,2,3,3,4]
+nature_arrays = [negative, negative, neutral, neutral, neutral, neutral, neutral, positive, positive, positive]
 
 20.times do
 
@@ -31,6 +32,7 @@ negative_array = [1,2,2,2,3,3,3,4,4,4,5]
     slack_username: Faker::Internet.username,
     title: "team member",
     role: Faker::Job.title,
+    nature: nature_arrays.sample,
     goal: "Improve at: " + Faker::Job.key_skill
   )
 end
@@ -78,7 +80,7 @@ date_count = 0
           category: "Multiple Choice"
         )
         counter.times do
-          response_answer = negative_array.sample
+          response_answer = user.nature.sample
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
@@ -97,7 +99,7 @@ date_count = 0
           category: "Multiple Choice"
         )
         counter.times do
-          response_answer = positive_array.sample
+          response_answer = user.nature.sample
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
@@ -116,7 +118,7 @@ date_count = 0
           category: "Multiple Choice"
         )
         counter.times do
-          response_answer = normal_array.sample
+          response_answer = user.nature.sample
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
@@ -135,7 +137,7 @@ date_count = 0
           category: "Multiple Choice"
         )
         counter.times do
-          response_answer = normal_array.sample
+          response_answer = user.nature.sample
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,

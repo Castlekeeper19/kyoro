@@ -1,0 +1,9 @@
+    <div class="survey-show-chart">
+        <h3><%= (question.category).split("_").join(" ") %> </h3>
+        <%= column_chart question.user_answers.group(:answer_score).count, colors:["#37A2E7"], width: "300px", height: "175px", xmin: 1%>
+        <% question.user_answers.each do |answer| %>
+          <% if answer.answer_score == 1 %>
+       <p>Answered 1: <%= link_to answer.user.name, user_path(answer.user) %></p>
+       <% end %>
+       <% end %>
+      </div>
