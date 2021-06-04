@@ -1,37 +1,41 @@
 <div class="container">
   <div class="dashboard-display">
 
-  <div class = "d-flex justify-content-between">
+  <div class = "dashboard-top">
     <div class= "category-squares-box">
       <div class="d-flex justify-content-between">
-        <h4>Mood: <%= @team_mood %>%</h4>
-        <h4>Communication: <%= @team_support %>% </h4>
+        <h4>Mood</h4>
+        <h4>Support</h4>
       </div>
 
       <div class="category-squares" >
       <div class="d-flex align-items-end">
-        <div class = "category-square mood-square", style = "height: <%= 1.75* @team_mood %>px; width: <%= 1.75* @team_mood %>px;">
+        <div class = "category-square mood-square", style = "height: <%= 1.5* @team_mood %>px; width: <%= 1.5* @team_mood %>px;">
+        <h4><%= @team_mood %>%</h4>
         </div>
-        <div class = "category-square support-square", style = "height: <%= 1.75* @team_support %>px; width: <%= 1.75* @team_support %>px;">
+        <div class = "category-square support-square", style = "height: <%= 1.5* @team_support %>px; width: <%= 1.5* @team_support %>px;">
+         <h4><%= @team_support %>% </h4>
         </div>
       </div>
       <div class="d-flex align-items-start">
-        <div class = "category-square motivation-square", style = "height: <%= 1.75* @team_motivation %>px; width: <%= 1.75* @team_motivation %>px;text-align: right ">
+        <div class = "category-square motivation-square", style = "height: <%= 1.5* @team_motivation %>px; width: <%= 1.5* @team_motivation %>px;text-align: right ">
+        <h4><%= @team_motivation %>%</h4>
         </div>
-        <div class = "category-square goals-square", style = "height: <%= 1.75* @team_goals %>px; width: <%= 1.75* @team_goals %>px;">
+        <div class = "category-square goals-square", style = "height: <%= 1.5* @team_goals %>px; width: <%= 1.5* @team_goals %>px;">
+        <h4><%= @team_goals %>% </h4>
         </div>
       </div>
     </div>
       <div class = "d-flex justify-content-between">
-      <h4>Motivation: <%= @team_motivation %>%</h4>
-      <h4>Personal Goals: <%= @team_goals %>% </h4>
+      <h4>Motivation</h4>
+      <h4>Personal Goals</h4>
     </div>
   </div>
 
 
   <div class="dashboard-survey">
       <div>
-        <h2><%= link_to "Latest Survey", survey_path(@survey) %></h2>
+        <h2 class = "border-bottom"><%= link_to "Latest Survey", survey_path(@survey) %></h2>
            <p> <%= @survey.name %> </p>
            <p> <%= @survey.content %> </p>
            <p> Survey Responses: <%= @survey.response_number %> of <%= User.all.count %> </p>
@@ -44,6 +48,16 @@
             style="width: 80%; height: 80%;"
             data-id="<%= @survey.id %>"
           ></div>
+        </div>
+        <div class="dashboard-feedback">
+          <div>
+            <h2 class = "border-bottom"><%= link_to "Action Steps", user_answers_path %></h2>
+              <% @action_steps.each do |feedback| %>
+              <div class="action-step">
+                <p> <%= feedback.action_step %> </p>
+              </div>
+                <% end %>
+          </div>
         </div>
     </div>
     <div class="dashboard-timeline">
