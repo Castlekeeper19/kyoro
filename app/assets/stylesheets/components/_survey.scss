@@ -1,3 +1,21 @@
+.survey-container {
+  background-color: white;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  padding: 0 24px;
+
+  h1 {
+    padding: 24px 0;
+    margin: 0;
+  }
+
+  .survey-content {
+    margin-top: 16px;
+  }
+}
+
 // .survey-cards {
 //   display: grid;
 //   grid-template-columns: 1fr 1fr;
@@ -8,23 +26,30 @@
 .survey-card {
   display: flex;
   justify-content: space-around;
-  padding: 32px;
-  margin: 16px 0 32px;
+  align-items: center;
+  padding: 32px 0;
+  // margin: 16px 0 32px;
   overflow: hidden;
-  height: 250px;
+  // height: 250px;
   // max-width: 800px;
   // width: 400px;
   background: white;
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  // box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
   color: black;
-  border-radius: 12px;
+  // border-radius: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .survey-card-text {
-  display: flex;
+  // display: flex;
   flex-direction: column;
   justify-content: space-around;
   // margin: auto;
+  .survey-date {
+    font-size: 14px;
+    opacity: .7;
+    font-style: italic;
+  }
 }
 
 a {
@@ -43,6 +68,13 @@ a {
   // margin: auto;
 }
 
+.ldBar {
+  min-width: 120px;
+  min-height: 120px;
+  max-width: 200px;
+  max-height: 200px;
+}
+
 .ldBar path.mainline {
     stroke-width: 8;
     // stroke: #09f;
@@ -57,8 +89,9 @@ a {
 }
 
 .ldBar-label {
-    color: rgb(255, 215, 136);
+    // color: rgb(255, 215, 136);
+    color: #F6C45C;
     // font-family: 'varela round';
     font-size: 32px;
-    font-weight: 900;
+    font-weight: bold;
 }
