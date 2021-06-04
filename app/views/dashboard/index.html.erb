@@ -5,6 +5,9 @@
     <div class= "category-squares-box">
       <div class="d-flex justify-content-between">
         <h4>Mood</h4>
+        <div class="category-squares-label">
+        <h4>PAST MONTH SCORES</h4>
+      </div>
         <h4>Support</h4>
       </div>
 
@@ -28,6 +31,7 @@
     </div>
       <div class = "d-flex justify-content-between">
       <h4>Motivation</h4>
+
       <h4>Personal Goals</h4>
     </div>
   </div>
@@ -35,7 +39,7 @@
 
   <div class="dashboard-survey">
       <div>
-        <h2 class = "border-bottom"><%= link_to "Latest Survey", survey_path(@survey) %></h2>
+        <h3 class = "border-bottom"><%= link_to "Latest Survey", survey_path(@survey) %></h3>
            <p> <%= @survey.name %> </p>
            <p> <%= @survey.content %> </p>
            <p> Survey Responses: <%= @survey.response_number %> of <%= User.all.count %> </p>
@@ -51,7 +55,7 @@
         </div>
         <div class="dashboard-feedback">
           <div>
-            <h2 class = "border-bottom"><%= link_to "Action Steps", user_answers_path %></h2>
+            <h3 class = "border-bottom"><%= link_to "Action Steps", user_answers_path %></h3>
               <% if @action_steps.count > 0 %>
               <% @action_steps.each do |feedback| %>
               <div class="action-step">
