@@ -2,23 +2,28 @@
   <h1 class="feedback-header">My Anonymous Feedback</h1>
   <% @user_answers.each do |user_answer| %>
     <% if user_answer.category == 'feedback' && user_answer.status == 'unresolved' %>
-      <div class="row feedback-row">
+      <div class="feedback-row">
         <div class="user_answer_description">
+          <p><i class="fas fa-exclamation-triangle"></i> <strong><%= user_answer.created_at.strftime('%A, %b %d') %></strong></p>
+          <br>
           <%= user_answer.content %>
-          <p><strong>Received at:</strong> <%= user_answer.created_at %></p>
-          <p><strong>Status:</strong> <%= user_answer.status.capitalize %></p>
+          <br>
           <%= simple_form_for user_answer do |f| %>
             <%= f.hidden_field :status, value: "resolved" %>
             <%= f.submit "Mark as resolved", class: "btn btn-success mt-4" %>
           <% end %>
         </div>
         <div class="action_steps">
-          <%= simple_form_for user_answer do |f| %>
-            <%= f.input :action_step, label: "Action Notes", placeholder: user_answer.action_step %>
-            <%= f.submit "Save your Action Notes", class: "btn btn-primary" %>
-          <% end %>
+          <p><strong>Action Notes</strong></p>
+          <p><%= user_answer.action_step %></p>
+          <br>
+          <%= render 'edit_modal', user_answer: user_answer %>
+          <%#= simple_form_for user_answer do |f| %>
+            <%#= f.input :action_step, label: "Action Notes", placeholder: user_answer.action_step %>
+            <%#= f.submit "Save your Action Notes", class: "btn btn-primary" %>
+            <%# end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
