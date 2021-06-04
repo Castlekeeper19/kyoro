@@ -7,4 +7,18 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 16px;
   margin-bottom: 16px;
+  display: flex;
+}
+
+.user_answer_description {
+  flex-grow: 1;
+  margin-right: 16px;
+}
+
+.action_steps {
+  width: 400px;
+}
+
+.fa-exclamation-triangle {
+  color: red;
 }
