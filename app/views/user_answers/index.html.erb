@@ -1,10 +1,11 @@
-<div class="container">
-  <h1 class="feedback-header">Anonymous Feedbacks</h1>
+<div class="container feedback-container">
+  <h1 class="feedback-header">Anonymous Feedback</h1>
   <% @user_answers.each do |user_answer| %>
     <% if user_answer.category == 'feedback' && user_answer.status == 'unresolved' %>
       <div class="feedback-row">
         <div class="user_answer_description">
-          <p><i class="fas fa-exclamation-triangle"></i> <strong><%= user_answer.created_at.strftime('%A, %b %d') %></strong></p>
+          <%# <p><i class="fas fa-exclamation-triangle"></i>  %>
+          <p><strong>Received: <%= user_answer.created_at.strftime('%A, %b %d') %></strong> <span class="feedback-status">UNRESOLVED</span></p>
           <br>
           <%= user_answer.content %>
           <br>
@@ -13,13 +14,14 @@
             <%= f.submit "Mark as resolved", class: "btn btn-success mt-4" %>
           <% end %>
         </div>
-        <div class="action_steps">
-          <p><strong>Action Notes</strong></p>
-          <p><%= user_answer.action_step %></p>
-          <br>
+
+        <div class="box26 action_steps">
+          <span class="box-title">NOTES</span>
+          <p style="margin-top: 10px; margin-left: 10px;"><%= user_answer.action_step %></p>
           <%= render 'edit_modal', user_answer: user_answer %>
         </div>
       </div>
     <% end %>
   <% end %>
 </div>
+
