@@ -1,13 +1,13 @@
 <%= simple_form_for @survey do |f| %>
-  <%= f.input :name, label: "Survey Name" %>
-  <%= f.input :content, label: "Comment" %>
+  <%= f.input :name, label: "Survey Name", input_html: { class: 'survey-form-inputs' } %>
+  <%= f.input :content, label: "Comment", input_html: { class: 'survey-form-inputs' } %>
   <div id="tasks">
     <%= f.simple_fields_for :questions do |question| %>
       <%= render 'question_fields', :f => question %>
     <% end %>
     <div class="links">
-      <%= link_to_add_association 'Add Another Question', f, :questions %>
+      <%= link_to_add_association 'Add Another Question', f, :questions, class: "btn btn-secondary btn-sm survey-form-button" %>
     </div>
-    <%= f.submit 'Send to your Slack Channel', class: "btn btn-primary" %>
+    <%= f.submit 'Send to your Slack Channel', class: "btn btn-primary submit-button survey-form-button" %>
   </div>
 <% end %>
