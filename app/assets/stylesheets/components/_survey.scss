@@ -95,3 +95,25 @@ a {
     font-size: 32px;
     font-weight: bold;
 }
+
+.new-survey-container {
+  color: black;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  width: 100%;
+  padding: 40px;
+  margin-left: 0 auto;
+}
+
+.submit-button {
+  margin-top: 16px;
+}
+
+.survey-form-inputs {
+  border-radius: 8px;
+}
+
+.survey-form-button {
+  border-radius: 8px!important;
+}
