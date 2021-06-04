@@ -12,7 +12,7 @@
       <%= image_tag User.find(@user.id).photo.attached? ? cl_image_path(User.find(@user.id).photo.key) : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "user-image" %></br>
 <!-- added bar chart  -->
       <div style= "width: 800px">
-        <%= bar_chart({mood: @user.overall("mood"), support: @user.overall("support"), motivation: @user.overall("motivation"), personal_goals: @user.overall("personal_goals")}, max: 5) %>
+        <%= bar_chart({mood: @user.overall("mood"), support: @user.overall("support"), motivation: @user.overall("motivation"), personal_goals: @user.overall("personal_goals")}, max: 5, colors:["#37A2E7"]) %>
       </div>
     </div>
 

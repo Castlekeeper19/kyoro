@@ -45,7 +45,7 @@ date_count = 0
     date = Date.today - date_count
     date_count +=7
     survey = Survey.create!(
-      name: "General Survey for #{date.strftime("%B %-d %Y")}",
+      name: "General Survey",
       content: "Please answer this survey",
       user_id: user.id,
       date_sent: date.strftime("%B %-d %Y")
