@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="feedback-header">My Anonymous Feedback</h1>
+  <h1 class="feedback-header">Anonymous Feedbacks</h1>
   <% @user_answers.each do |user_answer| %>
     <% if user_answer.category == 'feedback' && user_answer.status == 'unresolved' %>
       <div class="row feedback-row">
