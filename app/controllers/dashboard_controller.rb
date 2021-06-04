@@ -8,6 +8,6 @@ class DashboardController < ApplicationController
     @team_support = policy_scope(UserAnswer).overall("support")
     @team_motivation = policy_scope(UserAnswer).overall("motivation")
     @team_goals = policy_scope(UserAnswer).overall("personal_goals")
-    @action_steps = policy_scope(UserAnswer).where.not(action_step: [nil, ''])
+    @action_steps = policy_scope(UserAnswer).where.not(action_step: [nil, ''], status: "resolved")
   end
 end
