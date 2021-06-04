@@ -19,7 +19,7 @@ puts "creating seeds"
 
 positive = [3,3,4,4,4,5,5,5,5,5]
 neutral = [1,2,3,3,4,4,4,5,5,5]
-negative = [1,1,1,1,2,2,2,3,3,4]
+negative = [1,1,1,2,2,2,3,3,4]
 nature_arrays = [negative, negative, neutral, neutral, neutral, neutral, neutral, positive, positive, positive]
 
 20.times do
@@ -41,7 +41,7 @@ puts "created #{User.all.count} Users"
 
 date_count = 0
   user = User.all.sample
-  8.times do
+  12.times do
     date = Date.today - date_count
     date_count +=7
     survey = Survey.create!(
@@ -161,7 +161,17 @@ end
     1.times do
       user_answer = UserAnswer.create!(
         user_id: (User.all.sample).id,
-        content: "I can't whistle, but none of my team members will teach me!",
+        content: "I have been feeling disconnected from the team recently.",
+        category: 'feedback'
+      )
+      user_answer = UserAnswer.create!(
+        user_id: (User.all.sample).id,
+        content: "It would be nice if we could have a flexible work schedule.",
+        category: 'feedback'
+      )
+      user_answer = UserAnswer.create!(
+        user_id: (User.all.sample).id,
+        content: "Working at home has been nice, but sometimes I miss important updates.",
         category: 'feedback'
       )
     end
