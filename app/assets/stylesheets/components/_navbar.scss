@@ -8,6 +8,10 @@
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  // a {
+  //   color: rgba(0, 0, 0, 0.6);
+
+  // }
 }
 
 .navbar-lewagon .navbar-brand img {
@@ -21,11 +25,22 @@ p {
 .navbar-logo {
   display: flex;
   align-items: center;
-  font-size: 32px;
+  // font-size: 32px;
   color: #12A1E7;
 
   .navbar-brand {
     margin: 0;
-    padding: 8px;
+    // padding: 8px;
   }
+
+  p {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    padding: 0 8px;
+  }
+}
+
+a.nav-link {
+  // color: red!important;
+  // padding: 0 8px;
 }

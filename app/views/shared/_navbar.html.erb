@@ -3,7 +3,7 @@
     <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "kyoro-logo-square.png" %>
     <% end %>
-    <p>Kyoro</p>
+    <p>kyoro</p>
     <%# <p>KY0R0</p> %>
   </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,10 +12,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%# link_to "Home", "#", class: "nav-link" %>
+        <li class="nav-item">
+          <%= link_to "DASHBOARD", dashboard_path, class: "nav-link mx-2" %>
         </li>
         <li class="nav-item">
+          <%= user_signed_in? ? current_user.name : "" %>
+          <%# p current_user.name %>
           <%# link_to "Messages", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
