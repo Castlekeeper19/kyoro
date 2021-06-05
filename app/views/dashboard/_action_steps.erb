@@ -1,0 +1,15 @@
+<div class="dashboard-feedback">
+<div>
+  <h3 class = "border-bottom"><%= link_to "Feedback", user_answers_path %></h3>
+  <% if @action_steps.count > 0 %>
+    <% @action_steps.each do |feedback| %>
+      <div class="action-step">
+       <p><strong>"<%= feedback.content %>"</strong></p>
+       <p class="text-right"><i><%= feedback.action_step %></i></p>
+      </div>
+      <% end %>
+      <% else %>
+        <p>No current action steps</p>
+      <% end %>
+  </div>
+</div>

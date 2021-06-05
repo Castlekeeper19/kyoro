@@ -1,0 +1,18 @@
+ <div class="dashboard-survey">
+      <div>
+        <h3 class = "border-bottom"><%= link_to "Latest Survey", survey_path(@survey) %></h3>
+           <p><%= @survey.name %></p>
+
+         </div>
+         <div
+            class="ldBar label-center bar-<%= @survey.id %>"
+            <%# data-stroke="data:ldbar/res,gradient(0,1,#9df,#fd9)", %>
+            data-stroke="data:ldbar/res,gradient(0,1,#F6C45C)",
+            data-value="<%= @survey.response_rate %>"
+            data-preset="circle"
+            style="width: 80%; height: 80%;"
+            data-id="<%= @survey.id %>"
+          ></div>
+           <p><i>Responses: <%= @survey.response_number %> of <%= User.all.count %></i> </p>
+           <p><i>Sent on: <%= @survey.date_sent.strftime("%-d %B %Y")%></i></p>
+        </div>
