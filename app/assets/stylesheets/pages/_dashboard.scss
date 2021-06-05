@@ -42,12 +42,17 @@ background-color: #f3b72dd1;
 
 
 .category-square {
-  background-color: #97ABE0;
+  // background-color: #97ABE0;
   margin: 8px;
   display: flex;
   flex-direction: column;
   box-shadow: 3px 3px 10px rgba(0,0,0,.4);
   border: 2px groove #3366CC;
+  border:1px solid;
+  background:
+  linear-gradient(green,green)   left/100% calc(100% - 120px),
+  linear-gradient(#F6C45C,#F6C45C) left/100% calc(100% - 108px),
+  red;
 }
 
 

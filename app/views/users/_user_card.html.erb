@@ -9,6 +9,7 @@
     <div class="user-card-bottom">
       <h3><%= user.name %></h3>
       <p><%= user.role %></p>
+      <% user_score = user.overall_total %>
       <div class="user-card-score">
         <p>ENGAGEMENT STATUS: <%= user.overall_total %>% </p>
       </div>
