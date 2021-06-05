@@ -62,11 +62,13 @@ class SurveysController < ApplicationController
     message = [
       {
         "type": "section",
+        "block_id": 'survey',
         "text": {
           "type": "plain_text",
           "text": @survey.name,
           "emoji": true
         }
+
       }
     ]
     @survey.questions.each do |question|
@@ -169,6 +171,7 @@ class SendSlackMessageService
         'Content-Type' => 'application/json',
         'Authorization' => ('Bearer ' + token)
       }
+      # block_id: 'survey_question'
     )
     p response
 
