@@ -53,7 +53,7 @@
             data-id="<%= @survey.id %>"
           ></div>
            <p><i>Responses: <%= @survey.response_number %> of <%= User.all.count %></i> </p>
-           <p><i>Sent on: <%= @survey.date_sent.strftime("%-d %B %Y") %></i></p>
+           <p><i>Sent on: <%= @survey.date_sent.strftime("%-d %B %Y")%></i></p>
         </div>
         <div class="dashboard-feedback">
           <div>
