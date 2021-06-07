@@ -5,11 +5,16 @@ class UserAnswerPolicy < ApplicationPolicy
     end
   end
 
-  def index?
-    user == record.user
+  def show?
+    true
+  end
+
+  def webhook?
+    !user.nil?
   end
 
   def update?
     true
   end
+
 end

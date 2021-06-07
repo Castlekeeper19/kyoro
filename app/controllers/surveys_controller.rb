@@ -55,13 +55,14 @@ class SurveysController < ApplicationController
   end
 
   def survey_params
-    params.require(:survey).permit(:name, :content, questions_attributes: [:content, answers_attributes: [:content, :category]])
+    params.require(:survey).permit(:name, :content, questions_attributes: [:content, :category, answers_attributes: [:content, :category]])
   end
 
   def build_message
     message = [
       {
         "type": "section",
+        "block_id": "survey-#{@survey.id}",
         "text": {
           "type": "plain_text",
           "text": @survey.name,
@@ -86,7 +87,7 @@ class SurveysController < ApplicationController
                 "text": "1",
                 "emoji": true
               },
-              "value": "value-1"
+              "value": { :question_id => question.id, :question_category => question.category, :answer_value => 1 }.to_json
             },
             {
               "text": {
@@ -94,7 +95,7 @@ class SurveysController < ApplicationController
                 "text": "2",
                 "emoji": true
               },
-              "value": "value-2"
+               "value": ({ question_id: question.id, :question_category => question.category, :answer_value => 2}).to_json
             },
             {
               "text": {
@@ -102,7 +103,7 @@ class SurveysController < ApplicationController
                 "text": "3",
                 "emoji": true
               },
-              "value": "value-3"
+              "value": { question_id: question.id, :question_category => question.category, :answer_value => 3}.to_json
             },
             {
               "text": {
@@ -110,7 +111,7 @@ class SurveysController < ApplicationController
                 "text": "4",
                 "emoji": true
               },
-              "value": "value-4"
+              "value": { question_id: question.id, :question_category => question.category, :answer_value => 4}.to_json
             },
             {
               "text": {
@@ -118,7 +119,7 @@ class SurveysController < ApplicationController
                 "text": "5",
                 "emoji": true
               },
-              "value": "value-5"
+              "value": { question_id: question.id, :question_category => question.category, :answer_value => 5}.to_json
             }
           ],
           "action_id": "static_select-action"

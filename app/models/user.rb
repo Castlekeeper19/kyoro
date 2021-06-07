@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :photo
   has_many :user_answers
+  acts_as_token_authenticatable
 
   def overall(category)
     feeling = 0

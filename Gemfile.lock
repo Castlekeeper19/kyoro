@@ -114,6 +114,7 @@ GEM
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
+    hashie (4.1.0)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -260,6 +261,10 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    simple_token_authentication (1.17.0)
+      actionmailer (>= 3.2.6, < 7)
+      actionpack (>= 3.2.6, < 7)
+      devise (>= 3.2, < 6)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -323,6 +328,7 @@ DEPENDENCIES
   faker
   font-awesome-sass
   groupdate
+  hashie
   httparty
   jbuilder (~> 2.7)
   listen (~> 3.2)
@@ -337,6 +343,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   simple_form
+  simple_token_authentication
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
