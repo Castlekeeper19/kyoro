@@ -114,6 +114,7 @@ GEM
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
+    hashie (4.1.0)
     http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -327,6 +328,7 @@ DEPENDENCIES
   faker
   font-awesome-sass
   groupdate
+  hashie
   httparty
   jbuilder (~> 2.7)
   listen (~> 3.2)

@@ -1,7 +1,5 @@
 class Api::V1::UserAnswersController < Api::V1::BaseController
-
-  # skip_before_action :verify_authenticity_token
-  acts_as_token_authentication_handler_for User, except: [ :index, :show ]
+  skip_after_action :verify_authorized, only: [:webhook]
   before_action :set_user_answer, only: [ :show ]
 
   def index
@@ -13,30 +11,21 @@ class Api::V1::UserAnswersController < Api::V1::BaseController
   end
 
   def webhook
-
-
-    params coming from Slack
+    # params coming from Slack
     payload = JSON.parse(params['payload'])
     action = payload['message']['blocks'].first['block_id']
-
-    case action
-      when action == "survey"
-        @user_answer = UserAnswer.new
-        @user_answer.user = current_user
-
+    if action.start_with?("survey")
+      payload["state"]["values"].each do |key,value|
+      answer_key = JSON.parse(value["static_select-action"]["selected_option"]["value"])
+      @user_answer = UserAnswer.new
+      @user_answer.user = User.find_by("slack_username = ?", payload["user"]["username"])
+      @user_answer.answer_score =  answer_key["answer_value"]
+      @question = Question.find(answer_key["question_id"])
+      @user_answer.answer = @question.answers[0]
+      @user_answer.category = (answer_key["question_category"].downcase)
+      @user_answer.save
       end
-    # when 'another'
-
-    # end
-
-  #   @user_answer = UserAnswer.new(user_answer_params)
-  #   @user_answer.user = current_user
-  #   authorize @user_answer
-  #   if @user_answer.save
-  #     render :show
-  #   else
-  #     render_error
-  #   end
+    end
   end
 
 

@@ -10,14 +10,11 @@ class UserAnswerPolicy < ApplicationPolicy
   end
 
   def webhook?
-    true
+    !user.nil?
   end
 
   def update?
     true
   end
 
-  # def create?
-  #   true
-  # end
 end
