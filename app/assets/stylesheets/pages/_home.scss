@@ -1,25 +1,76 @@
 // Specific CSS for your home-page
 .home-container {
-  margin: 40px auto;
+  margin: 70px auto;
 
 }
 
-.home-container .intro h2, .home-container .intro p {
+.home-container.intro {
   text-align: center;
+}
+
+.home-features {
+  border: 4px solid #ebcda8a1;
+  border-radius: 4px;
+  padding: 0;
+}
+
+.home-features .top-feature {
+  // padding: 70px 70px 35px;
+  // padding: 35px;
+  background-color: #ebcda8a1;
+}
+
+.home-features .middle-feature {
+  // padding: 35px;
+  text-align: right;
+  // order: 4px solid #ebcda8a1;
+  // border-radius: 8px;
+}
+
+.home-features .bottom-feature {
+  // padding: 70px 70px 35px;
+  // padding: 35px;
+  background-color: #ebcda8a1;
 }
 
 .home-feature {
   display: flex;
   align-items: center;
+  position: relative;
+  // padding: 35px 70px;
+  padding: 70px;
 }
 
 .home-feature img {
-  width: 400px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  width: 320px;
+  // height: 100px;
+  // box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
-  margin-right: 32px;
 }
 
 .home-feature .home-feature-text {
   flex-grow: 1;
+}
+
+
+.home-feature .card-img-2 {
+  padding: 8px;
+}
+
+.home-feature .card-img-1, .home-feature .card-img-3 {
+  margin-right: 48px;
+}
+
+.home-feature .card-img-2 {
+  margin-left: 48px;
+}
+// .home-feature-bg {
+//   position: absolute;
+//   background-color: #ebcda8a1;
+//   width: 100vw;
+//   height: 110px;
+//   z-index: -1;
+// }
+.home-reviews {
+  margin: 70px auto;
 }
