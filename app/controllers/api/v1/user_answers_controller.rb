@@ -12,18 +12,27 @@ class Api::V1::UserAnswersController < Api::V1::BaseController
 
   def webhook
     # params coming from Slack
-    payload = JSON.parse(params['payload'])
-    action = payload['message']['blocks'].first['block_id']
-    if action.start_with?("survey")
-      payload["state"]["values"].each do |key,value|
-      answer_key = JSON.parse(value["static_select-action"]["selected_option"]["value"])
+    if params["command"] == "/feedbackbox"
       @user_answer = UserAnswer.new
-      @user_answer.user = User.find_by("slack_username = ?", payload["user"]["username"])
-      @user_answer.answer_score =  answer_key["answer_value"]
-      @question = Question.find(answer_key["question_id"])
-      @user_answer.answer = @question.answers[0]
-      @user_answer.category = (answer_key["question_category"].downcase)
+      @user_answer.user = User.find_by("slack_username = ?", params["user_name"])
+      @user_answer.content = params["text"]
+      @user_answer.category = 'feedback'
       @user_answer.save
+      render status: 200, json: { response_type: "ephemeral", text: "Thanks for your feedback!" }.to_json
+    else
+      payload = JSON.parse(params['payload'])
+      action = payload['message']['blocks'].first['block_id']
+      if action.start_with?("survey")
+        payload["state"]["values"].each do |key,value|
+          answer_key = JSON.parse(value["static_select-action"]["selected_option"]["value"])
+          @user_answer = UserAnswer.new
+          @user_answer.user = User.find_by("slack_username = ?", payload["user"]["username"])
+          @user_answer.answer_score =  answer_key["answer_value"]
+          @question = Question.find(answer_key["question_id"])
+          @user_answer.answer = @question.answers[0]
+          @user_answer.category = (answer_key["question_category"].downcase)
+          @user_answer.save
+        end
       end
     end
   end
