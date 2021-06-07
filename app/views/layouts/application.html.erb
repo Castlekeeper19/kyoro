@@ -16,9 +16,11 @@
     <%= render 'shared/flashes' %>
 
     <div class="content-wrapper">
-      <div class="sidebar">
-        <%= render 'shared/sidebar' %>
-      </div>
+      <% unless controller_name == "pages" %>
+        <div class="sidebar">
+          <%= render 'shared/sidebar' %>
+        </div>
+      <% end %>
       <div class="container view-wrapper">
         <%= yield %>
       </div>
