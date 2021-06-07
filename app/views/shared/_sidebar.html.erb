@@ -1,21 +1,9 @@
 <ul class="list-unstyled components sidebar-ul">
-  <% if user_signed_in? %>
-    <li class="active sidebar-li">
-      <%# <a class="sidebar-a" href="#">DASHBOARD</a> %>
-      <%= link_to "DASHBOARD", dashboard_path, class: "sidebar-a" %>
-      <%# link_to 'Edit my profile', edit_user_path(current_user), class: "sidebar-a" %>
-    </li>
-    <%# <li class="active sidebar-li">
-      <a class="sidebar-a dropdown-toggle" href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">As a Trainer</a> %>
-    <%# <ul class="collapse list-unstyled sidebar-ul" id="homeSubmenu">
-        <li class="sidebar-li">
-          <a class="sidebar-a nested" href="#">Manage my Workouts</a>
-        </li>
-        <li class="sidebar-li">
-          <a class="sidebar-a nested" href="#">Manage my Workouts</a> %>
-    <%# link_to 'Create a Workout', new_workout_path, class: "sidebar-a nested" %>
-    <%# </li>
-      </ul> %>
+  <li class="active sidebar-li">
+    <%# <a class="sidebar-a" href="#">DASHBOARD</a> %>
+    <%= link_to "DASHBOARD", dashboard_path, class: "sidebar-a" %>
+    <%# link_to 'Edit my profile', edit_user_path(current_user), class: "sidebar-a" %>
+  </li>
   </li>
   <li class="sidebar-li">
     <%= link_to "YOUR TEAM", users_path, class: "sidebar-a" %>
@@ -31,18 +19,4 @@
   <li class="sidebar-li">
     <%= link_to "KYOROBOT", new_survey_path, class: "sidebar-a" %>
   </li>
-<% else %>
-  <li class="sidebar-li">
-    <%= link_to "GETTING STARTED", '#', class: "sidebar-a" %>
-  </li>
-  <li class="sidebar-li">
-    <%= link_to "USE CASES", '#', class: "sidebar-a" %>
-  </li>
-  <li class="sidebar-li">
-    <%= link_to "MEET THE TEAM", '#', class: "sidebar-a" %>
-  </li>
-  <li class="sidebar-li">
-    <%= link_to "ABOUT", '#', class: "sidebar-a" %>
-  </li>
-<% end %>
 </ul>
