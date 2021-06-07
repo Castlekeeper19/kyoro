@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
+    # @users = User.where(company: current_user.company)
     # @users = policy_scope(User).order(created_at: :desc)
     if params[:query].present?
       @users = policy_scope(User).where("name ILIKE ?", "%#{params[:query]}%").order("created_at DESC")

@@ -21,6 +21,7 @@ positive = [3,3,4,4,4,5,5,5,5,5]
 neutral = [1,2,3,3,4,4,4,5,5,5]
 negative = [1,1,1,2,2,2,3,3,4]
 nature_arrays = [negative, negative, neutral, neutral, neutral, neutral, neutral, positive, positive, positive]
+company = ["Kyoro Inc.", "Le Wagon Inc.", "Meguro Inc."]
 
 20.times do
 
@@ -28,7 +29,7 @@ nature_arrays = [negative, negative, neutral, neutral, neutral, neutral, neutral
     name:  Faker::Name.first_name + " " + Faker::Name.last_name,
     email: Faker::Internet.email,
     password: 123123,
-    company: "Kyoro Inc.",
+    company: company.sample,
     slack_username: Faker::Internet.username,
     title: "team member",
     role: Faker::Job.title,
