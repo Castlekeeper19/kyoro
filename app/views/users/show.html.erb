@@ -58,10 +58,12 @@
     <div class="box26">
       <span class="box-title">NOTES</span>
       <p style="margin-top: 10px; margin-left: 10px;"><%= @user.note %></p>
-        <%= simple_form_for(@user) do |f| %>
-        <%= f.input :note, label: false %>
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-        <% end %>
+
+
+      <%= render 'form_note', user:@user %>
+
+
+
     </div>
   </div>
 </div>
