@@ -1,12 +1,15 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
   // background: white;
   background: transparent;
   height: 70px;
-  padding-top: 0;
+  // padding-top: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar .navbar-collapse {
   flex-grow: 0;
   // a {
   //   color: rgba(0, 0, 0, 0.6);
@@ -14,8 +17,9 @@
   // }
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar .navbar-brand img {
   width: 40px;
+  height: 40px;
 }
 
 p {
@@ -44,4 +48,8 @@ a.nav-link {
   // color: red!important;
   // padding: 0 8px;
   font-size: 18px!important;
+}
+
+.navbar-white {
+  background-color: #fff;
 }

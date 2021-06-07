@@ -37,8 +37,10 @@ gem 'faker'
 gem 'pundit'
 gem 'cocoon'
 gem 'httparty'
-gem 'rails_admin', '~> 2.0'
+
 gem 'simple_token_authentication'
+gem 'rails_admin', '2.1.0'
+
 
 
 gem 'autoprefixer-rails', '10.2.5'

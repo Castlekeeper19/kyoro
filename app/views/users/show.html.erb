@@ -4,10 +4,14 @@
       <h1><strong><em><%= @user.name %></strong></em></h1>
       <h2><%= @user.role %></h2>
     </div>
-      <h3 class="user-goal">Goal: "<%= @user.goal %>"</h3>
+    <div class="user-goal">
       <h3 style="font-size:20px;"><%= link_to(edit_user_path(@user)) do %>
             <i class="far fa-edit"></i>
           <% end %></h3>
+      <% unless @user.goal.empty? %>
+      <h3>Goal: "<%= @user.goal %>"</h3>
+      <% end %>
+    </div>
     <div class ="d-flex">
       <%= image_tag User.find(@user.id).photo.attached? ? cl_image_path(User.find(@user.id).photo.key) : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "user-image" %></br>
 <!-- added bar chart  -->
@@ -58,10 +62,12 @@
     <div class="box26">
       <span class="box-title">NOTES</span>
       <p style="margin-top: 10px; margin-left: 10px;"><%= @user.note %></p>
-        <%= simple_form_for(@user) do |f| %>
-        <%= f.input :note, label: false %>
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-        <% end %>
+
+
+      <%= render 'form_note', user:@user %>
+
+
+
     </div>
   </div>
 </div>
