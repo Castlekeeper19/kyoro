@@ -15,16 +15,25 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
-    <div class="content-wrapper">
-      <% unless controller_name == "pages" %>
-        <div class="sidebar">
-          <%= render 'shared/sidebar' %>
+    <% if controller_name == "pages" %>
+        <%= render 'banner' %>
+    <% end %>
+
+
+    <% if controller_name != "pages" %>
+      <div class="content-wrapper">
+        <% if user_signed_in? %>
+          <div class="sidebar">
+            <%= render 'shared/sidebar' %>
+          </div>
+        <% end %>
+        <div class="container view-wrapper">
+          <%= yield %>
         </div>
-      <% end %>
-      <div class="container view-wrapper">
-        <%= yield %>
       </div>
-    </div>
+    <% else %>
+        <%= yield %>
+    <% end %>
 
     <%= render 'shared/footer' %>
 
