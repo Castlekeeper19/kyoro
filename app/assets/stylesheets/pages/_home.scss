@@ -1,1 +1,25 @@
 // Specific CSS for your home-page
+.home-container {
+  margin: 40px auto;
+
+}
+
+.home-container .intro h2, .home-container .intro p {
+  text-align: center;
+}
+
+.home-feature {
+  display: flex;
+  align-items: center;
+}
+
+.home-feature img {
+  width: 400px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  margin-right: 32px;
+}
+
+.home-feature .home-feature-text {
+  flex-grow: 1;
+}
