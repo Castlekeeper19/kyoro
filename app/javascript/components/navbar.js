@@ -1,16 +1,18 @@
 
 const navbarScroll = () => {
   const navbar = document.querySelector('.navbar');
+  console.log(navbar);
   // const showBgc = document.querySelector('.navbar-collapse');
   if (navbar) {
     window.addEventListener('scroll', () => {
-      if (window.scrollY >= 60) {
-        navbar.classList.add('navbar-lewagon-dark');
+      console.log(window.scrollY);
+      if (window.scrollY >= 5) {
+        navbar.classList.add('navbar-white');
       } else {
-        navbar.classList.remove('navbar-lewagon-dark');
+        navbar.classList.remove('navbar-white');
       }
     })
   }
 }
 
-export { initUpdateNavbarOnScroll };
+export { navbarScroll };

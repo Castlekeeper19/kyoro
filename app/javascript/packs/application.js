@@ -27,15 +27,17 @@ require("@nathanvda/cocoon")
 // External imports
 import "bootstrap";
 import "chartkick/chart.js";
-// import "../components/loading_bar"
 import 'loadingio-bar';
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import { navbarScroll } from '../components/navbar';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  navbarScroll();
+
   const allBars = document.querySelectorAll(".ldBar");
   allBars.forEach(bar => {
    const barId = bar.dataset.id;
@@ -45,6 +47,5 @@ document.addEventListener('turbolinks:load', () => {
     // "preset": "fan",
     // "value": 65
   })
-
   });
 });
