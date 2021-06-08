@@ -15,6 +15,7 @@
   </li>
   <li class="sidebar-li">
     <%= link_to "ANONYMOUS FEEDBACK", user_answers_path, class: "sidebar-a" %>
+    <%= UserAnswer.notifications > 0 ? UserAnswer.notifications : "" %>
   </li>
   <li class="sidebar-li">
     <%= link_to "KYOROBOT", new_survey_path, class: "sidebar-a" %>
