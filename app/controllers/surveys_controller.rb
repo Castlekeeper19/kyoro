@@ -20,7 +20,7 @@ class SurveysController < ApplicationController
   end
 
   def create
-    2.times do |time|
+    # 2.times do |time|
       @survey = Survey.new(survey_params)
       @survey.user = current_user
       authorize @survey
@@ -35,7 +35,7 @@ class SurveysController < ApplicationController
       #     answer.save
       #   end
         # SendSurveyJob.perform_now(@survey)
-        SendSurveyJob.set(wait: time.minute).perform_later(@survey)
+        SendSurveyJob.perform_now(@survey)
 
 
         # SendSlackMessageService.new(
@@ -46,7 +46,7 @@ class SurveysController < ApplicationController
       else
         render 'new.html.erb'
         end
-      end
+      # end
       redirect_to dashboard_path
     end
 

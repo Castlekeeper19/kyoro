@@ -7,7 +7,7 @@ class SendSurveyJob < ApplicationJob
   #   puts "OK I'm done now"
   # end
   def perform(survey)
-
+    sleep 3
       survey.questions.each do |question|
         answer = Answer.new(
           content: (1..5).to_a,
