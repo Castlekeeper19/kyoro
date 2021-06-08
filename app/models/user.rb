@@ -28,4 +28,16 @@ class User < ApplicationRecord
   end
     feeling > 0 ? ((feeling.to_f/count)*20).to_i : feeling
  end
+
+ def color(category)
+  score = self.overall(category)
+  if score > 3.5
+   color = "#499F68"
+  elsif score > 3
+  color = "#FCFC62"
+  else
+  color = "#EF6F6C"
+  end
+  color
+ end
 end

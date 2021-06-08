@@ -21,6 +21,6 @@ class UserAnswersController < ApplicationController
   end
 
   def user_answer_params
-    params.require(:user_answer).permit(:category, :status, :content, :action_step)
+    params.require(:user_answer).permit(:id, :category, :status, :content, :action_step)
   end
 end
