@@ -32,12 +32,24 @@ class User < ApplicationRecord
  def color(category)
   score = self.overall(category)
   if score > 3.5
-   color = "#499F68"
+   color = "#73BF8F"
   elsif score > 3
   color = "#FCFC62"
   else
-  color = "#EF6F6C"
+  color = "#F1807E"
   end
   color
  end
+
+ def overall_color
+  score = self.overall_total
+  if score > 70
+   color = "#73BF8F"
+  elsif score > 60
+  color = "#FFE270"
+  else
+  color = "#F1807E"
+  end
+  color
+end
 end
