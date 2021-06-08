@@ -43,6 +43,27 @@
   color: #12A1E7;
 }
 
+.li-notification {
+  position: relative;
+}
+
+.notification {
+  position: absolute;
+  top: 5px;
+  // top: calc(50% - 12px);
+  right: 5px;
+  padding: 1px 8px;
+  // width: 30px;
+  // height: 30px;
+  background-color: #ec5755;
+  border-radius: 50%;
+  // border-radius: 9px;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+
 
 // .sidebar {
 //   padding: 16px 0 16px 16px;
