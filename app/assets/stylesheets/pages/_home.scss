@@ -73,4 +73,48 @@
 // }
 .home-reviews {
   margin: 70px auto;
+  // background-color: rgb(221, 221, 221);
+}
+
+.review-carousel {
+  display: flex;
+  justify-content: center;
+  // align-items: center;
+  // width: 90vw;
+  // margin: 0 auto;
+}
+
+.review-card {
+  width: 200px;
+  // margin: 0 32px;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  padding: 0 24px;
+  text-align: center;
+  opacity: .8;
+
+  // p {
+  //   opacity: .8;
+  // }
+  span {
+    font-size: 20px;
+  }
+  img {
+    margin: 0 auto;
+  }
+}
+
+.review-card img {
+  width: 200px;
+}
+
+.logo-billsplitter {
+  padding: 32px 40px 26px;
+}
+
+.logo-lewagon {
+  // padding: 32px 56px 26px;
+  padding: 32px auto 26px;
 }
