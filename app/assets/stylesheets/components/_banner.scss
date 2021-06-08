@@ -15,6 +15,9 @@
   // transform: scaleY(-1);
   // transform: scaleX(-1);
   width: 75%;
+  .btn {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  }
 }
 
 .banner-text h1, .banner-text p {

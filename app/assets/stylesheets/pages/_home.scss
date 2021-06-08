@@ -134,3 +134,30 @@
 // .slick-arrow {
 //   display: none;
 // }
+
+@media (min-width: 768px) {
+  .home-feature {
+    flex-direction: column;
+    text-align: center;
+
+    h3 {
+      margin-top: 40px;
+    }
+
+    img {
+      margin: 0;
+    }
+  }
+
+  .home-feature .card-img-1, .home-feature .card-img-2, .home-feature .card-img-3 {
+    margin: 0;
+  }
+
+  .middle-feature {
+    flex-direction: column-reverse;
+
+    .home-feature-text {
+      text-align: center;
+    }
+  }
+}
