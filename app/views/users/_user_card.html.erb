@@ -10,7 +10,7 @@
       <h3><%= user.name %></h3>
       <p><%= user.role %></p>
       <% user_score = user.overall_total %>
-      <div class="user-card-score">
+      <div class="user-card-score" style="background-color: <%=user.overall_color%>;">
         <p>ENGAGEMENT STATUS: <%= user.overall_total %>% </p>
       </div>
     </div>
