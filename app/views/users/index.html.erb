@@ -1,7 +1,8 @@
 <%# <div class="container"> %>
   <div class="user-container">
     <div>
-    <h1><%= @users.count - 1 %> <%=  "member".pluralize(@users.count - 1 ).capitalize %> <%= current_user.company %></h1>
+    <h1><%= @users.count.zero? ? @users.count : @users.count - 1 %>
+     <%=  "member".pluralize(@users.count - 1 ).capitalize %> <%= current_user.company %></h1>
 
     <div class="user-search">
       <%= render 'shared/search' %>
