@@ -10,11 +10,10 @@
           <%= user_answer.content %>
           <br>
           <%= simple_form_for user_answer do |f| %>
-            <%= f.hidden_field :status, value: "resolved" %>
+            <%= f.hidden_field :status, value: 'resolved' %>
             <%= f.submit "Mark as resolved", class: "btn btn-success mt-4" %>
           <% end %>
         </div>
-
         <div class="box26 action_steps">
           <span class="box-title">NOTES</span>
           <p style="margin-top: 10px; margin-left: 10px;"><%= user_answer.action_step %></p>
@@ -23,4 +22,27 @@
       </div>
     <% end %>
   <% end %>
+  <div class="resolved-feedback" data-controller="collapsible-form">
+    <button class="btn btn-outline-primary" data-action="click->collapsible-form#expandDropdown">Show Resolved Feedback</button>
+    <div class="resolved-feedback-internal" data-collapsible-form-target="dropdown">
+      <% @user_answers.each do |user_answer| %>
+        <% if user_answer.category == 'feedback' && user_answer.status == 'resolved' %>
+          <div class="feedback-row">
+            <div class="user_answer_description">
+              <%# <p><i class="fas fa-exclamation-triangle"></i>  %>
+              <p><strong>Received: <%= user_answer.created_at.strftime('%A, %b %d') %></strong> <span class="feedback-status"><%= user_answer.status.upcase %></span></p>
+              <br>
+              <%= user_answer.content %>
+              <br>
+            </div>
+            <div class="box26 action_steps">
+              <span class="box-title">NOTES</span>
+              <p style="margin-top: 10px; margin-left: 10px;"><%= user_answer.action_step %></p>
+              <%= render 'edit_modal', user_answer: user_answer %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
