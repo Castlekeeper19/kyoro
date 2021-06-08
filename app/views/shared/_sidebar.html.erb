@@ -4,20 +4,23 @@
     <%= link_to "DASHBOARD", dashboard_path, class: "sidebar-a" %>
     <%# link_to 'Edit my profile', edit_user_path(current_user), class: "sidebar-a" %>
   </li>
-</li>
-<li class="sidebar-li">
-  <%= link_to "YOUR TEAM", users_path, class: "sidebar-a" %>
-  <%# <a class="sidebar-a" href="#">YOUR TEAM</a> %>
-</li>
-<li class="sidebar-li">
-  <%= link_to "SURVEYS", surveys_path, class: "sidebar-a" %>
-  <%# <a class="sidebar-a" href="#">SURVEYS</a> %>
-</li>
-<li class="sidebar-li">
-  <%= link_to "ANONYMOUS FEEDBACK #{UserAnswer.notifications > 0 ? "(#{UserAnswer.notifications})" : ""}", user_answers_path, class: "sidebar-a" %>
-  <%=  %>
-</li>
-<li class="sidebar-li">
-  <%= link_to "KYOROBOT", new_survey_path, class: "sidebar-a" %>
-</li>
+  
+  </li>
+  <li class="sidebar-li">
+    <%= link_to "YOUR TEAM", users_path, class: "sidebar-a" %>
+    <%# <a class="sidebar-a" href="#">YOUR TEAM</a> %>
+  </li>
+  <li class="sidebar-li">
+    <%= link_to "SURVEYS", surveys_path, class: "sidebar-a" %>
+    <%# <a class="sidebar-a" href="#">SURVEYS</a> %>
+  </li>
+  <li class="sidebar-li li-notification">
+    <%= link_to "ANONYMOUS FEEDBACK", user_answers_path, class: "sidebar-a" %>
+    <div class="notification">
+      <%= UserAnswer.notifications > 0 ? UserAnswer.notifications : "" %>
+    </div>
+  </li>
+  <li class="sidebar-li">
+    <%= link_to "KYOROBOT", new_survey_path, class: "sidebar-a" %>
+  </li>
 </ul>
