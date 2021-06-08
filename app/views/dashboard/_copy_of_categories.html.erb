@@ -1,41 +1,30 @@
-<div class="categories-overview">
-<h4 class="text-center mb-4">Past Month Overview</h4>
-<div class= "category-squares-box">
-  <div class="category-squares-description category-description-left">
-    <div class="top">
-      <p>Mood</p>
-      <h2><%= @team_mood %>%</h2>
-    </div>
-    <div class="bottom">
-      <h2><%= @team_goals %>% </h2>
-      <%# <p>Personal Goals</p> %>
-      <p>Goals</p>
-    </div>
 
+<div class= "category-squares-box">
+  <h4 class="text-center mb-4">Past Month Overview</h4>
+  <div class="d-flex justify-content-between">
+    <h4>Mood</h4>
+    <h4>Support</h4>
   </div>
   <div class="category-squares" >
     <div class="d-flex align-items-end">
       <div class = "category-square mood-square", style = "height: <%= 2* @team_mood %>px; width: <%= 2* @team_mood %>px;">
+        <h4><%= @team_mood %>%</h4>
       </div>
       <div class = "category-square support-square", style = "height: <%= 2* @team_support %>px; width: <%= 2* @team_support %>px;">
+        <h4><%= @team_support %>% </h4>
       </div>
     </div>
     <div class="d-flex align-items-start">
       <div class = "category-square motivation-square", style = "height: <%= 2* @team_motivation %>px; width: <%= 2* @team_motivation %>px;text-align: right ">
+        <h4><%= @team_motivation %>%</h4>
       </div>
       <div class = "category-square goals-square", style = "height: <%= 2* @team_goals %>px; width: <%= 2* @team_goals %>px;">
+        <h4><%= @team_goals %>% </h4>
       </div>
     </div>
   </div>
-  <div class="category-squares-description category-description-right">
-    <div class="top">
-      <p>Motivation</p>
-      <h2><%= @team_motivation %>%</h2>
-    </div>
-    <div class="bottom">
-      <h2><%= @team_support %>% </h2>
-      <p>Support</p>
-    </div>
+  <div class = "d-flex justify-content-between">
+    <h4>Motivation</h4>
+    <h4>Personal Goals</h4>
   </div>
-</div>
 </div>

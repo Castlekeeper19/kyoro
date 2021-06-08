@@ -3,9 +3,13 @@
     <div class = "dashboard-top">
       <%= render 'categories', team_mood: @team_mood, team_support: @team_support, team_motivation: @team_motivation, team_goals: @team_goals %>
       <%= render 'survey', survey: @survey %>
-      <%= render 'action_steps', action_steps: @action_steps %>
     </div>
-    <%= render 'timeline' %>
+    <%# <div class="dashboard-middle">
+    </div> %>
+    <div class="dashboard-bottom">
+      <%= render 'action_steps', action_steps: @action_steps %>
+      <%= render 'timeline' %>
+    </div>
   </div>
 </div>
 
