@@ -72,14 +72,23 @@
 //   z-index: -1;
 // }
 .home-reviews {
-  margin: 70px auto;
-  // background-color: rgb(221, 221, 221);
+  margin-top: 70px ;
+
+  padding: 40px 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
+
+  h3 {
+    text-align: center;
+    opacity: .8;
+    margin-bottom: 32px;
+  }
 }
 
 .review-carousel {
   display: flex;
   justify-content: center;
-  // align-items: center;
+  align-items: center;
   // width: 90vw;
   // margin: 0 auto;
 }
@@ -95,26 +104,33 @@
   text-align: center;
   opacity: .8;
 
-  // p {
-  //   opacity: .8;
-  // }
+  p {
+    // opacity: .8;
+    margin-top: 16px;
+  }
+
   span {
     font-size: 20px;
-  }
-  img {
-    margin: 0 auto;
   }
 }
 
 .review-card img {
-  width: 200px;
+  // width: 200px;
+  height: 80px;
+  margin: 0 auto;
+  padding: 0 auto;
+  filter: grayscale(1);
 }
 
-.logo-billsplitter {
-  padding: 32px 40px 26px;
-}
+// .logo-billsplitter {
+//   padding: 32px 40px 26px;
+// }
 
-.logo-lewagon {
+// .logo-lewagon {
   // padding: 32px 56px 26px;
-  padding: 32px auto 26px;
-}
+  // padding: 32px auto 26px;
+// }
+
+// .slick-arrow {
+//   display: none;
+// }
