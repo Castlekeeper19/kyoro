@@ -53,7 +53,8 @@ date_count = 0
       name: "General Survey",
       content: "Please answer this survey",
       user_id: user.id,
-      date_sent: date.strftime("%B %-d %Y")
+      date_sent: date.strftime("%B %-d %Y"),
+      options: "Scale"
     )
     puts "created #{Survey.count} Survey"
     counter = (User.all.count * rand(0.3..1)).to_i
