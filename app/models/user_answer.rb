@@ -9,7 +9,6 @@ class UserAnswer < ApplicationRecord
     feeling = 0
     count = 0
     UserAnswer.where("response_date >= ?", (Date.today - 30)).each do |answer|
-      # if  answer.category != "feedback" && answer.answer.question.category == category
       if  answer.category != "feedback" && answer.category == category
         feeling += answer.answer_score
         count += 1
