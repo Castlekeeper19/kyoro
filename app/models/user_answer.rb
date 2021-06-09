@@ -20,7 +20,7 @@ class UserAnswer < ApplicationRecord
 
 #Defines number of anonymous user feedback which have not been resolved/have no action step
   def self.notifications
-    UserAnswer.where(category: "feedback", status: "unresolved", action_step: ["", nil]).count
+    UserAnswer.where(category: "feedback", status: "unresolved").count
   end
 
 #To define color for overall category used in Dashboard pie graph
