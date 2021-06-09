@@ -1,5 +1,6 @@
 <%= simple_form_for @survey do |f| %>
   <%= f.input :name, label: "Survey Name", input_html: { class: 'survey-form-inputs' } %>
+  <%= f.input :options, label: "Type of Survey", collection: ['Scale', 'Yes / No', 'Other'], input_html: { class: 'survey-form-inputs' } %>
   <%= f.input :content, label: "Comment", input_html: { class: 'survey-form-inputs' } %>
   <div id="tasks">
     <%= f.simple_fields_for :questions do |question| %>
