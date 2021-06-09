@@ -3,7 +3,7 @@ class UserAnswersController < ApplicationController
 
 
   def index
-    @user_answers = policy_scope(UserAnswer).where(category: "feedback", status: "unresolved").order(created_at: :desc)
+    @user_answers = policy_scope(UserAnswer).where(category: "feedback").order(created_at: :desc)
   end
 
   def update
