@@ -1,13 +1,6 @@
-.categories-overview {
-  background-color: #fff;
-  border-top-left-radius: 12px;
-
-  h4 {
-    margin: 16px auto;
-  }
-}
 
 .dashboard-display {
+  background-color: #fff;
   // height: 100%;
   border-radius: 12px;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
@@ -19,14 +12,14 @@
     justify-content: space-between;
   }
 
-  .dashboard-middle {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    display: flex;
-  }
+  // .dashboard-middle {
+    //   border-top: 1px solid rgba(0, 0, 0, 0.1);
+    //   display: flex;
+    // }
 
   .dashboard-bottom {
     display: flex;
-    // justify-content: space-between;
+    justify-content: space-between;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
   }
 
@@ -35,20 +28,46 @@
   }
 }
 
+.categories-overview {
+  border-top-left-radius: 12px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // text-align: center;
+  // justify-content: center;
+
+
+  // h4 {
+  //   margin: 16px auto;
+  //   // font-weight: bold;
+  // }
+
+
+}
+
 // .dashboard-display h1, .dashboard-display h2, .dashboard-display h4 {
 //   text-shadow: 0 2px 6px rgba(0,0,0,0.1);
 // }
 
 .category-squares-label {
-  background-color: #f3b72dd1;
+  // background-color: #f3b72dd1;
+  // text-align: center;
   margin-top: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
+  // margin-bottom: 18px;
+  // margin-bottom: 10px;
+  // margin: 18px auto;
   padding: 10px 18px;
-  border-radius: 30px;
-  text-align: center;
-  h4 {
-    opacity: 1;
-  }
+  border-radius: 20px;
+  // width: 80%;
+  border-radius: 23px;
+  background-color: #eaeaea;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, .2);
+  // h4 {
+  //   text-align: center;
+  //   opacity: 1;
+  // }
 }
 
 .category-squares-box {
@@ -59,24 +78,52 @@
   padding: 16px;
   // margin-left: 12px;
   display: flex;
+  justify-content: center;
+  margin: auto;
 }
 
 .category-squares-description {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  opacity: .8;
+
+  h2 {
+    // font-weight: bold;
+    margin: 0;
+    font-size: 40px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 22px;
+  }
+
+}
+
+.category-description-right, .category-description-left {
+  min-width: 150px;
 }
 
 .category-description-right .top, .category-description-right .bottom {
     text-align: end!important;
-  }
+}
+
+.top {
+  margin-bottom: 48px;
+}
+
+.bottom {
+  margin-top: 48px;
+}
 
 .category-squares {
-  flex-grow: 1;
+  // flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // width: 350px;
 
   // h2 {
   //   color: #9C4846;
@@ -86,7 +133,7 @@
 
 .category-square {
   // background-color: #97ABE0;
-  margin: 8px;
+  margin: 2px;
   display: flex;
   flex-direction: column;
   // box-shadow: 3px 3px 10px rgba(0,0,0,.4);
@@ -101,42 +148,51 @@
 
 
 .mood-square {
-  border-top: 20px solid #EF6F6C;
-  border-left: 20px solid #EF6F6C;
+  border-top: 18px solid #EF6F6C;
+  border-left: 18px solid #EF6F6C;
   border-bottom: 3px solid #EF6F6C;
   border-right: 3px solid #EF6F6C;
   border-top-left-radius: 100%;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 4px;
   align-items: flex-end;
   justify-content: flex-end;
   padding: 0 12px 12px 0;
+
 }
 
 .support-square {
-  border-top: 20px solid;
-  border-right: 20px solid;
+  border-top: 18px solid;
+  border-right: 18px solid;
   border-bottom: 3px solid ;
   border-left: 3px solid ;
   border-top-right-radius: 100%;
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   justify-content: flex-end;
   padding: 0 0 12px 12px;
 }
 
 .motivation-square {
-  border-bottom: 20px solid #EF6F6C;
-  border-left: 20px solid #EF6F6C;
+  border-bottom: 18px solid #EF6F6C;
+  border-left: 18px solid #EF6F6C;
   border-top: 3px solid #EF6F6C;
   border-right: 3px solid #EF6F6C;
   border-bottom-left-radius: 100%;
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 4px;
   align-items: flex-end;
   padding: 12px 12px 0 0;
 }
 
 .goals-square {
-  border-bottom: 20px solid #EF6F6C;
-  border-right: 20px solid #EF6F6C;
+  border-bottom: 18px solid #EF6F6C;
+  border-right: 18px solid #EF6F6C;
   border-top: 3px solid #EF6F6C;
   border-left: 3px solid #EF6F6C;
   border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 4px;
   align-items: start;
   padding: 12px 0 0 12px;
 
