@@ -4,10 +4,12 @@
   <% responses =  @survey.response_number%>
   <p> Number of Responses: <%= responses %> of <%= "#{User.all.count}" %>  </p>
   <p> Responses: <%= @survey.response_rate%>% </p>
+  <div class="mt-3">
     <div class="survey-show-charts">
       <% @survey.questions.each do |question| %>
       <%= render 'survey_results', question: question, survey: @survey %>
       <% end %>
     </div>
+  </div>
   </div>
 </div>
