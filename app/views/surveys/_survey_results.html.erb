@@ -1,16 +1,18 @@
-    <div class="survey-show-chart">
-        <h3><%= (question.category).split("_").join(" ") %> </h3>
-        <%= column_chart question.user_answers.group(:answer_score).count, colors:["#F1807E", "#FFC65A", "#FCFC62", "#73BF8F", "#1EDD88"], width: "300px", height: "175px", min: 0, max: 6, xmin:1, xmax: 5, zeros: true, xtitle: "score", ytitle: "responses" %>
-        <div style="margin-top:5px;font-size: 12px;">
+<div class="survey-show-chart">
+  <h3><%= (question.category).split("_").join(" ") %> </h3>
 
-      <% if survey.low_responses(question.category) >= 1 %>
-      People who answered: 1</br>
+  <%= column_chart question.user_answers.group(:content).count, colors:["#F1807E", "#FFC65A", "#FCFC62", "#73BF8F", "#1EDD88"], width: "300px", height: "175px", min: 0, max: 6, xmin:1, xmax: 5, zeros: true, xtitle: "score", ytitle: "responses" if survey.options == "Yes / No" %>
 
+
+
+  <div style="margin-top:5px;font-size: 12px;">
+    <% if survey.low_responses(question.category) >= 1 %>
+      <h6>People who answered: 1 </h6>
       <% question.user_answers.each do |answer| %>
-          <% if answer.answer_score == 1 %>
-            <%= link_to (answer.user.name.split(",").flatten), user_path(answer.user) %>
-          <% end %>
+        <% if answer.answer_score == 1 %>
+         <p> <%= link_to (answer.user.name), user_path(answer.user) %></p>
+        <% end %>
       <% end %>
-      <% end %>
-      </div>
-      </div>
+    <% end %>
+  </div>
+</div>
