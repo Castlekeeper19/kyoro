@@ -1,10 +1,7 @@
 <div class="survey-show-chart">
   <h3><%= (question.category).split("_").join(" ") %> </h3>
-
   <%= column_chart question.user_answers.group(:content).count, colors:["#F1807E", "#FFC65A", "#FCFC62", "#73BF8F", "#1EDD88"], width: "300px", height: "175px", min: 0, max: 6, xmin:1, xmax: 5, zeros: true, xtitle: "score", ytitle: "responses" if survey.options == "Yes / No" %>
   <%= column_chart question.user_answers.group(:answer_score).count, colors:["#F1807E", "#FFC65A", "#FCFC62", "#73BF8F", "#1EDD88"], width: "300px", height: "175px", min: 0, max: 6, xmin:1, xmax: 5, zeros: true, xtitle: "score", ytitle: "responses" if survey.options == "Scale" %>
-
-
   <div style="margin-top:5px;font-size: 12px;">
     <% if survey.low_responses(question.category) >= 1 %>
       <h6>People who answered: 1 </h6>

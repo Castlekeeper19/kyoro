@@ -16,20 +16,20 @@ class Survey < ApplicationRecord
 
 # Finds the number of responses to specific survey
   def response_number
-    responses =  self.user_answers.distinct.count("user_id")
+    responses =  user_answers.distinct.count("user_id")
     return responses
   end
 
 # Finds rate of response to a specific survey from total users
   def response_rate
-    responses = self.response_number
+    responses = response_number
     rate = responses.to_f / User.all.count * 100
     rate.to_i
   end
 
 # Sets the color for survey bar charts based on response rate
   def response_color
-    rate = self.response_rate
+    rate = response_rate
     if rate > 80
       color = "#73BF8F"
     elsif rate > 70
@@ -41,7 +41,7 @@ class Survey < ApplicationRecord
 
 # Finds the average response score for a certain category
   def average_response(category)
-    responses = self.user_answers.all
+    responses = user_answers.all
     answers = []
     count = 0
       responses.each do |response|
@@ -55,7 +55,7 @@ class Survey < ApplicationRecord
   end
 
   def low_responses(category)
-    responses = self.user_answers.where(answer_score: 1, category: category)
+    responses = user_answers.where(answer_score: 1, category: category)
     responses.count
   end
 end
