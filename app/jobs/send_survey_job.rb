@@ -8,28 +8,28 @@ class SendSurveyJob < ApplicationJob
   # end
   def perform(survey)
     sleep 3
-      survey.questions.each do |question|
-        answer = Answer.new(
-          content: (1..5).to_a,
-          category: "Multiple Choice"
-        )
-        answer.question = question
-        answer.save
-      end
-
-
-     SendSlackMessageService.new(
-        token: ENV['SLACK_TOKEN'],
-        channel: 'C023NB3DQKX',
-        message: build_message(survey)
-      ).call
+    survey.questions.each do |question|
+      answer = Answer.new(
+        content: (1..5).to_a,
+        category: "Multiple Choice"
+      )
+      answer.question = question
+      answer.save
     end
+
+
+    SendSlackMessageService.new(
+      token: ENV['SLACK_TOKEN'],
+      channel: 'C023NB3DQKX',
+      message: build_message(survey)
+    ).call
+  end
 
   def build_message(survey)
     message = [
       {
         "type": "section",
-        "block_id": "survey-#{survey.id}",
+        "block_id": "#{survey.options}-#{survey.id}",
         "text": {
           "type": "plain_text",
           "text": survey.name,
@@ -37,66 +37,105 @@ class SendSurveyJob < ApplicationJob
         }
       }
     ]
-    survey.questions.each do |question|
-      message << {
-        "type": "input",
-        "element": {
-          "type": "static_select",
-          "placeholder": {
-            "type": "plain_text",
-            "text": "1-5",
-            "emoji": true
+    if survey.options == "Scale"
+      survey.questions.each do |question|
+        message << {
+          "type": "input",
+          "element": {
+            "type": "static_select",
+            "placeholder": {
+              "type": "plain_text",
+              "text": "1-5",
+              "emoji": true
+            },
+            "options": [
+              {
+                "text": {
+                  "type": "plain_text",
+                  "text": "1",
+                  "emoji": true
+                },
+                "value": { :question_id => question.id, :question_category => question.category, :answer_value => 1 }.to_json
+              },
+              {
+                "text": {
+                  "type": "plain_text",
+                  "text": "2",
+                  "emoji": true
+                },
+                "value": ({ question_id: question.id, :question_category => question.category, :answer_value => 2}).to_json
+              },
+              {
+                "text": {
+                  "type": "plain_text",
+                  "text": "3",
+                  "emoji": true
+                },
+                "value": { question_id: question.id, :question_category => question.category, :answer_value => 3}.to_json
+              },
+              {
+                "text": {
+                  "type": "plain_text",
+                  "text": "4",
+                  "emoji": true
+                },
+                "value": { question_id: question.id, :question_category => question.category, :answer_value => 4}.to_json
+              },
+              {
+                "text": {
+                  "type": "plain_text",
+                  "text": "5",
+                  "emoji": true
+                },
+                "value": { question_id: question.id, :question_category => question.category, :answer_value => 5}.to_json
+              }
+            ],
+            "action_id": "static_select-action"
           },
-          "options": [
-            {
-              "text": {
-                "type": "plain_text",
-                "text": "1",
-                "emoji": true
-              },
-              "value": { :question_id => question.id, :question_category => question.category, :answer_value => 1 }.to_json
-            },
-            {
-              "text": {
-                "type": "plain_text",
-                "text": "2",
-                "emoji": true
-              },
-               "value": ({ question_id: question.id, :question_category => question.category, :answer_value => 2}).to_json
-            },
-            {
-              "text": {
-                "type": "plain_text",
-                "text": "3",
-                "emoji": true
-              },
-              "value": { question_id: question.id, :question_category => question.category, :answer_value => 3}.to_json
-            },
-            {
-              "text": {
-                "type": "plain_text",
-                "text": "4",
-                "emoji": true
-              },
-              "value": { question_id: question.id, :question_category => question.category, :answer_value => 4}.to_json
-            },
-            {
-              "text": {
-                "type": "plain_text",
-                "text": "5",
-                "emoji": true
-              },
-              "value": { question_id: question.id, :question_category => question.category, :answer_value => 5}.to_json
-            }
-          ],
-          "action_id": "static_select-action"
-        },
-        "label": {
-          "type": "plain_text",
-          "text": question.content,
-          "emoji": true
+          "label": {
+            "type": "plain_text",
+            "text": question.content,
+            "emoji": true
+          }
         }
-      }
+      end
+    else
+      survey.questions.each do |question|
+        message << {
+          "type": "input",
+          "element": {
+            "type": "static_select",
+            "placeholder": {
+              "type": "plain_text",
+              "text": "Pick an option",
+              "emoji": true
+            },
+            "options": [
+              {
+                "text": {
+                  "type": "plain_text",
+                  "text": "Yes",
+                  "emoji": true
+                },
+                "value": { :question_id => question.id, :question_category => question.category, :answer_value => "Yes" }.to_json
+              },
+              {
+                "text": {
+                  "type": "plain_text",
+                  "text": "No",
+                  "emoji": true
+                },
+                "value": ({ question_id: question.id, :question_category => question.category, :answer_value => "No"}).to_json
+            }            ],
+            "action_id": "static_select-action"
+          },
+          "label": {
+            "type": "plain_text",
+            "text": question.content,
+            "emoji": true
+          }
+        }
+      end
     end
     message << {
       "type": "actions",
