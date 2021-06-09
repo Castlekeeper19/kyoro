@@ -39,6 +39,8 @@ gem 'faker'
 gem 'pundit'
 gem 'cocoon'
 gem 'httparty'
+gem 'uri'
+gem 'rest-client'
 
 gem 'simple_token_authentication'
 gem 'rails_admin', '2.1.0'
