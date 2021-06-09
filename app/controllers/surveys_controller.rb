@@ -23,6 +23,7 @@ class SurveysController < ApplicationController
     # 2.times do |time|
       @survey = Survey.new(survey_params)
       @survey.user = current_user
+      @survey.date_sent = DateTime.now
       authorize @survey
 
       if @survey.save

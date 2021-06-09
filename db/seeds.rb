@@ -22,6 +22,11 @@ neutral = [1,2,3,3,4,4,4,5,5,5]
 negative = [1,1,1,2,2,2,3,3,4]
 nature_arrays = [negative, negative, neutral, neutral, neutral, neutral, neutral, positive, positive, positive]
 
+positive_culture = [0, 1, 1]
+neutral_culture = [-1,0, 1]
+negative_culture = [-1,0,0]
+company_culture =[positive_culture, neutral_culture, neutral_culture, negative_culture]
+
 20.times do
 
   example = User.create!(
@@ -79,8 +84,9 @@ date_count = 0
           content: (1..5).to_a,
           category: "Multiple Choice"
         )
+        culture = company_culture.sample
         counter.times do
-          response_answer = user.nature.sample
+          response_answer = (user.nature.sample.to_i + culture.sample)
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
@@ -98,8 +104,9 @@ date_count = 0
           content: (1..5).to_a,
           category: "Multiple Choice"
         )
+        culture = company_culture.sample
         counter.times do
-          response_answer = user.nature.sample
+          response_answer = (user.nature.sample.to_i + culture.sample)
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
@@ -117,8 +124,9 @@ date_count = 0
           content: (1..5).to_a,
           category: "Multiple Choice"
         )
+        culture = company_culture.sample
         counter.times do
-          response_answer = user.nature.sample
+          response_answer = (user.nature.sample.to_i + culture.sample)
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
@@ -136,8 +144,9 @@ date_count = 0
           content: (1..5).to_a,
           category: "Multiple Choice"
         )
+        culture = company_culture.sample
         counter.times do
-          response_answer = user.nature.sample
+          response_answer = (user.nature.sample.to_i + culture.sample)
           user = User.all.sample
           UserAnswer.create!(
             answer_id: answer.id,
