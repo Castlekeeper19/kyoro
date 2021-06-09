@@ -1,3 +1,6 @@
+require 'uri'
+require 'net/http'
+
 class Api::V1::UserAnswersController < Api::V1::BaseController
   skip_after_action :verify_authorized, only: [:webhook]
   before_action :set_user_answer, only: [ :show ]
@@ -32,8 +35,28 @@ class Api::V1::UserAnswersController < Api::V1::BaseController
           @user_answer.answer = @question.answers[0]
           @user_answer.category = (answer_key["question_category"].downcase)
           @user_answer.save
-          render status: 200, json: { response_type: "ephemeral", text: "Thanks! Your answers have been submitted." }.to_json
+          # fetch(payload["response_url"], {
+          #         method: "POST",
+          #         body: { text: "Thanks! Your answers have been submitted" }.to_json
+          # })
         end
+
+        message = [
+          {
+            "type": "section",
+            "text": {
+              "type": "mrkdwn",
+              "text": "Thanks! Your answers have been submitted."
+            },
+            "block_id": 'event'
+          }
+        ]
+
+        SendSlackMessageService.new(
+          token: ENV['SLACK_TOKEN'],
+          channel: payload['user']['id'],
+          message: message
+        ).call
       else
         payload["state"]["values"].each do |key,value|
           answer_key = JSON.parse(value["static_select-action"]["selected_option"]["value"])
@@ -44,8 +67,8 @@ class Api::V1::UserAnswersController < Api::V1::BaseController
           @user_answer.answer = @question.answers[0]
           @user_answer.category = 'other'
           @user_answer.save
-          render status: 200, json: { response_type: "ephemeral", text: "Thanks! Your answers have been submitted." }.to_json
         end
+        render status: 200, json: { response_type: "ephemeral", text: "Thanks! Your answers have been submitted." }.to_json
       end
     end
   end
