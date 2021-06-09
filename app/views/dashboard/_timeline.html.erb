@@ -1,4 +1,4 @@
 <div class="dashboard-timeline">
   <h2> Overall Engagement</h2>
-  <%= area_chart UserAnswer.group_by_week(:response_date).sum(:answer_score), height: "200px"; %>
+  <%= area_chart UserAnswer.group_by_week(:response_date).sum(:answer_score), height: "200px", ytitle: "Team Total Score / Week", colors: ["#37A2E7"] %>
 </div>

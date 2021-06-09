@@ -3,8 +3,7 @@
 <div class="survey-card">
   <div class="survey-card-text">
     <h3> <%= survey.name %> </h3>
-    <p class="survey-date"> <%= survey.created_at.strftime('%A, %b %d') %> </p>
-    <p class="survey-content"> <%= survey.content %> </p>
+    <p class="survey-date"> Survey Sent: <%= survey.date_sent.strftime('%A, %b %d') %> </p>
     <%# survey %>
   </div>
 
