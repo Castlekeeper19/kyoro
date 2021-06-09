@@ -11,10 +11,10 @@
     <div class="user-order">
       <p>
         Sort by:
-        <%= link_to "Name", query: params[:query]%>,
+        <%= link_to "Name", query: params[:query]%> /
         <%= link_to query: params[:query], :sort => "overall_total_desc" do %>
-          Engagement status <span><i class="fas fa-sort-amount-up"></i></span>,
-        <% end %>
+          Engagement status <span><i class="fas fa-sort-amount-up"></i></span>
+        <% end %> /
         <%= link_to query: params[:query], :sort => "overall_total_asc" do %>
           Engagement status <span><i class="fas fa-sort-amount-down-alt"></i></span>
         <% end %>
