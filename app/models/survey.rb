@@ -48,4 +48,9 @@ class Survey < ApplicationRecord
       # (total.to_f / count).round(2)
       answers
   end
+
+  def low_responses(category)
+    responses = self.user_answers.where(answer_score: 1, category: category)
+    responses.count
+  end
 end

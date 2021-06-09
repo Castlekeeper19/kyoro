@@ -1,4 +1,6 @@
 <%= form_tag users_path, method: :get do %>
   <%= text_field_tag :query, params[:query], class: 'user-form-control', placeholder: "Search a member..." %>
+
+  <%= select_tag :change, options_for_select("high score": "user_score asc","low score": "user_score desc"), include_blank: true %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
