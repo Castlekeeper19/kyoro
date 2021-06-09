@@ -5,6 +5,7 @@ class UserAnswer < ApplicationRecord
 
   # validates :category, inclusion: { in: ['feedback', 'survey_response'], message: "%{value} is not a valid category" }
 
+#Determines overall team score of category for the past 30 days
   def self.overall(category)
     feeling = 0
     count = 0
@@ -17,10 +18,12 @@ class UserAnswer < ApplicationRecord
     ((feeling.to_f/count)*20).to_i
   end
 
+#Defines number of anonymous user feedback which have not been resolved/have no action step
   def self.notifications
     UserAnswer.where(category: "feedback", status: "unresolved", action_step: ["", nil]).count
   end
 
+#To define color for overall category used in Dashboard pie graph
   def self.color(category)
    score =  UserAnswer.overall(category)
     if score >= 80
@@ -31,4 +34,5 @@ class UserAnswer < ApplicationRecord
       color = "#F1807E"
     end
   end
+
 end
