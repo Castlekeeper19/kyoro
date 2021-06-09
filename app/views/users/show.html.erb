@@ -16,7 +16,7 @@
       <%= image_tag User.find(@user.id).photo.attached? ? cl_image_path(User.find(@user.id).photo.key) : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "user-image" %></br>
 <!-- added bar chart  -->
       <div style= "width: 800px">
-        <%= bar_chart({mood: @user.overall("mood"), support: @user.overall("support"), motivation: @user.overall("motivation"), personal_goals: @user.overall("personal_goals")}, max: 5, colors:[@user.color("mood"),@user.color("support"), @user.color("motivation"), @user.color("personal_goals")]) %>
+        <%= bar_chart({mood: @user.overall("mood"), support: @user.overall("support"), motivation: @user.overall("motivation"), personal_goals: @user.overall("personal_goals")}, max: 5, colors:[@user.color("mood"),@user.color("support"), @user.color("motivation"), @user.color("personal_goals")], title: @user.name.split(" ").first + "'s Average Responses" ) %>
       </div>
     </div>
 
@@ -59,15 +59,13 @@
       </tbody>
     </table> -->
 
+    <div class="user-timeline">
+      <%= area_chart @user.user_answers.group_by_week(:response_date).sum(:answer_score), height: "150px", title: @user.name.split(" ").first + "'s Response Trend", ytitle: "Total Score", colors: ["#37A2E7"] %>
+    </div>
     <div class="box26">
       <span class="box-title">NOTES</span>
       <p style="margin-top: 10px; margin-left: 10px;"><%= @user.note %></p>
-
-
       <%= render 'form_note', user:@user %>
-
-
-
     </div>
   </div>
 </div>

@@ -24,6 +24,17 @@ class Survey < ApplicationRecord
     rate.to_i
   end
 
+  def response_color
+    rate = self.response_rate
+    if rate > 80
+      color = "#73BF8F"
+    elsif rate > 70
+      color = "#FFE270"
+    else
+      color = "#F1807E"
+    end
+  end
+
   def average_response(category)
     responses = self.user_answers.all
     answers = []

@@ -35,8 +35,8 @@ class User < ApplicationRecord
     score = overall(category)
     if score > 3.5
       color = "#73BF8F"
-    elsif score > 3
-      color = "#FCFC62"
+    elsif score > 2.5
+      color = "#FFE270"
     else
       color = "#F1807E"
     end

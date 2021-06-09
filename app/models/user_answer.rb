@@ -19,7 +19,17 @@ class UserAnswer < ApplicationRecord
   end
 
   def self.notifications
-    UserAnswer.where(category: "feedback", status: "unresolved").count
+    UserAnswer.where(category: "feedback", status: "unresolved", action_step: ["", nil]).count
   end
 
+  def self.color(category)
+   score =  UserAnswer.overall(category)
+    if score >= 80
+      color = "#73BF8F"
+    elsif score >= 70
+      color = "#FFE270"
+    else
+      color = "#F1807E"
+    end
+  end
 end
