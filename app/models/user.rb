@@ -19,15 +19,14 @@ class User < ApplicationRecord
     feeling.positive? ? (feeling.to_f/count) : feeling
   end
 
+
   def overall_total
     feeling = 0
     count = 0
-
-    user_answers.each do |user_answer|
+    user_answers.where(category: ["mood", "motivation", "support", "personal_goals"]).each do |user_answer|
       feeling += user_answer.content.to_i
       count += 1
     end
-
     feeling.positive? ? ((feeling.to_f / count) * 20).to_i : feeling
   end
 
@@ -45,7 +44,6 @@ class User < ApplicationRecord
 
   def overall_color
     score = overall_total
-
     if score > 70
       color = "#73BF8F"
     elsif score > 60
@@ -53,7 +51,6 @@ class User < ApplicationRecord
     else
       color = "#F1807E"
     end
-
     color
   end
 
@@ -64,4 +61,5 @@ class User < ApplicationRecord
   scope :overall_total_desc, -> do
     overall_total_asc.reverse
   end
+  
 end
