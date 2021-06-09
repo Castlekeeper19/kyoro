@@ -34,6 +34,8 @@ class Survey < ApplicationRecord
       color = "#73BF8F"
     elsif rate > 70
       color = "#FFE270"
+    elsif rate > 50
+      color = "#FFAE4C"
     else
       color = "#F1807E"
     end

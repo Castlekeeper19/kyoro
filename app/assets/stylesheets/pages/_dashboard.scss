@@ -213,6 +213,20 @@
   // box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
   border-left: 1px solid rgba(0, 0, 0, 0.2);
   text-align: center;
+
+  .ldBar {
+    margin: 16px 0;
+  }
+
+  .ldBar-label {
+    font-size: 48px;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .dashboard-survey-details {
+    font-style: italic;
+    opacity: .6;
+  }
 }
 
 .dashboard-feedback {

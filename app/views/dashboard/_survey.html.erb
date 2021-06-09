@@ -4,7 +4,7 @@
     <p><%= @survey.name %></p>
   </div>
   <div
-    class="ldBar label-center bar-<%= @survey.id %> my-4"
+    class="ldBar label-center bar-<%= @survey.id %>"
     <%# data-stroke="data:ldbar/res,gradient(0,1,#9df,#fd9)", %>
     data-stroke="data:ldbar/res,gradient(0,1,<%= @survey.response_color%> )",
     data-value="<%= @survey.response_rate %>"
@@ -12,6 +12,8 @@
     style="width: 80%; height: 80%;"
     data-id="<%= @survey.id %>"
   ></div>
- <p><i>Responses: <%= @survey.response_number %> of <%= User.all.count %></i> </p>
- <p><i>Sent on: <%= @survey.date_sent.strftime("%-d %B %Y")%></i></p>
+  <div class="dashboard-survey-details">
+    <p>Responses: <%= @survey.response_number %> of <%= User.all.count %></p>
+    <p>Sent on: <%= @survey.date_sent.strftime("%-d %B %Y")%></p>
+  </div>
 </div>
