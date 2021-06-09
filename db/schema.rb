@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_032838) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "date_sent", default: "2021-06-09"
+    t.date "date_sent", default: "2021-06-07"
     t.string "options"
     t.index ["user_id"], name: "index_surveys_on_user_id"
   end
