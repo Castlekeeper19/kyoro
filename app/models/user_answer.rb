@@ -19,7 +19,7 @@ class UserAnswer < ApplicationRecord
   end
 
   def self.notifications
-    UserAnswer.where(category: "feedback", status: "unresolved").count
+    UserAnswer.where(category: "feedback", status: "unresolved", action_step: ["", nil]).count
   end
 
   def self.color(category)
