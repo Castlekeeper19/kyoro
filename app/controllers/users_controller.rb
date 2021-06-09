@@ -2,20 +2,19 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def index
-    # @users = policy_scope(User).order(created_at: :desc)
-    if params[:query].present?
-      @users = policy_scope(User).where("name ILIKE ?", "%#{params[:query]}%").order("created_at DESC")
-    else
-      @users = policy_scope(User).all
+    @users = policy_scope(User).order(name: :asc)
+    @users = @users.where("name ILIKE ?", "%#{params[:query]}%") if params[:query].present?
+
+    if params[:sort] == "overall_total_asc"
+      @users = @users.overall_total_asc
+    elsif params[:sort] == "overall_total_desc"
+      @users = @users.overall_total_desc
     end
   end
 
-  def show
+  def show; end
 
-  end
-
-  def edit
-  end
+  def edit; end
 
   def update
     if @user.update(user_params)

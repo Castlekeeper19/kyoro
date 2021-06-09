@@ -1,4 +1,5 @@
 <%= form_tag users_path, method: :get do %>
-  <%= text_field_tag :query, params[:query], class: 'user-form-control', placeholder: "Search a member..." %>
+  <%= text_field_tag :query, params[:query], class: 'user-form-control', placeholder: "Search by name..." %>
+  <%= text_field_tag :sort, params[:sort], class: 'd-none' %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
