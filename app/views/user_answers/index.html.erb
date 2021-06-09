@@ -5,7 +5,7 @@
       <div class="feedback-row">
         <div class="user_answer_description">
           <%# <p><i class="fas fa-exclamation-triangle"></i>  %>
-          <p><strong>Received: <%= user_answer.created_at.strftime('%A, %b %d') %></strong> <span class="feedback-status">UNRESOLVED</span></p>
+          <p><strong>Received: <%= user_answer.created_at.strftime('%A, %b %d') %></strong> <span class="feedback-status"><%= user_answer.status.upcase %></span></p>
           <br>
           <%= user_answer.content %>
           <br>
@@ -23,14 +23,14 @@
     <% end %>
   <% end %>
   <div class="resolved-feedback" data-controller="collapsible-form">
-    <button class="btn btn-outline-primary" data-action="click->collapsible-form#expandDropdown">Show Resolved Feedback</button>
+    <button class="btn btn-outline-primary" id="resolved-feedback-show" data-action="click->collapsible-form#expandDropdown">Show Resolved Feedback</button>
     <div class="resolved-feedback-internal" data-collapsible-form-target="dropdown">
       <% @user_answers.each do |user_answer| %>
         <% if user_answer.category == 'feedback' && user_answer.status == 'resolved' %>
           <div class="feedback-row">
             <div class="user_answer_description">
               <%# <p><i class="fas fa-exclamation-triangle"></i>  %>
-              <p><strong>Received: <%= user_answer.created_at.strftime('%A, %b %d') %></strong> <span class="feedback-status"><%= user_answer.status.upcase %></span></p>
+              <p><strong>Received: <%= user_answer.created_at.strftime('%A, %b %d') %></strong> <span class="feedback-status-resolved"><%= user_answer.status.upcase %></span></p>
               <br>
               <%= user_answer.content %>
               <br>

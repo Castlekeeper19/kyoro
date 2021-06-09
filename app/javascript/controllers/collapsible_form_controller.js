@@ -11,6 +11,10 @@ export default class extends Controller {
   }
 
   expandDropdown(event) {
-  this.dropdownTarget.style.display = "block"
+  if (this.dropdownTarget.style.display === "none") {
+    this.dropdownTarget.style.display = "block";
+  } else {
+    this.dropdownTarget.style.display = "none";
+  }
 }
 }

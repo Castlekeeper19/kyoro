@@ -32,6 +32,7 @@ class Api::V1::UserAnswersController < Api::V1::BaseController
           @user_answer.answer = @question.answers[0]
           @user_answer.category = (answer_key["question_category"].downcase)
           @user_answer.save
+          render status: 200, json: { response_type: "ephemeral", text: "Thanks! Your answers have been submitted." }.to_json
         end
       end
     end
