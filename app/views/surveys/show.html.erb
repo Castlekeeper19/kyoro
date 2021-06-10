@@ -5,8 +5,19 @@
         <h1> <%= @survey.name %> </h1>
         <i><p>Sent: <%= @survey.date_sent  %> </p></i>
         <i> <% responses =  @survey.response_number%></i>
-        <i><p> Responses: <%= responses %> of <%= "#{User.all.count}" %>  </p></i>
-        <i><p> Completed: <%= @survey.response_rate%>% </p></i>
+        <i><p> Responses: <%= responses %> of <%= "#{User.all.count}" %>  (<%= @survey.response_rate%>%)</p></i>
+        <%# <i><p> Completed: @survey.response_rate% </p></i> %>
+      </div>
+      <div class="survey-card-progress">
+        <div
+          class="ldBar label-center bar-<%= @survey.id %>"
+          <%# data-stroke="data:ldbar/res,gradient(0,1,#9df,#fd9)", %>
+          data-stroke="data:ldbar/res,gradient(0,1,<%= @survey.response_color%>)",
+          data-value="<%= @survey.response_rate %>"
+          data-preset="circle"
+          <%# style="width: 80%; height: 80%;" %>
+          data-id="<%= @survey.id %>"
+        ></div>
       </div>
         <div class="survey-card-progress">
           <div
@@ -21,13 +32,10 @@
         </div>
     </div>
 
-
-    <div class="mt-3">
-      <div class="survey-show-charts">
-        <% @survey.questions.each do |question| %>
-          <%= render 'survey_results', question: question, survey: @survey %>
-        <% end %>
-      </div>
+    <div class="survey-show-charts">
+      <% @survey.questions.each do |question| %>
+        <%= render 'survey_results', question: question, survey: @survey %>
+      <% end %>
     </div>
   </div>
 </div>
