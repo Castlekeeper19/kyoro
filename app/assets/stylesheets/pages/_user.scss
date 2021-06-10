@@ -179,6 +179,12 @@
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
+
+    i {
+      font-size: 24px;
+      margin: auto 0;
+      padding-left: 8px;
+    }
 }
 .box26 .box-title {
     position: absolute;
