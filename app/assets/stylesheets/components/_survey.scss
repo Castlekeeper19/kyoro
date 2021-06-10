@@ -38,6 +38,11 @@
   color: black;
   // border-radius: 12px;
   border-top: 1px solid rgba(0, 0, 0, 0.3);
+  transition: transform .3s;
+}
+
+.survey-card:hover {
+    transform: scale(.99);
 }
 
 .survey-card-text {

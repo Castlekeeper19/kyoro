@@ -1,6 +1,7 @@
+<%= link_to survey_path(@survey) do %>
 <div class="dashboard-survey">
   <div>
-    <h3 class = "border-bottom"><%= link_to "Latest Survey", survey_path(@survey) %></h3>
+    <h3 class = "border-bottom">Latest Survey<%# link_to "Latest Survey", survey_path(@survey) %></h3>
     <p><%= @survey.name %></p>
   </div>
   <div
@@ -17,3 +18,4 @@
     <p>Sent on: <%= @survey.date_sent.strftime("%-d %B %Y")%></p>
   </div>
 </div>
+<% end %>

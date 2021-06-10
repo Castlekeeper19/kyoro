@@ -1,15 +1,18 @@
+<%= link_to user_answers_path do %>
 <div class="dashboard-feedback">
-<div>
-  <h3><%= link_to "Feedback", user_answers_path %></h3>
-  <% if @action_steps.count > 0 %>
-    <% @action_steps.each do |feedback| %>
-      <div class="action-step">
-       <p><strong>"<%= feedback.content %>"</strong></p>
-       <p class="text-right"><i><%= feedback.action_step %></i></p>
-      </div>
-      <% end %>
-      <% else %>
-        <p>No current action steps</p>
-      <% end %>
+  <div class="dashboard-feedback-header">
+    <h3 class = "border-bottom">Actions<%# link_to "Actions", user_answers_path %></h3>
+    <p>via Anonymous Feedback</p>
   </div>
+  <% if @action_steps.count > 0 %>
+    <%# @action_steps.each do |feedback| %>
+      <div class="action-step">
+       <p><%= @action_steps.last.content %> <i class="fas fa-quote-right"></i></p>
+       <p>To do: <%= @action_steps.last.action_step %></p>
+      </div>
+      <%# end %>
+  <% else %>
+    <p>No action required at the moment.</p>
+  <% end %>
 </div>
+<% end %>
