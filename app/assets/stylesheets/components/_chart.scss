@@ -1,7 +1,7 @@
 .survey-show-charts {
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 40px;
+  grid-gap: 24px;
 }
 
 .survey-show-chart {
@@ -16,6 +16,8 @@
   margin: 0 4px;
   padding: 12px;
 
+  .avatar {
+    margin: 0 8px;
+  }
 }
-
 

@@ -14,8 +14,8 @@
     data-id="<%= @survey.id %>"
   ></div>
   <div class="dashboard-survey-details">
+    <p>Sent: <%= @survey.date_sent.strftime("%-d %B %Y")%></p>
     <p>Responses: <%= @survey.response_number %> of <%= User.all.count %></p>
-    <p>Sent on: <%= @survey.date_sent.strftime("%-d %B %Y")%></p>
   </div>
 </div>
 <% end %>
