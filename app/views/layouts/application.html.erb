@@ -5,21 +5,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="shortcut icon" type="image/jpg" href="<%= image_path("favicon.ico") %>"/>
-
+    <meta property="og:image" content="<%= image_path("remote-work.jpeg") %>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-
     <% if controller_name == "pages" %>
-        <%= render 'banner' %>
+      <%= render 'banner' %>
     <% end %>
-
-
     <% if controller_name != "pages" %>
       <div class="content-wrapper">
         <% if user_signed_in? %>
@@ -32,10 +28,8 @@
         </div>
       </div>
     <% else %>
-        <%= yield %>
+      <%= yield %>
     <% end %>
-
     <%= render 'shared/footer' %>
-
   </body>
 </html>
