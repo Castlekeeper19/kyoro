@@ -124,3 +124,10 @@ a {
 .survey-form-button {
   border-radius: 8px!important;
 }
+
+.survey-header {
+ display: flex;
+ justify-content: space-between;
+ padding: 0 12px;
+ margin: 12px 0;
+}
