@@ -26,21 +26,18 @@ class Api::V1::UserAnswersController < Api::V1::BaseController
       payload = JSON.parse(params['payload'])
       action = payload['message']['blocks'].first['block_id']
       if action.start_with?("Scale")
-        payload["state"]["values"].each do |key,value|
-          answer_key = JSON.parse(value["static_select-action"]["selected_option"]["value"])
-          @user_answer = UserAnswer.new
-          @user_answer.user = User.find_by("slack_username = ?", payload["user"]["username"])
-          @user_answer.answer_score = answer_key["answer_value"]
-          @question = Question.find(answer_key["question_id"])
-          @user_answer.answer = @question.answers[0]
-          @user_answer.category = (answer_key["question_category"].downcase)
-          @user_answer.save
-          # fetch(payload["response_url"], {
-          #         method: "POST",
-          #         body: { text: "Thanks! Your answers have been submitted" }.to_json
-          # })
-        end
-
+        answer_key = JSON.parse(payload["actions"][0]["value"])
+        @user_answer = UserAnswer.new
+        @user_answer.user = User.find_by("slack_username = ?", payload["user"]["username"])
+        @user_answer.answer_score = answer_key["answer_value"]
+        @question = Question.find(answer_key["question_id"])
+        @user_answer.answer = @question.answers[0]
+        @user_answer.category = (answer_key["question_category"].downcase)
+        @user_answer.save
+        # fetch(payload["response_url"], {
+        #         method: "POST",
+        #         body: { text: "Thanks! Your answers have been submitted" }.to_json
+        # })
         message = [
           {
             "type": "section",
@@ -58,16 +55,14 @@ class Api::V1::UserAnswersController < Api::V1::BaseController
           message: message
         ).call
       else
-        payload["state"]["values"].each do |key,value|
-          answer_key = JSON.parse(value["static_select-action"]["selected_option"]["value"])
-          @user_answer = UserAnswer.new
-          @user_answer.user = User.find_by("slack_username = ?", payload["user"]["username"])
-          @user_answer.content = answer_key["answer_value"]
-          @question = Question.find(answer_key["question_id"])
-          @user_answer.answer = @question.answers[0]
-          @user_answer.category = 'other'
-          @user_answer.save
-        end
+        answer_key = JSON.parse(payload["actions"][0]["value"])
+        @user_answer = UserAnswer.new
+        @user_answer.user = User.find_by("slack_username = ?", payload["user"]["username"])
+        @user_answer.content = answer_key["answer_value"]
+        @question = Question.find(answer_key["question_id"])
+        @user_answer.answer = @question.answers[0]
+        @user_answer.category = 'other'
+        @user_answer.save
         render status: 200, json: { response_type: "ephemeral", text: "Thanks! Your answers have been submitted." }.to_json
       end
     end
