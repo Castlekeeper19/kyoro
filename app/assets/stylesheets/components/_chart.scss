@@ -6,7 +6,7 @@
 }
 
 .survey-show-chart {
-   display: flex;
+  display: flex;
   flex-direction: column;
   // justify-content: center;
   align-items: center;
@@ -25,6 +25,11 @@
   #chart-1, #chart-2, #chart-3, #chart-4 {
     margin: 8px 0 16px;
   }
+}
+
+.lowest-responses {
+  display: flex;
+  justify-content: center;
 }
 
 .lowest-responses-user {

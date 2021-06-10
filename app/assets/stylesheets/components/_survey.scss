@@ -134,19 +134,21 @@ a {
 
 .survey-header {
   display: flex;
-  justify-content: space-around;
+  // justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding: 40px 0;
   // margin-bottom: 24px;
 
-  .survey-overview {
-    text-align: center;
-    min-width: 300px;
-  }
+  // .survey-overview {
+  //   text-align: center;
+  //   min-width: 300px;
+  // }
 
   .survey-card-progress {
     // margin: 0 auto;
-    min-width: 300px;
+    // min-width: 300px;
+    margin-left: 48px;
   }
 }
 
