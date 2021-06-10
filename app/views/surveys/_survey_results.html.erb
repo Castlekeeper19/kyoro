@@ -5,17 +5,19 @@
   <%= column_chart question.user_answers.group(:answer_score).count, colors:["#F1807E", "#FFC65A", "#FCFC62", "#73BF8F", "#1EDD88"], width: "300px", height: "175px", min: 0, max: 6, xmin:1, xmax: 5, zeros: true, xtitle: "score", ytitle: "responses" if survey.options == "Scale" %>
 
     <% if survey.low_responses(question.category) >= 1 %>
-      <h6>Lowest responses:</h6>
   <div class="people-answered-1-container">
-      <% select_answers = question.user_answers.select do |answer| %>
-        <% answer.answer_score == 1 %>
-      <% end %>
-      <% select_answers.each do |answer| %>
-          <%= link_to user_path(answer.user) do %>
-            <%= cl_image_tag answer.user.photo.attached? ? answer.user.photo.key : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar"  %>
-          <% end %>
-        <%#= " " unless answer == select_answers.last || select_answers.count < 1 %>
-      <% end %>
+      <h6>Lowest responses:</h6>
+      <div class="lowest-responses">
+        <% select_answers = question.user_answers.select do |answer| %>
+          <% answer.answer_score == 1 %>
+        <% end %>
+        <% select_answers.each do |answer| %>
+            <%= link_to user_path(answer.user) do %>
+              <%= cl_image_tag answer.user.photo.attached? ? answer.user.photo.key : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar"  %>
+            <% end %>
+          <%#= " " unless answer == select_answers.last || select_answers.count < 1 %>
+        <% end %>
+      </div>
   </div>
     <% end %>
 </div>
