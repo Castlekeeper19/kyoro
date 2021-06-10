@@ -19,11 +19,29 @@
 
   .avatar {
     margin: 0 8px;
-    // border: 2px solid #EF6F6C; 
+    // border: 2px solid #EF6F6C;
   }
 
   #chart-1, #chart-2, #chart-3, #chart-4 {
     margin: 8px 0 16px;
+  }
+}
+
+.lowest-responses-user {
+  position: relative;
+
+  p {
+    opacity: 0;
+    position: absolute;
+    bottom: -16px;
+    width: 120px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: .3s;
+  }
+  a:hover + p {
+    opacity: 1;
   }
 }
 

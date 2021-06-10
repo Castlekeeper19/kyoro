@@ -12,10 +12,13 @@
           <% answer.answer_score == 1 %>
         <% end %>
         <% select_answers.each do |answer| %>
+        <div class="lowest-responses-user">
             <%= link_to user_path(answer.user) do %>
               <%= cl_image_tag answer.user.photo.attached? ? answer.user.photo.key : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar"  %>
             <% end %>
-          <%#= " " unless answer == select_answers.last || select_answers.count < 1 %>
+            <%#= " " unless answer == select_answers.last || select_answers.count < 1 %>
+            <p> <%= answer.user.name %> </p>
+        </div>
         <% end %>
       </div>
   </div>
