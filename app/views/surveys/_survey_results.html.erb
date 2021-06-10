@@ -12,7 +12,7 @@
       <% end %>
       <% select_answers.each do |answer| %>
           <%= link_to user_path(answer.user) do %>
-            <%= image_tag answer.user.photo.attached? ? cl_image_tag(answer.user.photo.key) : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar"  %>
+            <%= cl_image_tag answer.user.photo.attached? ? answer.user.photo.key : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar"  %>
           <% end %>
         <%#= " " unless answer == select_answers.last || select_answers.count < 1 %>
       <% end %>
