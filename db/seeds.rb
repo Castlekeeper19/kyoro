@@ -13,7 +13,7 @@ UserAnswer.destroy_all
 Answer.destroy_all
 Question.destroy_all
 Survey.destroy_all
-User.destroy_all
+# User.destroy_all
 
 puts "creating seeds"
 
@@ -27,22 +27,22 @@ neutral_culture = [-1,0, 1]
 negative_culture = [-1,0,0]
 company_culture =[positive_culture, neutral_culture, neutral_culture, negative_culture]
 
-20.times do
+# 20.times do
 
-  example = User.create!(
-    name:  Faker::Name.first_name + " " + Faker::Name.last_name,
-    email: Faker::Internet.email,
-    password: 123123,
-    company: "Kyoro Inc.",
-    slack_username: Faker::Internet.username,
-    title: "team member",
-    role: Faker::Job.title,
-    nature: nature_arrays.sample,
-    goal: "Improve at: " + Faker::Job.key_skill
-  )
-end
+#   example = User.create!(
+#     name:  Faker::Name.first_name + " " + Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     password: 123123,
+#     company: "Kyoro Inc.",
+#     slack_username: Faker::Internet.username,
+#     title: "team member",
+#     role: Faker::Job.title,
+#     nature: nature_arrays.sample,
+#     goal: "Improve at: " + Faker::Job.key_skill
+#   )
+# end
 
-puts "created #{User.all.count} Users"
+# puts "created #{User.all.count} Users"
 
 date_count = 0
   user = User.all.sample
