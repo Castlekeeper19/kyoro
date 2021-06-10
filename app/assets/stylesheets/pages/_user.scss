@@ -1,3 +1,13 @@
+.user-wrapper {
+  margin: 8px 0;
+}
+
+.user-stats-top {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 32px 0;
+}
+
 .user-container {
   margin: 4px auto 16px;
 }
@@ -85,7 +95,6 @@
   top: 25px;
   left: calc(50% - 50px);
 
-  // border: 1px solid white;
   border-radius: 50%;
   width: 100px;
   height: 100px;
@@ -93,9 +102,6 @@
   object-position: top;
 
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  // margin: 10px auto;
-  // cursor: pointer;
-
   z-index: 10;
 }
 
@@ -156,18 +162,13 @@
 }
 
 .user-timeline {
-  flex-grow: 1;
+  // flex-grow: 1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: black;
-  // border-radius: 10px;
-  border-bottom-right-radius: 12px;
-  // box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
-  // margin: 12px;
-  padding: 12px 0;
-  // border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
+  margin-bottom: 48px;
   width: 100%;
 }
 
