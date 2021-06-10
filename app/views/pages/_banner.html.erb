@@ -1,4 +1,7 @@
 <div class="banner">
+  <video autoplay muted loop id="myVideo">
+    <source src="<%= image_path "slack-video" %>" type="video/mp4">
+  </video>
   <div class="banner-text">
     <h1>A better way to connect</h1>
     <p>Keep your team engaged with Kyoro's powerful analytical tools.</p>
@@ -6,7 +9,7 @@
       <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
     <%# <a class="btn btn-flat" href="#">Learn more</a> %>
     <% else %>
-       <%= link_to "See your team", dashboard_path, class: "btn btn-primary" %>
+       <%= link_to "Get started", dashboard_path, class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
