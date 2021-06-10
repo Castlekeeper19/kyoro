@@ -125,12 +125,23 @@ a {
   border-radius: 8px!important;
 }
 
+.survey-show  {
+margin: 2px 0 12px;
+}
 
 .survey-header {
- display: flex;
- justify-content: space-between;
- padding: 0 12px;
- margin: 12px 0;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 16px;
+  margin: 12px 0;
+
+  .survey-overview {
+    
+  }
 }
 
 .people-answered-1-container {
@@ -139,3 +150,4 @@ a {
   margin-top: 5px;
   font-size: 13px;
 }
+

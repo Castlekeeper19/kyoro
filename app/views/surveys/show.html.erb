@@ -1,12 +1,12 @@
-<div class="container">
+<div class="survey-show">
   <div>
-    <div class = "survey-header">
-      <div>
-      <h1> <%= @survey.name %> </h1>
-      <i><p>Sent On: <%= @survey.date_sent  %> </p></i>
-     <i> <% responses =  @survey.response_number%></i>
-      <i><p> Number of Responses: <%= responses %> of <%= "#{User.all.count}" %>  </p></i>
-      <i><p> Responses: <%= @survey.response_rate%>% </p></i>
+    <div class="survey-header">
+      <div class="survey-overview">
+        <h1> <%= @survey.name %> </h1>
+        <i><p>Sent: <%= @survey.date_sent  %> </p></i>
+        <i> <% responses =  @survey.response_number%></i>
+        <i><p> Responses: <%= responses %> of <%= "#{User.all.count}" %>  </p></i>
+        <i><p> Completed: <%= @survey.response_rate%>% </p></i>
       </div>
         <div class="survey-card-progress">
           <div
@@ -19,15 +19,15 @@
             data-id="<%= @survey.id %>"
           ></div>
         </div>
-      </div>
-
-
-  <div class="mt-3">
-    <div class="survey-show-charts">
-      <% @survey.questions.each do |question| %>
-      <%= render 'survey_results', question: question, survey: @survey %>
-      <% end %>
     </div>
-  </div>
+
+
+    <div class="mt-3">
+      <div class="survey-show-charts">
+        <% @survey.questions.each do |question| %>
+          <%= render 'survey_results', question: question, survey: @survey %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
