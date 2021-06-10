@@ -12,4 +12,8 @@ class SurveyPolicy < ApplicationPolicy
     def create?
       return true
     end
+
+    def destroy?
+      true
+    end
 end
