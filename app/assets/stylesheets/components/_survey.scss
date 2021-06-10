@@ -126,28 +126,41 @@ a {
 }
 
 .survey-show  {
-margin: 2px 0 12px;
-}
-
-.survey-header {
+  margin: 4px 0 12px;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+}
+
+.survey-header {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 16px;
-  margin: 12px 0;
+  padding: 40px 0;
+  // margin-bottom: 24px;
 
   .survey-overview {
-    
+    text-align: center;
+    min-width: 300px;
+  }
+
+  .survey-card-progress {
+    // margin: 0 auto;
+    min-width: 300px;
   }
 }
 
 .people-answered-1-container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 5px;
   font-size: 13px;
+  // padding: 8px 16px;
+  // background-color: #EF6F6C;
+  // background-color: #ef6e6c83;
+  // background-color: #f5a1a06b;
+  font-style: italic;
 }
 

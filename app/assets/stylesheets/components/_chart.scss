@@ -1,23 +1,29 @@
 .survey-show-charts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 24px;
+  grid-gap: 16px;
+  padding: 0 16px 16px;
 }
 
 .survey-show-chart {
    display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
   color: black;
-  background-color: #fff;
+  // background-color: rgb(240, 240, 240);
+  border: 3px solid rgb(235, 235, 235);
   border-radius: 10px;
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
-  margin: 0 4px;
-  padding: 12px;
+  // box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  padding: 16px 8px;
 
   .avatar {
     margin: 0 8px;
+    // border: 2px solid #EF6F6C; 
+  }
+
+  #chart-1, #chart-2, #chart-3, #chart-4 {
+    margin: 8px 0 16px;
   }
 }
 
