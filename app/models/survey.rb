@@ -9,8 +9,6 @@ class Survey < ApplicationRecord
 
   has_many :user_answers, through: :answers
 
-
-  validates :content, presence: true
   validates :name, presence: true
 
 

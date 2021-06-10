@@ -124,3 +124,18 @@ a {
 .survey-form-button {
   border-radius: 8px!important;
 }
+
+
+.survey-header {
+ display: flex;
+ justify-content: space-between;
+ padding: 0 12px;
+ margin: 12px 0;
+}
+
+.people-answered-1-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 13px;
+}
