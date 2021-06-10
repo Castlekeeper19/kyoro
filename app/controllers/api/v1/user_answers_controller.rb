@@ -63,7 +63,22 @@ class Api::V1::UserAnswersController < Api::V1::BaseController
         @user_answer.answer = @question.answers[0]
         @user_answer.category = 'other'
         @user_answer.save
-        render status: 200, json: { response_type: "ephemeral", text: "Thanks! Your answers have been submitted." }.to_json
+        message = [
+          {
+            "type": "section",
+            "text": {
+              "type": "mrkdwn",
+              "text": "Thanks! You submitted '#{answer_key["answer_value"]}' to '#{Question.find(answer_key["question_id"]).content}'."
+            },
+            "block_id": 'event'
+          }
+        ]
+
+        SendSlackMessageService.new(
+          token: ENV['SLACK_TOKEN'],
+          channel: payload['user']['id'],
+          message: message
+        ).call
       end
     end
   end
