@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  before_action :set_survey, only: [:show]
+  before_action :set_survey, only: [:show, :destroy]
 
   def index
     @surveys = policy_scope(Survey)
@@ -49,6 +49,11 @@ class SurveysController < ApplicationController
     end
     # end
     redirect_to dashboard_path
+  end
+
+  def destroy
+    @survey.destroy
+    redirect_to surveys_path
   end
 
   private
