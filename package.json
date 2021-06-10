@@ -11,6 +11,7 @@
     "chart.js": "^3.3.2",
     "chartkick": "^4.0.4",
     "gulp": "^4.0.2",
+    "highcharts": "^9.1.1",
     "jquery": "^3.6.0",
     "loadingio-bar": "^0.1.1",
     "popper.js": "^1.16.1",
