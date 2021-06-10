@@ -1,8 +1,12 @@
 <div class="banner">
   <div class="banner-text">
-    <h1>There's a better way to connect.</h1>
+    <h1>A better way to connect</h1>
     <p>Keep your team engaged with Kyoro's powerful analytical tools.</p>
-    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
+    <% if !user_signed_in? %>
+      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary" %>
     <%# <a class="btn btn-flat" href="#">Learn more</a> %>
+    <% else %>
+       <%= link_to "See your team", dashboard_path, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
