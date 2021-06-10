@@ -35,24 +35,14 @@ import 'loadingio-bar';
 // import { initSelect2 } from '../components/init_select2';
 import { navbarScroll } from '../components/navbar';
 import { initSlick } from '../components/slick';
+import { initLoadingBar } from '../components/initLoadingBar';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   navbarScroll();
   initSlick();
-
-
-  const allBars = document.querySelectorAll(".ldBar");
-  allBars.forEach(bar => {
-   const barId = bar.dataset.id;
-  new ldBar(`.bar-${barId}`, {
-    // "stroke": '#f00',
-    // "stroke-width": 10,
-    // "preset": "fan",
-    // "value": 65
-  })
-  });
+  initLoadingBar();
 });
 
 import "controllers"
