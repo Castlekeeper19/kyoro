@@ -26,7 +26,6 @@ class Api::V1::UserAnswersController < Api::V1::BaseController
       payload = JSON.parse(params['payload'])
       action = payload['message']['blocks'].first['block_id']
       if action.start_with?("Scale")
-        binding.pry
         payload["state"]["values"].each do |key,value|
           answer_key = JSON.parse(value["static_select-action"]["selected_option"]["value"])
           @user_answer = UserAnswer.new
@@ -59,7 +58,7 @@ class Api::V1::UserAnswersController < Api::V1::BaseController
           message: message
         ).call
       else
-        payload["actions"][0]["value"].each do |key,value|
+        payload["state"]["values"].each do |key,value|
           answer_key = JSON.parse(value["static_select-action"]["selected_option"]["value"])
           @user_answer = UserAnswer.new
           @user_answer.user = User.find_by("slack_username = ?", payload["user"]["username"])
