@@ -11,13 +11,13 @@
         <% select_answers = question.user_answers.select do |answer| %>
           <% answer.answer_score == 1 %>
         <% end %>
-        <% select_answers.each do |answer| %>
+        <% select_answers.map{ |answer| answer.user }.uniq.each do |user| %>
         <div class="lowest-responses-user">
-            <%= link_to user_path(answer.user) do %>
-              <%= cl_image_tag answer.user.photo.attached? ? answer.user.photo.key : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar"  %>
+            <%= link_to user_path(user) do %>
+              <%= cl_image_tag user.photo.attached? ? user.photo.key : "https://que-akitsu.com/wp-content/plugins/all-in-one-seo-pack/images/default-user-image.png", class: "avatar"  %>
             <% end %>
             <%#= " " unless answer == select_answers.last || select_answers.count < 1 %>
-            <p> <%= answer.user.name %> </p>
+            <p> <%= user.name %> </p>
         </div>
         <% end %>
       </div>
