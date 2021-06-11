@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def index
     @users = policy_scope(User)
-    @survey = policy_scope(Survey).order(:date_sent).last
+    @survey = policy_scope(Survey).order(:created_at).last
     @user_answers = policy_scope(UserAnswer).includes(:answer)
     @team_mood = @user_answers.overall("mood")
     @team_support = @user_answers.overall("support")
