@@ -44,11 +44,11 @@ class SurveysController < ApplicationController
       #   channel: 'C023NB3DQKX',
       #   message: build_message
       # ).call
+      redirect_to dashboard_path
     else
       render 'new.html.erb'
     end
     # end
-    redirect_to dashboard_path
   end
 
   def destroy
