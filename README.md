@@ -3,13 +3,13 @@
 Kyoro is an Engagement Management tool, designed to make keeping track of your remote teams easier. Integration with Slack to send surveys, receive responses and feedback. Responses are compiled and displayed in graph-form on the Kyoro Dashboard and other pages.
 
 ## Prerequisites:
+Cloudinary API account
 Slack App with the following features / functionality:
 - Incoming Webhooks
 - Interactive Components
 - Slash Commands
 - Bots
 - Permissions
-Cloudinary API account
 
 ## Getting Started
 
