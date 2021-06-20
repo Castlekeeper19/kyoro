@@ -2,12 +2,15 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+    :recoverable, :rememberable, :validatable
   has_one_attached :photo
   has_many :user_answers
   acts_as_token_authenticatable
 
-#determines average score for a user for certain category
+  scope :admin_users, -> { where(admin: true) }
+  scope :nonadmin_users, -> { where(admin: false || nil) }
+
+  #determines average score for a user for certain category
   def overall(category)
     feeling = 0
     count = 0
@@ -20,7 +23,7 @@ class User < ApplicationRecord
     feeling.positive? ? (feeling.to_f/count) : feeling
   end
 
-#determines average score for a user based on all categories
+  #determines average score for a user based on all categories
   def overall_total
     feeling = 0
     count = 0
@@ -31,7 +34,7 @@ class User < ApplicationRecord
     feeling.positive? ? ((feeling.to_f / count) * 20).to_i : feeling
   end
 
-# defines color for a user's category score used on User Show page
+  # defines color for a user's category score used on User Show page
   def color(category)
     score = overall(category)
     if score > 3.5
@@ -44,7 +47,7 @@ class User < ApplicationRecord
     color
   end
 
-# defines color for user's overall engagement used on User Index page
+  # defines color for user's overall engagement used on User Index page
   def overall_color
     score = overall_total
     if score > 70
