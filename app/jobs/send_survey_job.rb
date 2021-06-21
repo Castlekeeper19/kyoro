@@ -20,7 +20,7 @@ class SendSurveyJob < ApplicationJob
 
     SendSlackMessageService.new(
       token: ENV['SLACK_TOKEN'],
-      channel: 'C023NB3DQKX',
+      channel: ENV['SLACK_CHANNEL_ID'],
       message: build_message(survey)
     ).call
   end
