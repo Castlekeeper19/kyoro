@@ -6,6 +6,7 @@
 .home-container.intro {
   text-align: center;
   max-width: 650px;
+  padding: 0 30px;
 }
 
 .home-features {
@@ -30,7 +31,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: 70px;
+  padding: 70px 40px;
 
   img {
     width: 280px;
@@ -95,6 +96,8 @@
 
 @media (min-width: 576px) {
   .home-feature {
+    padding: 70px;
+
     img {
       width: 320px;
     }
@@ -102,6 +105,10 @@
 }
 
 @media (min-width: 768px) {
+  .home-container.intro {
+    padding: 0 15px;
+  }
+
   .home-features {
     .top-feature, .bottom-feature {
       text-align: left;

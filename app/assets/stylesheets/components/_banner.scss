@@ -14,46 +14,59 @@
   overflow: hidden;
   height: 500px;
 
-  .btn {
-    font-size: 24px;
+  #myVideo {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  .banner-text {
+    width: 75%;
+
+    h1, p {
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 24px;
+      opacity: .9;
+    }
+
+    .btn {
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      margin-top: 24px;
+      font-size: 16px;
+    }
   }
 }
 
-#myVideo {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  padding: 0;
-  margin: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0;
-  object-fit: cover;
-  z-index: -1;
-}
+@media (min-width: 576px) {
+  .banner {
+    .banner-text {
+      h1 {
+        font-size: 56px;
+      }
 
-.banner-text {
-  width: 75%;
-  .btn {
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+      p {
+        font-size: 28px;
+      }
+
+      .btn {
+        font-size: 24px;
+      }
+    }
   }
-}
-
-.banner-text h1, .banner-text p {
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-
-}
-
-.banner-text h1 {
-  font-size: 56px;
-}
-
-.banner-text p {
-  font-size: 28px;
-  opacity: .9;
-}
-
-.banner-text .btn {
-  margin-top: 24px;
 }
