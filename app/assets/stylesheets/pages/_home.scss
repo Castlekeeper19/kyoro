@@ -1,7 +1,6 @@
-// Specific CSS for your home-page
+// Specific CSS for the home-page
 .home-container {
   margin: 70px auto;
-  // padding: 0 100px;
 }
 
 .home-container.intro {
@@ -14,65 +13,44 @@
   border: 4px solid #fec33d40;
   border-radius: 4px;
   padding: 0;
-}
+  text-align: center;
 
-.home-features .top-feature {
-  // padding: 70px 70px 35px;
-  // padding: 35px;
-  background-color: #fec33d40;
-}
+  .top-feature {
+    background-color: #fec33d40;
+  }
 
-.home-features .middle-feature {
-  // padding: 35px;
-  text-align: right;
-  // order: 4px solid #fec33d40;
-  // border-radius: 8px;
-}
+  .bottom-feature {
+    background-color: #fec33d40;
+  }
 
-.home-features .bottom-feature {
-  // padding: 70px 70px 35px;
-  // padding: 35px;
-  background-color: #fec33d40;
 }
 
 .home-feature {
   display: flex;
+  flex-direction: column;
   align-items: center;
   position: relative;
-  // padding: 35px 70px;
   padding: 70px;
+
+  img {
+    width: 280px;
+    border-radius: 4px;
+    margin-bottom: 40px;
+  }
+
+  .home-feature-text {
+    flex-grow: 1;
+  }
+
+  .card-img-2 {
+    padding: 8px;
+  }
 }
 
-.home-feature img {
-  width: 320px;
-  // height: 100px;
-  // box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
+.middle-feature {
+  flex-direction: column-reverse;
 }
 
-.home-feature .home-feature-text {
-  flex-grow: 1;
-}
-
-
-.home-feature .card-img-2 {
-  padding: 8px;
-}
-
-.home-feature .card-img-1, .home-feature .card-img-3 {
-  margin-right: 60px;
-}
-
-.home-feature .card-img-2 {
-  margin-left: 60px;
-}
-// .home-feature-bg {
-//   position: absolute;
-//   background-color: #ebcda8a1;
-//   width: 100vw;
-//   height: 110px;
-//   z-index: -1;
-// }
 .home-reviews {
   margin-top: 70px ;
 
@@ -91,23 +69,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // width: 90vw;
-  // margin: 0 auto;
 }
 
 .review-card {
   width: 200px;
-  // margin: 0 32px;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
   padding: 0 24px;
   text-align: center;
   opacity: .8;
 
   p {
-    // opacity: .8;
     margin-top: 16px;
   }
 
@@ -117,36 +87,45 @@
 }
 
 .review-card img {
-  // width: 200px;
   height: 80px;
   margin: 0 auto;
   padding: 0 auto;
   filter: grayscale(1);
 }
 
-// @media (min-width: 768px) {
-//   .home-feature {
-//     flex-direction: column;
-//     text-align: center;
+@media (min-width: 576px) {
+  .home-feature {
+    img {
+      width: 320px;
+    }
+  }
+}
 
-//     h3 {
-//       margin-top: 40px;
-//     }
+@media (min-width: 768px) {
+  .home-features {
+    .top-feature, .bottom-feature {
+      text-align: left;
+    }
 
-//     img {
-//       margin: 0;
-//     }
-//   }
+    .middle-feature {
+      text-align: right;
+    }
+  }
 
-//   .home-feature .card-img-1, .home-feature .card-img-2, .home-feature .card-img-3 {
-//     margin: 0;
-//   }
+  .home-feature {
+    flex-direction: row;
+    text-align: center;
 
-//   .middle-feature {
-//     flex-direction: column-reverse;
+    img {
+      margin-bottom: 0;
+    }
 
-//     .home-feature-text {
-//       text-align: center;
-//     }
-//   }
-// }
+    .card-img-1, .card-img-3 {
+      margin-right: 60px;
+    }
+
+    .card-img-2 {
+      margin-left: 60px;
+    }
+  }
+}
