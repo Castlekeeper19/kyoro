@@ -11,21 +11,22 @@ class Survey < ApplicationRecord
 
   validates :name, presence: true
 
+  attr_accessor :user_answers
 
-# Finds the number of responses to specific survey
+  # Finds the number of responses to specific survey
   def response_number
     responses =  user_answers.distinct.count("user_id")
     return responses
   end
 
-# Finds rate of response to a specific survey from total users
+  # Finds rate of response to a specific survey from total users
   def response_rate
     responses = response_number
     rate = responses.to_f / User.all.count * 100
     rate.to_i
   end
 
-# Sets the color for survey bar charts based on response rate
+  # Sets the color for survey bar charts based on response rate
   def response_color
     rate = response_rate
     if rate > 80
@@ -39,19 +40,19 @@ class Survey < ApplicationRecord
     end
   end
 
-# Finds the average response score for a certain category
+  # Finds the average response score for a certain category
   def average_response(category)
     responses = user_answers.all
     answers = []
     count = 0
-      responses.each do |response|
-        if response.answer.question.category == category
-          answers << response.content
-          # count += 1
-        end
+    responses.each do |response|
+      if response.answer.question.category == category
+        answers << response.content
+        # count += 1
       end
-      # (total.to_f / count).round(2)
-      answers
+    end
+    # (total.to_f / count).round(2)
+    answers
   end
 
   def low_responses(category)
